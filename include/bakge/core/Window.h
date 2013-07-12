@@ -72,6 +72,7 @@ public:
     ~Window();
 
     BGE_FACTORY Window* Create(int Width, int Height);
+    BGE_FACTORY Window* CreateFullScreen();
 
     /* Call manually to process events for all windows */
     static void PollEvents();

@@ -201,6 +201,66 @@ Window* Window::Create(int Width, int Height)
 }
 
 
+Window* Window::CreateFullScreen()
+{
+    /* *
+     * This method does not require Width or Height parameters; GLFW
+     * provides methods to automatically adjust to desktop resolutions.
+     * */
+
+    GLFWwindow* Handle;
+    Window* Win;
+
+    GLFWmonitor* PrimaryMonitor = glfwGetPrimaryMonitor();
+
+    if(PrimaryMonitor == NULL){
+        printf("Error getting primary monitor\n");
+        return NULL;
+    }
+
+    const GLFWvidmode* MonitorVideoMode = glfwGetVideoMode(PrimaryMonitor);
+
+    if(MonitorVideoMode == NULL){
+        printf("Error getting monitor video mode\n");
+        return NULL;
+    }
+
+    Handle = glfwCreateWindow(MonitorVideoMode->width,
+                              MonitorVideoMode->height,
+                              "bakge",
+                               PrimaryMonitor,
+                               SharedContext
+                             );
+
+    if(Handle == NULL){
+        printf("Error creating window\n");
+        return NULL;
+    }
+
+    SetDefaultCallbacks(Handle);
+
+    /* Allocate our Bakge window */
+    Win = new Window;
+    if(Win == NULL){
+        printf("Error allocating window memory\n");
+        return NULL;
+    }
+
+    /* Set its window handle and make the context current */
+    Win->WindowHandle = Handle;
+    Win->Bind();
+
+    /* *
+     * Store pointer to Bakge window so global callbacks can access it.
+     * They are static Window class methods, so they have full access
+     * to the class objects.
+     * */
+    glfwSetWindowUserPointer(Handle, (void*)Win);
+
+    return Win;
+}
+
+
 Result Window::SwapBuffers()
 {
     glfwSwapBuffers(WindowHandle);
