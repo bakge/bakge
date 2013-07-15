@@ -33,6 +33,7 @@ set(MODULES
   graphics/shapes/Cone
   graphics/shapes/Cube
   graphics/shapes/Cylinder
+  graphics/shapes/TruncatedPyramid
   math/Vector3
   math/Vector4
   math/Quaternion

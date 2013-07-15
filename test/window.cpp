@@ -34,7 +34,6 @@ void glfwErrorCallback(int Code, const char* Description)
 int main(int argc, char* argv[])
 {
     bakge::Window* Win;
-
     glfwSetErrorCallback(glfwErrorCallback);
 
     printf("Initializing Bakge\n");
