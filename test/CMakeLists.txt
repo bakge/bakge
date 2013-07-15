@@ -27,6 +27,7 @@ set(TESTS
   sphere
   texture
   thread
+  truncatedpyramid
   types
   vao
   vector3

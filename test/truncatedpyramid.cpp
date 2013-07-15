@@ -21,38 +21,13 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  * */
- 
-#ifndef BAKGE_GRAPHICS_SHAPRE_TRUNCPYRAMID_H
-#define BAKGE_GRAPHICS_SHAPRE_TRUNCPYRAMID_H
 
-#include "bakge/Bakge.h"
- 
-namespace bakge
+#include <stdio.h>
+#include <stdlib.h>
+#include <bakge/Bakge.h>
+
+int main(int argc, char* argv[])
 {
 
-class BGE_API TruncatedPyramid : public Shape
-{
-    Scalar SmallBaseLength;
-    Scalar LargeBaseLength;
-
-
-protected:
-
-    TruncatedPyramid();
-
-
-public:
-
-    ~Cube();
-
-    BGE_FACTORY TruncatedPyramid* Create(Scalar SmallBaseLength, Scalar LargeBaseLength);
-
-    BGE_INL void SetDimensions(Scalar SmallBaseLength, Scalar LargeBaseLength);
-
-    Result Draw() const;
-
-}; /* TruncatedPyramid */
-
-} /* bakge */
-
-#endif /* BAKGE_GRAPHICS_SHAPRE_TRUNCPYRAMID_H */
+    return 0;
+}
