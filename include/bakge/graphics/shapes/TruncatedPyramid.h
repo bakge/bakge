@@ -43,11 +43,15 @@ protected:
 
 public:
 
-    ~Cube();
+    ~TruncatedPyramid();
 
     BGE_FACTORY TruncatedPyramid* Create(Scalar SmallBaseLength, Scalar LargeBaseLength);
 
-    BGE_INL void SetDimensions(Scalar SmallBaseLength, Scalar LargeBaseLength);
+    BGE_INL void SetDimensions(Scalar SmallBaseLength, Scalar LargeBaseLength)
+    {
+        SmallBaseLength = SmallBaseLength;
+        LargeBaseLength = LargeBaseLength;
+    }
 
     Result Draw() const;
 
