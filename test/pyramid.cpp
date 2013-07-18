@@ -30,7 +30,7 @@ int main(int argc, char* argv[])
 {
 
     bakge::Window* Win;
-    bakge::TruncatedPyramid* Obj;
+    bakge::Pyramid* Obj;
     bakge::ShaderProgram* PlainShader;
 
     printf("Initializing Bakge\n");
@@ -44,7 +44,7 @@ int main(int argc, char* argv[])
         return bakge::Deinit();
     }
 
-    Obj = bakge::TruncatedPyramid::Create(0.4f, 0.8f);
+    Obj = bakge::Pyramid::Create(0.4f, 0.8f);
 
     Obj->DrawStyle(bakge::BGE_SHAPE_STYLE_WIREFRAME);
 

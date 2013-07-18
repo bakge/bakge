@@ -22,15 +22,15 @@
  * THE SOFTWARE.
  * */
 
-#ifndef BAKGE_GRAPHICS_SHAPE_TRUNCATEDPYRAMID_H
-#define BAKGE_GRAPHICS_SHAPE_TRUNCATEDPYRAMID_H
+#ifndef BAKGE_GRAPHICS_SHAPE_PYRAMID_H
+#define BAKGE_GRAPHICS_SHAPE_PYRAMID_H
 
 #include "bakge/Bakge.h"
 
 namespace bakge
 {
 
-class BGE_API TruncatedPyramid : public Shape
+class BGE_API Pyramid : public Shape
 {
     Scalar SmallBaseLength;
     Scalar LargeBaseLength;
@@ -38,25 +38,20 @@ class BGE_API TruncatedPyramid : public Shape
 
 protected:
 
-    TruncatedPyramid();
+    Pyramid();
 
 
 public:
 
-    ~TruncatedPyramid();
+    ~Pyramid();
 
-    BGE_FACTORY TruncatedPyramid* Create(Scalar SmallBaseLength, Scalar LargeBaseLength);
-
-    BGE_INL void SetDimensions(Scalar SmallBaseLength, Scalar LargeBaseLength)
-    {
-        SmallBaseLength = SmallBaseLength;
-        LargeBaseLength = LargeBaseLength;
-    }
+    BGE_FACTORY Pyramid* Create(Scalar FloorWidth, Scalar FloorLength,
+                    Scalar Height, Scalar CeilWidth, Scalar CeilHeight);
 
     Result Draw() const;
 
-}; /* TruncatedPyramid */
+}; /* Pyramid */
 
 } /* bakge */
 
-#endif /* BAKGE_GRAPHICS_SHAPE_TRUNCATEDPYRAMID_H */
+#endif /* BAKGE_GRAPHICS_SHAPE_PYRAMID_H */

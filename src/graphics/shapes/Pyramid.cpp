@@ -27,24 +27,24 @@
 namespace bakge
 {
 
-TruncatedPyramid::TruncatedPyramid()
+Pyramid::Pyramid()
 {
 }
 
 
-TruncatedPyramid::~TruncatedPyramid()
+Pyramid::~Pyramid()
 {
 }
 
 
-Result TruncatedPyramid::Draw() const
+Result Pyramid::Draw() const
 {
     return BGE_FAILURE;
 }
 
 
-TruncatedPyramid* TruncatedPyramid::Create(Scalar SmallBaseLength,
-                                            Scalar LargeBaseLength)
+Pyramid* Pyramid::Create(Scalar FloorWidth, Scalar FloorLength, Scalar Height,
+                                        Scalar CeilWidth, Scalar CeilHeight)
 {
     return NULL;
 }

@@ -19,6 +19,7 @@ set(TESTS
   minlua
   node
   pawn
+  pyramid
   frontrenderer
   quaternion
   server
@@ -27,7 +28,6 @@ set(TESTS
   sphere
   texture
   thread
-  truncatedpyramid
   types
   vao
   vector3
