@@ -21,10 +21,32 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  * */
- 
- #include "bakge/bakge.h"
- 
- namespace bakge
- {
- 
- } /* bakge */
+
+#include "bakge/Bakge.h"
+
+namespace bakge
+{
+
+TruncatedPyramid::TruncatedPyramid()
+{
+}
+
+
+TruncatedPyramid::~TruncatedPyramid()
+{
+}
+
+
+Result TruncatedPyramid::Draw() const
+{
+    return BGE_FAILURE;
+}
+
+
+TruncatedPyramid* TruncatedPyramid::Create(Scalar SmallBaseLength,
+                                            Scalar LargeBaseLength)
+{
+    return NULL;
+}
+
+} /* bakge */
