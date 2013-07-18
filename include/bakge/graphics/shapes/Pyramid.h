@@ -32,11 +32,13 @@ namespace bakge
 
 class BGE_API Pyramid : public Shape
 {
-    Scalar SmallBaseLength;
-    Scalar LargeBaseLength;
-
 
 protected:
+
+    /* Dimensions. Width: 0, Length: 1 */
+    Scalar Base[2];
+    Scalar Top[2];
+    Scalar Height;
 
     Pyramid();
 
