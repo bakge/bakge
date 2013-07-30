@@ -38,6 +38,7 @@ class BGE_API Window : public Bindable
     static GLFWwindow* SharedContext;
 
     /* GLFW callbacks. Private for protection against bogus events */
+    static void SetDefaultCallbacks(GLFWwindow* Handle);
     static void Moved(GLFWwindow*,  int, int);
     static void Resized(GLFWwindow*, int, int);
     static void Closed(GLFWwindow*);

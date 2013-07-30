@@ -29,6 +29,18 @@ namespace bakge
 
 GLFWwindow* Window::SharedContext = NULL;
 
+void Window::SetDefaultCallbacks(GLFWwindow* Handle)
+{
+    glfwSetWindowCloseCallback(Handle, Window::Closed);
+    glfwSetWindowSizeCallback(Handle, Window::Resized);
+    glfwSetWindowPosCallback(Handle, Window::Moved);
+    glfwSetKeyCallback(Handle, Window::Key);
+    glfwSetMouseButtonCallback(Handle, Window::Mouse);
+    glfwSetCursorPosCallback(Handle, Window::MouseMotion);
+    glfwSetScrollCallback(Handle, Window::Scroll);
+}
+
+
 void Window::Moved(GLFWwindow* Handle,  int X, int Y)
 {
     Window* Win;
@@ -162,13 +174,7 @@ Window* Window::Create(int Width, int Height)
         return NULL;
 
     /* Set all of our window's GLFW callbacks */
-    glfwSetWindowCloseCallback(Handle, Window::Closed);
-    glfwSetWindowSizeCallback(Handle, Window::Resized);
-    glfwSetWindowPosCallback(Handle, Window::Moved);
-    glfwSetKeyCallback(Handle, Window::Key);
-    glfwSetMouseButtonCallback(Handle, Window::Mouse);
-    glfwSetCursorPosCallback(Handle, Window::MouseMotion);
-    glfwSetScrollCallback(Handle, Window::Scroll);
+    SetDefaultCallbacks(Handle);
 
     /* Allocate our bakge Window */
     Win = new Window;
