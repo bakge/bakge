@@ -5,6 +5,7 @@ var searchData=
   ['_7ecamera2d',['~Camera2D',['../classbakge_1_1Camera2D.html#af0662ac8e4e6001dbf4ab2a594b44083',1,'bakge::Camera2D']]],
   ['_7ecamera3d',['~Camera3D',['../classbakge_1_1Camera3D.html#a8639b5ccbb167727a1070d65755e44ab',1,'bakge::Camera3D']]],
   ['_7ecrowd',['~Crowd',['../classbakge_1_1Crowd.html#a6af812d535ffd1d6daa38688b440dd7f',1,'bakge::Crowd']]],
+  ['_7ecube',['~Cube',['../classbakge_1_1Cube.html#aab474e188a150dffd1fa7ad5866c8020',1,'bakge::Cube']]],
   ['_7edrawable',['~Drawable',['../classbakge_1_1Drawable.html#af7d19c251259fac03563ae29eef2fe84',1,'bakge::Drawable']]],
   ['_7eengine',['~Engine',['../classbakge_1_1Engine.html#a5765c1bbf4fb0dd38f9b6681dc5861b5',1,'bakge::Engine']]],
   ['_7eeventhandler',['~EventHandler',['../classbakge_1_1EventHandler.html#a3db7a03cd128cc0bbc6bb64a68435eb7',1,'bakge::EventHandler']]],

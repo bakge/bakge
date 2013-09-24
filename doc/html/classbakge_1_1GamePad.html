@@ -91,7 +91,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-attribs">Static Public Attributes</a>  </div>
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a>  </div>
   <div class="headertitle">
 <div class="title">bakge::GamePad Class Reference</div>  </div>
 </div><!--header-->
@@ -125,10 +127,57 @@ Static Public Attributes</h2></td></tr>
 <tr class="memitem:a4be634696d259c29bb0532db18604c90"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4be634696d259c29bb0532db18604c90"></a>
 static <a class="el" href="classbakge_1_1GamePad.html">GamePad</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>AvailableGamePads</b></td></tr>
 <tr class="separator:a4be634696d259c29bb0532db18604c90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a1fffc262b177d2bd2760129688a997fb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbakge_1_1GamePad.html#a1fffc262b177d2bd2760129688a997fb">GamePad</a> ()</td></tr>
+<tr class="separator:a1fffc262b177d2bd2760129688a997fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a91b14f0da89dbe93eb782ce51b21effa"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a91b14f0da89dbe93eb782ce51b21effa"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>Handle</b></td></tr>
+<tr class="separator:a91b14f0da89dbe93eb782ce51b21effa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a673c974971f9d41cfd3448329a028b65"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a673c974971f9d41cfd3448329a028b65"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>NumButtons</b></td></tr>
+<tr class="separator:a673c974971f9d41cfd3448329a028b65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69b5f57bc53d9125218d05e900ff13dd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a69b5f57bc53d9125218d05e900ff13dd"></a>
+const unsigned char *&#160;</td><td class="memItemRight" valign="bottom"><b>ButtonStates</b></td></tr>
+<tr class="separator:a69b5f57bc53d9125218d05e900ff13dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb2f7840af04c8addc4d49a7052bfa4a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abb2f7840af04c8addc4d49a7052bfa4a"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>NumAxes</b></td></tr>
+<tr class="separator:abb2f7840af04c8addc4d49a7052bfa4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00ba44a91ffce9ef06a559bb8fc570be"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a00ba44a91ffce9ef06a559bb8fc570be"></a>
+const <a class="el" href="namespacebakge.html#a85e48e31a498a7bbe315804170f16590">Scalar</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>AxesValues</b></td></tr>
+<tr class="separator:a00ba44a91ffce9ef06a559bb8fc570be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>GamePads allow players to use a joystick or controller for game input. The API provides methods for getting raw axis values and button states. Currently GamePads do not trigger <a class="el" href="classbakge_1_1EventHandler.html" title="Interface for objects able to process Window events. ">EventHandler</a> events; you will have to implement your own way to detect changes in <a class="el" href="classbakge_1_1GamePad.html" title="A joystick or controller used for player input. ">GamePad</a> state. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a1fffc262b177d2bd2760129688a997fb"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bakge::GamePad::GamePad </td>
+          <td>(</td>
+          <td class="paramname">)</td><td></td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Default <a class="el" href="classbakge_1_1GamePad.html" title="A joystick or controller used for player input. ">GamePad</a> constructor. </p>
+
+</div>
+</div>
 <a class="anchor" id="af8cc1398b90b2a992c42bd72a87c1408"></a>
 <div class="memitem">
 <div class="memproto">
@@ -277,7 +326,7 @@ static <a class="el" href="classbakge_1_1GamePad.html">GamePad</a> *&#160;</td><
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Sep 21 2013 17:11:32 for Bakge by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Sep 24 2013 00:08:55 for Bakge by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.4
 </small></address>

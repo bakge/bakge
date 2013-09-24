@@ -1,6 +1,7 @@
 var searchData=
 [
   ['radians',['Radians',['../namespacebakge.html#aae6afdb98d6825df7dcb365b1e2d1bd2',1,'bakge']]],
+  ['rectangle',['Rectangle',['../classbakge_1_1Rectangle.html',1,'bakge']]],
   ['renderer',['Renderer',['../classbakge_1_1Renderer.html',1,'bakge']]],
   ['renderer_2eh',['Renderer.h',['../Renderer_8h.html',1,'']]],
   ['renderstage',['RenderStage',['../classbakge_1_1Engine.html#aa9ae664c48adc6ba6e893c981227bae4',1,'bakge::Engine']]],

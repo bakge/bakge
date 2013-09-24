@@ -6,7 +6,7 @@ var searchData=
   ['scaling',['Scaling',['../classbakge_1_1Matrix.html#a330de23bb4b8b1eca2ad5265165f7db4',1,'bakge::Matrix']]],
   ['scrollevent',['ScrollEvent',['../classbakge_1_1EventHandler.html#a6bd5425adf178fa492da51b3bb3e6370',1,'bakge::EventHandler']]],
   ['setaspect',['SetAspect',['../classbakge_1_1Camera3D.html#a5b661b2d4672d017545a6cd4cb7a3d95',1,'bakge::Camera3D']]],
-  ['setdrawstyle',['SetDrawStyle',['../classbakge_1_1Shape.html#a346363367634baf9d77d5b634db30cb7',1,'bakge::Shape']]],
+  ['setdrawstyle',['SetDrawStyle',['../classbakge_1_1Mesh.html#ac9889dad300a598a191a062d0d28ab72',1,'bakge::Mesh']]],
   ['seteventhandler',['SetEventHandler',['../classbakge_1_1Window.html#a61c2e97d2fec1d1d919505f17defc165',1,'bakge::Window']]],
   ['setfarclip',['SetFarClip',['../classbakge_1_1Camera3D.html#a8587b52a9651ebc032b570aa0c16a61e',1,'bakge::Camera3D']]],
   ['setfov',['SetFOV',['../classbakge_1_1Camera3D.html#a97f0b7c077c1c913901500bb072541e9',1,'bakge::Camera3D']]],

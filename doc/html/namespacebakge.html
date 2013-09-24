@@ -153,7 +153,18 @@ Data Structures</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shapes are special mesh objects with configurable dimensions.  <a href="classbakge_1_1Shape.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbakge_1_1Texture.html">Texture</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">OpenGL texture wrapper class.  <a href="classbakge_1_1Texture.html#details">More...</a><br/></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">OpenGL 2D texture wrapper class.  <a href="classbakge_1_1Texture.html#details">More...</a><br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbakge_1_1Cone.html">Cone</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbakge_1_1Cube.html">Cube</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="classbakge_1_1Cube.html" title="The Cube is a 3D block shape centered at the origin. ">Cube</a> is a 3D block shape centered at the origin.  <a href="classbakge_1_1Cube.html#details">More...</a><br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbakge_1_1Cylinder.html">Cylinder</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbakge_1_1Rectangle.html">Rectangle</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbakge_1_1Sphere.html">Sphere</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbakge_1_1GamePad.html">GamePad</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A joystick or controller used for player input.  <a href="classbakge_1_1GamePad.html#details">More...</a><br/></td></tr>
@@ -231,6 +242,12 @@ typedef <a class="el" href="namespacebakge.html#a85e48e31a498a7bbe315804170f1659
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
+<tr class="memitem:a9b05e1bd1116bc25e8ac77bd9b2ea258"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><b>MESH_DRAW_STYLE</b> { <b>MESH_DRAW_STYLE_POINTS</b> = 0, 
+<b>MESH_DRAW_STYLE_WIREFRAME</b>, 
+<b>MESH_DRAW_STYLE_SOLID</b>, 
+<b>NUM_MESH_DRAW_STYLES</b>
+ }</td></tr>
+<tr class="separator:a9b05e1bd1116bc25e8ac77bd9b2ea258"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4691da98b8bcb2aad47a52710d47fb62"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacebakge.html#a4691da98b8bcb2aad47a52710d47fb62">MESH_BUFFERS</a> { <br/>
 &#160;&#160;<a class="el" href="namespacebakge.html#a4691da98b8bcb2aad47a52710d47fb62a9736f668a2ed8127e22167a5528cee29">MESH_BUFFER_POSITIONS</a> = 0, 
 <a class="el" href="namespacebakge.html#a4691da98b8bcb2aad47a52710d47fb62a757f426e92cc13d2e7bc533644f28f4e">MESH_BUFFER_NORMALS</a>, 
@@ -242,12 +259,6 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr class="memdesc:a4691da98b8bcb2aad47a52710d47fb62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mesh buffer enumeration.  <a href="namespacebakge.html#a4691da98b8bcb2aad47a52710d47fb62">More...</a><br/></td></tr>
 <tr class="separator:a4691da98b8bcb2aad47a52710d47fb62"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa52fd68269fcb476cb31077d09b206ec"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><b>BGE_SHAPE_STYLE</b> { <b>BGE_SHAPE_STYLE_POINTS</b> = 1, 
-<b>BGE_SHAPE_STYLE_WIREFRAME</b>, 
-<b>BGE_SHAPE_STYLE_SOLID</b>, 
-<b>BGE_SHAPE_STYLE_EDGE</b>
- }</td></tr>
-<tr class="separator:aa52fd68269fcb476cb31077d09b206ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a506961e6fa6f9a1abd2c24efb2f32540"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacebakge.html#a506961e6fa6f9a1abd2c24efb2f32540">XBOX_AXES</a> { <br/>
 &#160;&#160;<b>XBOX_AXIS_LEFT_ANALOG_X</b> = 0, 
 <b>XBOX_AXIS_LEFT_ANALOG_Y</b>, 
@@ -322,6 +333,15 @@ BGE_WUNUSED <a class="el" href="Bakge_8h.html#ad161a29f637da96c2335548a163568c1"
 <tr class="memitem:a1cbbf09abf6a5522edc125fd086cc8ad"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Bakge_8h.html#ad161a29f637da96c2335548a163568c1">BGE_FUNC</a> <a class="el" href="namespacebakge.html#a468d290e8550c4701c7bd5ddd0cd33ed">Microseconds</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacebakge.html#a1cbbf09abf6a5522edc125fd086cc8ad">GetRunningTime</a> ()</td></tr>
 <tr class="memdesc:a1cbbf09abf6a5522edc125fd086cc8ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the time since <a class="el" href="namespacebakge.html#abac8f523e5019400d1c05ddbd6727c4e" title="Initialize Bakge and all its components. ">bakge::Init</a> was called.  <a href="#a1cbbf09abf6a5522edc125fd086cc8ad">More...</a><br/></td></tr>
 <tr class="separator:a1cbbf09abf6a5522edc125fd086cc8ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2de464f77b22e89bf0b6417e4312654"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Bakge_8h.html#ad161a29f637da96c2335548a163568c1">BGE_FUNC</a> <a class="el" href="namespacebakge.html#aa0959354a65485a10671e3408dbcef80">Result</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacebakge.html#ad2de464f77b22e89bf0b6417e4312654">GetPrimaryMonitorResolution</a> (int *StoreX, int *StoreY)</td></tr>
+<tr class="memdesc:ad2de464f77b22e89bf0b6417e4312654"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the resolution of the primary monitor.  <a href="#ad2de464f77b22e89bf0b6417e4312654">More...</a><br/></td></tr>
+<tr class="separator:ad2de464f77b22e89bf0b6417e4312654"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c4e0335cab007f75871e59f7bf2461c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Bakge_8h.html#ad161a29f637da96c2335548a163568c1">BGE_FUNC</a> <a class="el" href="namespacebakge.html#aa0959354a65485a10671e3408dbcef80">Result</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacebakge.html#a1c4e0335cab007f75871e59f7bf2461c">GetPrimaryMonitorPhysicalSize</a> (int *StoreX, int *StoreY)</td></tr>
+<tr class="memdesc:a1c4e0335cab007f75871e59f7bf2461c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the physical size in millimeters of the primary monitor.  <a href="#a1c4e0335cab007f75871e59f7bf2461c">More...</a><br/></td></tr>
+<tr class="separator:a1c4e0335cab007f75871e59f7bf2461c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb0b54d3b8415a0862f5327e7904b104"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Bakge_8h.html#ad161a29f637da96c2335548a163568c1">BGE_FUNC</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacebakge.html#abb0b54d3b8415a0862f5327e7904b104">GetNumberMonitors</a> ()</td></tr>
+<tr class="memdesc:abb0b54d3b8415a0862f5327e7904b104"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the number of attached monitors.  <a href="#abb0b54d3b8415a0862f5327e7904b104">More...</a><br/></td></tr>
+<tr class="separator:abb0b54d3b8415a0862f5327e7904b104"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a59334d3cf4e513ae2dc8724727003966"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Bakge_8h.html#a14c834f0052d11fa87c7fd1e3ae62cd1">BGE_INL</a> <a class="el" href="namespacebakge.html#aae6afdb98d6825df7dcb365b1e2d1bd2">Radians</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacebakge.html#a59334d3cf4e513ae2dc8724727003966">ToRadians</a> (<a class="el" href="namespacebakge.html#a532656951af13c097334f4c084c12ae5">Degrees</a> <a class="el" href="Bakge_8h.html#af9a9444c32498a020fc9747f3edd8678">BGE_NCP</a> Deg)</td></tr>
 <tr class="memdesc:a59334d3cf4e513ae2dc8724727003966"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a degree value to radians.  <a href="#a59334d3cf4e513ae2dc8724727003966">More...</a><br/></td></tr>
 <tr class="separator:a59334d3cf4e513ae2dc8724727003966"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -644,6 +664,93 @@ BGE_WUNUSED <a class="el" href="Bakge_8h.html#ad161a29f637da96c2335548a163568c1"
 
 </div>
 </div>
+<a class="anchor" id="ad2de464f77b22e89bf0b6417e4312654"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="Bakge_8h.html#ad161a29f637da96c2335548a163568c1">BGE_FUNC</a> <a class="el" href="namespacebakge.html#aa0959354a65485a10671e3408dbcef80">Result</a> bakge::GetPrimaryMonitorResolution </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>StoreX</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>StoreY</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the resolution of the primary monitor.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">StoreX</td><td>Pointee set to screen resolution width. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">StoreY</td><td>Pointee set to screen resolution height.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>BGE_FAILURE if any errors occurred. In such a case, *StoreX and *StoreY are not modified. BGE_SUCCESS otherwise. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a1c4e0335cab007f75871e59f7bf2461c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="Bakge_8h.html#ad161a29f637da96c2335548a163568c1">BGE_FUNC</a> <a class="el" href="namespacebakge.html#aa0959354a65485a10671e3408dbcef80">Result</a> bakge::GetPrimaryMonitorPhysicalSize </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>StoreX</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>StoreY</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the physical size in millimeters of the primary monitor.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">StoreX</td><td>Pointee set to monitor's physical width. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">StoreY</td><td>Pointee set to monitor's physical height.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>BGE_FAILURE if any errors occurred. In such a case, *StoreX and *StoreY are not modified. BGE_SUCCESS otherwise. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="abb0b54d3b8415a0862f5327e7904b104"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="Bakge_8h.html#ad161a29f637da96c2335548a163568c1">BGE_FUNC</a> int bakge::GetNumberMonitors </td>
+          <td>(</td>
+          <td class="paramname">)</td><td></td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the number of attached monitors.</p>
+<dl class="section return"><dt>Returns</dt><dd>Number of attached monitors; -1 if any errors occurred. </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a59334d3cf4e513ae2dc8724727003966"></a>
 <div class="memitem">
 <div class="memproto">
@@ -767,7 +874,7 @@ template&lt;class T &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Sep 21 2013 17:11:32 for Bakge by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Sep 24 2013 00:08:55 for Bakge by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.4
 </small></address>

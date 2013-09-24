@@ -91,7 +91,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-methods">Static Public Member Functions</a>  </div>
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a>  </div>
   <div class="headertitle">
 <div class="title">bakge::Quaternion Class Reference</div>  </div>
 </div><!--header-->
@@ -193,6 +194,31 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a5e0a8584444b5aa56e64a4ea1960070a"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classbakge_1_1Quaternion.html">Quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbakge_1_1Quaternion.html#a5e0a8584444b5aa56e64a4ea1960070a">FromAxisAndAngle</a> (<a class="el" href="classbakge_1_1Vector4.html">Vector4</a> <a class="el" href="Bakge_8h.html#af9a9444c32498a020fc9747f3edd8678">BGE_NCP</a> Axis, <a class="el" href="namespacebakge.html#aae6afdb98d6825df7dcb365b1e2d1bd2">Radians</a> Angle)</td></tr>
 <tr class="memdesc:a5e0a8584444b5aa56e64a4ea1960070a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a quaternion from an axis and an angle.  <a href="#a5e0a8584444b5aa56e64a4ea1960070a">More...</a><br/></td></tr>
 <tr class="separator:a5e0a8584444b5aa56e64a4ea1960070a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:af91b28463cde8668ed665e7f789fb5fc"><td class="memItemLeft" ><a class="anchor" id="af91b28463cde8668ed665e7f789fb5fc"></a>
+union {</td></tr>
+<tr class="memitem:a97cdff73992c3ae99768d105b2c6a49d"><td class="memItemLeft" ><a class="anchor" id="a97cdff73992c3ae99768d105b2c6a49d"></a>
+&#160;&#160;&#160;struct {</td></tr>
+<tr class="memitem:af6f7bd2ac26f3ad7d75ec03a4de66aba"><td class="memItemLeft" >&#160;&#160;&#160;&#160;&#160;&#160;<a class="el" href="namespacebakge.html#a85e48e31a498a7bbe315804170f16590">Scalar</a>&#160;&#160;&#160;<b>Val</b> [4]</td></tr>
+<tr class="separator:af6f7bd2ac26f3ad7d75ec03a4de66aba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97cdff73992c3ae99768d105b2c6a49d"><td class="memItemLeft" valign="top">&#160;&#160;&#160;}&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="separator:a97cdff73992c3ae99768d105b2c6a49d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4270febb521b038ccdeaa90b2226d9ee"><td class="memItemLeft" ><a class="anchor" id="a4270febb521b038ccdeaa90b2226d9ee"></a>
+&#160;&#160;&#160;struct {</td></tr>
+<tr class="memitem:a4aa81490ab62fd1a61a16f20fe094e44"><td class="memItemLeft" >&#160;&#160;&#160;&#160;&#160;&#160;<a class="el" href="namespacebakge.html#a85e48e31a498a7bbe315804170f16590">Scalar</a>&#160;&#160;&#160;<b>Q0</b></td></tr>
+<tr class="separator:a4aa81490ab62fd1a61a16f20fe094e44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d80830579dd19a4715d9467b088cbef"><td class="memItemLeft" >&#160;&#160;&#160;&#160;&#160;&#160;<a class="el" href="namespacebakge.html#a85e48e31a498a7bbe315804170f16590">Scalar</a>&#160;&#160;&#160;<b>Q1</b></td></tr>
+<tr class="separator:a2d80830579dd19a4715d9467b088cbef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad407d5471125a799d5ec28d34c66f827"><td class="memItemLeft" >&#160;&#160;&#160;&#160;&#160;&#160;<a class="el" href="namespacebakge.html#a85e48e31a498a7bbe315804170f16590">Scalar</a>&#160;&#160;&#160;<b>Q2</b></td></tr>
+<tr class="separator:ad407d5471125a799d5ec28d34c66f827"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21b3bc4aa5b8540831eabfdb2f917e5b"><td class="memItemLeft" >&#160;&#160;&#160;&#160;&#160;&#160;<a class="el" href="namespacebakge.html#a85e48e31a498a7bbe315804170f16590">Scalar</a>&#160;&#160;&#160;<b>Q3</b></td></tr>
+<tr class="separator:a21b3bc4aa5b8540831eabfdb2f917e5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4270febb521b038ccdeaa90b2226d9ee"><td class="memItemLeft" valign="top">&#160;&#160;&#160;}&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="separator:a4270febb521b038ccdeaa90b2226d9ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af91b28463cde8668ed665e7f789fb5fc"><td class="memItemLeft" valign="top">};&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="separator:af91b28463cde8668ed665e7f789fb5fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Quaternions describe rotations in space using an axis &lt;i, j, k&gt; and a rotation theta around that axis. Quaternions are composed of 4 parts, one real (or scalar) part and 3 imaginary (or vector) parts.</p>
@@ -922,7 +948,7 @@ Static Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Sep 21 2013 17:11:32 for Bakge by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Sep 24 2013 00:08:55 for Bakge by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.4
 </small></address>

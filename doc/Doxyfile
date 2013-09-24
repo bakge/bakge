@@ -354,7 +354,7 @@ EXTRACT_ALL            = NO
 # If the EXTRACT_PRIVATE tag is set to YES all private members of a class
 # will be included in the documentation.
 
-EXTRACT_PRIVATE        = NO
+EXTRACT_PRIVATE        = YES
 
 # If the EXTRACT_PACKAGE tag is set to YES all members with package or internal
 # scope will be included in the documentation.
@@ -655,6 +655,7 @@ WARN_LOGFILE           = C:/bakge/sdk/doc/warnings.txt
 INPUT                  = C:/bakge/include/bakge/Bakge.h \
                          C:/bakge/include/bakge/core \
                          C:/bakge/include/bakge/graphics \
+                         C:/bakge/include/bakge/graphics/shapes \
                          C:/bakge/include/bakge/input \
                          C:/bakge/include/bakge/system \
                          C:/bakge/include/bakge/math \

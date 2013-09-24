@@ -91,7 +91,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Texture.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/* *</span></div>
+<a href="Texture_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/* *</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * The MIT License (MIT)</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> * Copyright (c) 2013 Paul Holden et al. (See AUTHORS)</span></div>
@@ -115,55 +115,56 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment"> * THE SOFTWARE.</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment"> * */</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#ifndef BAKGE_GRAPHICS_TEXTURE_H</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define BAKGE_GRAPHICS_TEXTURE_H</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="Bakge_8h.html" title="Includes all Bakge classes, namespaces, type definitions and public API. ">bakge/Bakge.h</a>&gt;</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">namespace </span>bakge</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="code" href="classbakge_1_1Texture.html">   39</a></span>&#160;<span class="keyword">class </span>BGE_API <a class="code" href="classbakge_1_1Texture.html" title="OpenGL texture wrapper class. ">Texture</a> : <span class="keyword">public</span> <a class="code" href="classbakge_1_1Bindable.html" title="Bindables must be bound before use, and unbound after use. ">Bindable</a></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;{</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">int</span> Width;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">int</span> Height;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    GLenum Location;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    GLuint TextureID;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <a class="code" href="classbakge_1_1Texture.html" title="OpenGL texture wrapper class. ">Texture</a>();</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    ~<a class="code" href="classbakge_1_1Texture.html" title="OpenGL texture wrapper class. ">Texture</a>();</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <a class="code" href="Bakge_8h.html#aafce0bae86caf62f20af518f7b5b81c6" title="Factory functions are static methods which allocate heap memory. ">BGE_FACTORY</a> <a class="code" href="classbakge_1_1Texture.html" title="OpenGL texture wrapper class. ">Texture</a>* Create(<span class="keywordtype">int</span> Width, <span class="keywordtype">int</span> Height, GLint Format,</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                                            GLenum Type, <span class="keywordtype">void</span>* Data);</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <a class="code" href="namespacebakge.html#aa0959354a65485a10671e3408dbcef80" title="Returned from many Bakge functions to describe operation results. ">Result</a> Bind() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <a class="code" href="namespacebakge.html#aa0959354a65485a10671e3408dbcef80" title="Returned from many Bakge functions to describe operation results. ">Result</a> Unbind() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#ifndef BAKGE_GRAPHICS_TEXTURE_H</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define BAKGE_GRAPHICS_TEXTURE_H</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="Bakge_8h.html" title="Includes all Bakge classes, namespaces, type definitions and public API. ">bakge/Bakge.h</a>&gt;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">namespace </span>bakge</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="code" href="classbakge_1_1Texture.html">   44</a></span>&#160;<span class="keyword">class </span>BGE_API <a class="code" href="classbakge_1_1Texture.html" title="OpenGL 2D texture wrapper class. ">Texture</a> : <span class="keyword">public</span> <a class="code" href="classbakge_1_1Bindable.html" title="Bindables must be bound before use, and unbound after use. ">Bindable</a></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;{</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">int</span> Width;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">int</span> Height;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    GLenum Location;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    GLuint TextureID;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <a class="code" href="classbakge_1_1Texture.html" title="OpenGL 2D texture wrapper class. ">Texture</a>();</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    ~<a class="code" href="classbakge_1_1Texture.html" title="OpenGL 2D texture wrapper class. ">Texture</a>();</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <a class="code" href="Bakge_8h.html#aafce0bae86caf62f20af518f7b5b81c6" title="Factory functions are static methods which allocate heap memory. ">BGE_FACTORY</a> <a class="code" href="classbakge_1_1Texture.html" title="OpenGL 2D texture wrapper class. ">Texture</a>* Create(<span class="keywordtype">int</span> Width, <span class="keywordtype">int</span> Height, <span class="keyword">const</span> GLint* Params,</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                                                GLint Format, GLenum Type,</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                                                                <span class="keywordtype">void</span>* Data);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <a class="code" href="namespacebakge.html#aa0959354a65485a10671e3408dbcef80" title="Returned from many Bakge functions to describe operation results. ">Result</a> Bind() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
-<div class="line"><a name="l00108"></a><span class="lineno"><a class="code" href="classbakge_1_1Texture.html#a466b6e14bcc5bd42b5b6931e2505a464">  108</a></span>&#160;    <a class="code" href="Bakge_8h.html#a14c834f0052d11fa87c7fd1e3ae62cd1" title="Inline hint macro. ">BGE_INL</a> <span class="keywordtype">int</span> <a class="code" href="classbakge_1_1Texture.html#a466b6e14bcc5bd42b5b6931e2505a464" title="Get the width of the texture in pixels. ">GetWidth</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <span class="keywordflow">return</span> Width;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    }</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
-<div class="line"><a name="l00119"></a><span class="lineno"><a class="code" href="classbakge_1_1Texture.html#ac3ee8dcbc62189542abff4f93c203519">  119</a></span>&#160;    <a class="code" href="Bakge_8h.html#a14c834f0052d11fa87c7fd1e3ae62cd1" title="Inline hint macro. ">BGE_INL</a> <span class="keywordtype">int</span> <a class="code" href="classbakge_1_1Texture.html#ac3ee8dcbc62189542abff4f93c203519" title="Get the height of the texture in pixels. ">GetHeight</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        <span class="keywordflow">return</span> Height;</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    }</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;}; <span class="comment">/* Texture */</span></div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;} <span class="comment">/* bakge */</span></div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* BAKGE_GRAPHICS_TEXTURE_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <a class="code" href="namespacebakge.html#aa0959354a65485a10671e3408dbcef80" title="Returned from many Bakge functions to describe operation results. ">Result</a> Unbind() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
+<div class="line"><a name="l00118"></a><span class="lineno"><a class="code" href="classbakge_1_1Texture.html#a466b6e14bcc5bd42b5b6931e2505a464">  118</a></span>&#160;    <a class="code" href="Bakge_8h.html#a14c834f0052d11fa87c7fd1e3ae62cd1" title="Inline hint macro. ">BGE_INL</a> <span class="keywordtype">int</span> <a class="code" href="classbakge_1_1Texture.html#a466b6e14bcc5bd42b5b6931e2505a464" title="Get the width of the texture in pixels. ">GetWidth</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        <span class="keywordflow">return</span> Width;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    }</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
+<div class="line"><a name="l00129"></a><span class="lineno"><a class="code" href="classbakge_1_1Texture.html#ac3ee8dcbc62189542abff4f93c203519">  129</a></span>&#160;    <a class="code" href="Bakge_8h.html#a14c834f0052d11fa87c7fd1e3ae62cd1" title="Inline hint macro. ">BGE_INL</a> <span class="keywordtype">int</span> <a class="code" href="classbakge_1_1Texture.html#ac3ee8dcbc62189542abff4f93c203519" title="Get the height of the texture in pixels. ">GetHeight</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        <span class="keywordflow">return</span> Height;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    }</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;}; <span class="comment">/* Texture */</span></div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;} <span class="comment">/* bakge */</span></div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* BAKGE_GRAPHICS_TEXTURE_H */</span><span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Sep 21 2013 17:11:32 for Bakge by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Sep 24 2013 00:08:55 for Bakge by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.4
 </small></address>

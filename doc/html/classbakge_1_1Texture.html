@@ -90,13 +90,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a>  </div>
   <div class="headertitle">
 <div class="title">bakge::Texture Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>OpenGL texture wrapper class.  
+<p>OpenGL 2D texture wrapper class.  
  <a href="classbakge_1_1Texture.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for bakge::Texture:</div>
@@ -114,9 +115,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a5fd0f5f36f0ac61264fb917b11f10b4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3ee8791cf0a7d7b2938660d8a4ffe150"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbakge_1_1Texture.html#a3ee8791cf0a7d7b2938660d8a4ffe150">~Texture</a> ()</td></tr>
 <tr class="separator:a3ee8791cf0a7d7b2938660d8a4ffe150"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4cd5db8ec940719a6cb5914e27075841"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Bakge_8h.html#aafce0bae86caf62f20af518f7b5b81c6">BGE_FACTORY</a> <a class="el" href="classbakge_1_1Texture.html">Texture</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbakge_1_1Texture.html#a4cd5db8ec940719a6cb5914e27075841">Create</a> (int Width, int Height, GLint Format, GLenum Type, void *Data)</td></tr>
-<tr class="memdesc:a4cd5db8ec940719a6cb5914e27075841"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a texture instance and upload texture data to OpenGL.  <a href="#a4cd5db8ec940719a6cb5914e27075841">More...</a><br/></td></tr>
-<tr class="separator:a4cd5db8ec940719a6cb5914e27075841"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8361c029cf9ad2b31ae8093240ff64ba"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Bakge_8h.html#aafce0bae86caf62f20af518f7b5b81c6">BGE_FACTORY</a> <a class="el" href="classbakge_1_1Texture.html">Texture</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbakge_1_1Texture.html#a8361c029cf9ad2b31ae8093240ff64ba">Create</a> (int Width, int Height, const GLint *Params, GLint Format, GLenum Type, void *Data)</td></tr>
+<tr class="memdesc:a8361c029cf9ad2b31ae8093240ff64ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a texture instance and upload texture data to OpenGL.  <a href="#a8361c029cf9ad2b31ae8093240ff64ba">More...</a><br/></td></tr>
+<tr class="separator:a8361c029cf9ad2b31ae8093240ff64ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aca7daba0ee8cef37b570291d64e88eec"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacebakge.html#aa0959354a65485a10671e3408dbcef80">Result</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbakge_1_1Texture.html#aca7daba0ee8cef37b570291d64e88eec">Bind</a> () const </td></tr>
 <tr class="memdesc:aca7daba0ee8cef37b570291d64e88eec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bind the texture as active in its assigned location.  <a href="#aca7daba0ee8cef37b570291d64e88eec">More...</a><br/></td></tr>
 <tr class="separator:aca7daba0ee8cef37b570291d64e88eec"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -135,6 +136,21 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a6cd569777339b497ce81a1b73084f186 inherit pub_methods_classbakge_1_1Bindable"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbakge_1_1Bindable.html#a6cd569777339b497ce81a1b73084f186">~Bindable</a> ()=0</td></tr>
 <tr class="memdesc:a6cd569777339b497ce81a1b73084f186 inherit pub_methods_classbakge_1_1Bindable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pure-virtual <a class="el" href="classbakge_1_1Bindable.html" title="Bindables must be bound before use, and unbound after use. ">Bindable</a> destructor.  <a href="#a6cd569777339b497ce81a1b73084f186">More...</a><br/></td></tr>
 <tr class="separator:a6cd569777339b497ce81a1b73084f186 inherit pub_methods_classbakge_1_1Bindable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:aea95f9c78647cc4f524a75c5aa5599a5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aea95f9c78647cc4f524a75c5aa5599a5"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>Width</b></td></tr>
+<tr class="separator:aea95f9c78647cc4f524a75c5aa5599a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5823b51ffe78d0bfbe5d1525fcb5278b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5823b51ffe78d0bfbe5d1525fcb5278b"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>Height</b></td></tr>
+<tr class="separator:a5823b51ffe78d0bfbe5d1525fcb5278b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90e0c305ccf785ed5392c570623fd12e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a90e0c305ccf785ed5392c570623fd12e"></a>
+GLenum&#160;</td><td class="memItemRight" valign="bottom"><b>Location</b></td></tr>
+<tr class="separator:a90e0c305ccf785ed5392c570623fd12e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60134b95312aa60067896e707bdfe4ba"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a60134b95312aa60067896e707bdfe4ba"></a>
+GLuint&#160;</td><td class="memItemRight" valign="bottom"><b>TextureID</b></td></tr>
+<tr class="separator:a60134b95312aa60067896e707bdfe4ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Textures are used to color meshes and other polygons drawn with OpenGL, such as meshes or a GUI. They can also be used to hold framebuffers to which OpenGL renders to. </p>
@@ -151,7 +167,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Default <a class="el" href="classbakge_1_1Texture.html" title="OpenGL texture wrapper class. ">Texture</a> constructor. </p>
+<p>Default <a class="el" href="classbakge_1_1Texture.html" title="OpenGL 2D texture wrapper class. ">Texture</a> constructor. </p>
 
 </div>
 </div>
@@ -167,12 +183,12 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Default <a class="el" href="classbakge_1_1Texture.html" title="OpenGL texture wrapper class. ">Texture</a> destructor. </p>
+<p>Default <a class="el" href="classbakge_1_1Texture.html" title="OpenGL 2D texture wrapper class. ">Texture</a> destructor. </p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a4cd5db8ec940719a6cb5914e27075841"></a>
+<a class="anchor" id="a8361c029cf9ad2b31ae8093240ff64ba"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -187,6 +203,12 @@ Public Member Functions</h2></td></tr>
           <td></td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>Height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const GLint *&#160;</td>
+          <td class="paramname"><em>Params</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -218,13 +240,14 @@ Public Member Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">Width</td><td>Width of the texture in pixels. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">Height</td><td>Height of the texture in pixels. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">Params</td><td>Array of texture parameters and corresponding values. After the last parameter-value pair, add a 0 to designate the end of the array. If NULL is passed, a set of sensible defaults is used instead. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">Format</td><td>OpenGL format of the data to upload. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">Type</td><td>Type of data being uploaded. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">Data</td><td>The texture data to upload.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Pointer to newly created texture; NULL if any errors occurred.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to allocated <a class="el" href="classbakge_1_1Texture.html" title="OpenGL 2D texture wrapper class. ">Texture</a>; NULL if any errors occurred.</dd></dl>
 <dl class="section see"><dt>See Also</dt><dd><a href="http://www.opengl.org/wiki/Texture">http://www.opengl.org/wiki/Texture</a> </dd></dl>
 
 </div>
@@ -339,7 +362,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Sep 21 2013 17:11:32 for Bakge by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Sep 24 2013 00:08:55 for Bakge by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.4
 </small></address>
