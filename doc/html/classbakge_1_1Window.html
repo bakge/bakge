@@ -820,7 +820,15 @@ Friends</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Init must be called before any Bakge class or method can safely be used. Calling Init twice or failing to match it with a corresponding Deinit call before your program exits can cause crashes or memory leaks. </p>
+<p>Init must be called before any Bakge class or method can safely be used. Calling Init twice or failing to match it with a corresponding Deinit call before your program exits can cause crashes or memory leaks.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">argc</td><td>Number of command-line arguments. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">argv</td><td>Array of command-line arguments.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>BGE_SUCCESS if initialization was successful; BGE_FAILURE if any errors occurred. </dd></dl>
 
 </div>
 </div>
@@ -844,7 +852,8 @@ Friends</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Deinit must be called before your program exits. This function cleans up internal resources that were allocated when Init was called. Calling Deinit when not preceded by an Init call may result in crashes or memory leaks. </p>
+<p>Deinit must be called before your program exits. This function cleans up internal resources that were allocated when Init was called. Calling Deinit when not preceded by an Init call may result in crashes or memory leaks.</p>
+<dl class="section return"><dt>Returns</dt><dd>BGE_SUCCESS if deinitialization was successful; BGE_FAILURE if any errors occurred. </dd></dl>
 
 </div>
 </div>
@@ -854,7 +863,7 @@ Friends</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Sep 24 2013 00:08:55 for Bakge by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Sep 30 2013 00:33:28 for Bakge by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.4
 </small></address>

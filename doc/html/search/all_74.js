@@ -11,7 +11,7 @@ var searchData=
   ['todo_20list',['Todo List',['../todo.html',1,'']]],
   ['tomatrix',['ToMatrix',['../classbakge_1_1Quaternion.html#a4fbe5c0d3b3e688e90ae493c633c20b3',1,'bakge::Quaternion']]],
   ['toradians',['ToRadians',['../namespacebakge.html#a59334d3cf4e513ae2dc8724727003966',1,'bakge']]],
-  ['translate',['Translate',['../classbakge_1_1Matrix.html#abe9ecd6708677a4e464ef9c5e3eba37c',1,'bakge::Matrix']]],
+  ['translate',['Translate',['../classbakge_1_1Node.html#a382395aeed6c2a4f89c5bfc85e3af8e2',1,'bakge::Node::Translate()'],['../classbakge_1_1Matrix.html#abe9ecd6708677a4e464ef9c5e3eba37c',1,'bakge::Matrix::Translate()']]],
   ['translatemember',['TranslateMember',['../classbakge_1_1Crowd.html#abc929b6f19b3d0e861e682add0a77dee',1,'bakge::Crowd']]],
   ['translation',['Translation',['../classbakge_1_1Matrix.html#a5f288a6da07928597d2603c40da299ef',1,'bakge::Matrix']]],
   ['transpose',['Transpose',['../classbakge_1_1Matrix.html#a27426a47cf695d79f96e150b389c4154',1,'bakge::Matrix']]],

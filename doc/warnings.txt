@@ -1,8 +1,4 @@
 C:/bakge/include/bakge/graphics/ShaderLibrary.h:33: Warning: missing title after \defgroup VertexLib
-C:/bakge/include/bakge/graphics/shapes/Cone.h:34: Warning: Compound bakge::Cone is not documented.
-C:/bakge/include/bakge/graphics/shapes/Sphere.h:34: Warning: Compound bakge::Sphere is not documented.
-C:/bakge/include/bakge/graphics/shapes/Cylinder.h:34: Warning: Compound bakge::Cylinder is not documented.
-C:/bakge/include/bakge/graphics/shapes/Rectangle.h:34: Warning: Compound bakge::Rectangle is not documented.
 C:/bakge/include/bakge/math/Vector3.h:34: Warning: Compound bakge::Vector3 is not documented.
 C:/bakge/include/bakge/math/Vector4.h:46: Warning: Compound bakge::Vector4 is not documented.
 C:/bakge/include/bakge/math/Matrix.h:50: Warning: Compound bakge::Matrix is not documented.
@@ -11,8 +7,9 @@ C:/bakge/include/bakge/Bakge.h:50: Warning: Member BGE_WUNUSED (macro definition
 C:/bakge/include/bakge/Bakge.h:51: Warning: Member BGE_UNUSED (macro definition) of file Bakge.h is not documented.
 C:/bakge/include/bakge/Bakge.h:73: Warning: Member GLEW_STATIC (macro definition) of file Bakge.h is not documented.
 C:/bakge/include/bakge/Bakge.h:122: Warning: Member VERTEX_BUFFER_OBJECT_EXT (macro definition) of file Bakge.h is not documented.
-C:/bakge/include/bakge/Bakge.h:158: Warning: Member STBI_HEADER_FILE_ONLY (macro definition) of file Bakge.h is not documented.
-C:/bakge/include/bakge/Bakge.h:165: Warning: Member STB_TRUETYPE_IMPLEMENTATION (macro definition) of file Bakge.h is not documented.
+C:/bakge/include/bakge/Bakge.h:161: Warning: Member STBI_HEADER_FILE_ONLY (macro definition) of file Bakge.h is not documented.
+C:/bakge/include/bakge/Bakge.h:168: Warning: Member STB_TRUETYPE_IMPLEMENTATION (macro definition) of file Bakge.h is not documented.
+C:/bakge/include/bakge/Bakge.h:170: Warning: Member STB_VORBIS_HEADER_ONLY (macro definition) of file Bakge.h is not documented.
 C:/bakge/include/bakge/graphics/Mesh.h:39: Warning: Member MESH_DRAW_STYLE (enumeration) of namespace bakge is not documented.
 C:/bakge/include/bakge/graphics/Shader.h:35: Warning: Member BGE_VIEW_UNIFORM (macro definition) of file Shader.h is not documented.
 C:/bakge/include/bakge/graphics/Shader.h:36: Warning: Member BGE_PROJECTION_UNIFORM (macro definition) of file Shader.h is not documented.
@@ -24,17 +21,16 @@ C:/bakge/include/bakge/graphics/Shader.h:42: Warning: Member BGE_NORMAL_ATTRIBUT
 C:/bakge/include/bakge/graphics/Shader.h:43: Warning: Member BGE_TEXCOORD_ATTRIBUTE (macro definition) of file Shader.h is not documented.
 C:/bakge/include/bakge/core/Utility.h:63: Warning: Member BGE_ASSERT(PRED) (macro definition) of file Utility.h is not documented.
 C:/bakge/include/bakge/core/Utility.h:64: Warning: Member BGE_ASSERT_EX(PRED, MSG) (macro definition) of file Utility.h is not documented.
-C:/bakge/include/bakge/core/Utility.h:91: Warning: Member LoadFileContents(const char *Path) (function) of namespace bakge is not documented.
+C:/bakge/include/bakge/core/Utility.h:102: Warning: Member LoadFileContents(const char *Path) (function) of namespace bakge is not documented.
 C:/bakge/include/bakge/graphics/Mesh.h:39: Warning: Member MESH_DRAW_STYLE (enumeration) of namespace bakge is not documented.
-C:/bakge/include/bakge/core/Utility.h:91: Warning: Member LoadFileContents(const char *Path) (function) of namespace bakge is not documented.
+C:/bakge/include/bakge/core/Utility.h:102: Warning: Member LoadFileContents(const char *Path) (function) of namespace bakge is not documented.
 C:/bakge/include/bakge/math/Vector4.h:97: Warning: Member Dot(Vector4 BGE_NCP Left, Vector4 BGE_NCP Right) (function) of namespace bakge is not documented.
 C:/bakge/include/bakge/math/Vector4.h:98: Warning: Member Cross(Vector4 BGE_NCP Left, Vector4 BGE_NCP Right) (function) of namespace bakge is not documented.
 C:/bakge/include/bakge/math/Vector4.h:99: Warning: Member Point(Scalar X, Scalar Y, Scalar Z) (function) of namespace bakge is not documented.
 C:/bakge/include/bakge/math/Vector4.h:100: Warning: Member Vector(Scalar X, Scalar Y, Scalar Z) (function) of namespace bakge is not documented.
 C:/bakge/include/bakge/math/Vector4.h:101: Warning: Member UnitVector(Scalar X, Scalar Y, Scalar Z) (function) of namespace bakge is not documented.
-C:/bakge/include/bakge/core/Utility.h:70: Warning: parameters of member bakge::Init are not (all) documented
-C:/bakge/include/bakge/core/Utility.h:70: Warning: return type of member bakge::Init is not documented
-C:/bakge/include/bakge/core/Utility.h:78: Warning: return type of member bakge::Deinit is not documented
+C:/bakge/include/bakge/core/Utility.h:104: Warning: parameters of member bakge::Log are not (all) documented
+C:/bakge/include/bakge/core/Utility.h:104: Warning: return type of member bakge::Log is not documented
 C:/bakge/include/bakge/system/Clock.h:38: Warning: parameters of member bakge::Delay are not (all) documented
 C:/bakge/include/bakge/core/Window.h:70: Warning: Member Moved(GLFWwindow *, int, int) (function) of class bakge::Window is not documented.
 C:/bakge/include/bakge/core/Window.h:71: Warning: Member Resized(GLFWwindow *, int, int) (function) of class bakge::Window is not documented.
@@ -49,9 +45,8 @@ C:/bakge/include/bakge/core/Window.h:87: Warning: Member MouseCache (variable) o
 C:/bakge/include/bakge/core/Window.h:93: Warning: Member ScrollCache (variable) of class bakge::Window is not documented.
 C:/bakge/include/bakge/core/Window.h:67: Warning: Member SharedContext (variable) of class bakge::Window is not documented.
 C:/bakge/include/bakge/core/Window.h:125: Warning: Found unknown command `\warn'
-C:/bakge/include/bakge/core/Utility.h:70: Warning: parameters of member bakge::Window::Init are not (all) documented
-C:/bakge/include/bakge/graphics/Node.h:101: Warning: Member Position (variable) of class bakge::Node is not documented.
-C:/bakge/include/bakge/graphics/Node.h:102: Warning: Member ModelMatrixBuffer (variable) of class bakge::Node is not documented.
+C:/bakge/include/bakge/graphics/Node.h:50: Warning: Member Position (variable) of class bakge::Node is not documented.
+C:/bakge/include/bakge/graphics/Node.h:52: Warning: Member ModelMatrixBuffer (variable) of class bakge::Node is not documented.
 C:/bakge/include/bakge/graphics/Camera2D.h:57: Warning: Member Span (variable) of class bakge::Camera2D is not documented.
 C:/bakge/include/bakge/graphics/Camera3D.h:53: Warning: Member Target (variable) of class bakge::Camera3D is not documented.
 C:/bakge/include/bakge/graphics/Camera3D.h:54: Warning: Member FOV (variable) of class bakge::Camera3D is not documented.
@@ -67,27 +62,30 @@ C:/bakge/include/bakge/graphics/Crowd.h:67: Warning: Member Positions (variable)
 C:/bakge/include/bakge/graphics/Crowd.h:68: Warning: Member Rotations (variable) of class bakge::Crowd is not documented.
 C:/bakge/include/bakge/graphics/Crowd.h:69: Warning: Member Scales (variable) of class bakge::Crowd is not documented.
 C:/bakge/include/bakge/graphics/Crowd.h:72: Warning: Member CrowdBuffer (variable) of class bakge::Crowd is not documented.
-C:/bakge/include/bakge/graphics/Pawn.h:141: Warning: Member Facing (variable) of class bakge::Pawn is not documented.
-C:/bakge/include/bakge/graphics/Pawn.h:142: Warning: Member Scale (variable) of class bakge::Pawn is not documented.
-C:/bakge/include/bakge/graphics/Node.h:101: Warning: Member Position (variable) of class bakge::Node is not documented.
-C:/bakge/include/bakge/graphics/Node.h:102: Warning: Member ModelMatrixBuffer (variable) of class bakge::Node is not documented.
-C:/bakge/include/bakge/graphics/Crowd.h:148: Warning: parameters of member bakge::Crowd::Reserve are not (all) documented
+C:/bakge/include/bakge/graphics/Pawn.h:50: Warning: Member Facing (variable) of class bakge::Pawn is not documented.
+C:/bakge/include/bakge/graphics/Pawn.h:51: Warning: Member Scale (variable) of class bakge::Pawn is not documented.
+C:/bakge/include/bakge/graphics/Node.h:50: Warning: Member Position (variable) of class bakge::Node is not documented.
+C:/bakge/include/bakge/graphics/Node.h:52: Warning: Member ModelMatrixBuffer (variable) of class bakge::Node is not documented.
+C:/bakge/include/bakge/graphics/Crowd.h:162: Warning: parameters of member bakge::Crowd::Reserve are not (all) documented
+C:/bakge/include/bakge/graphics/Crowd.h:198: Warning: argument 'Rotation' of command @param is not found in the argument list of bakge::Crowd::RotateMemberGlobal(int MemberIndex, Quaternion BGE_NCP Rot)
+C:/bakge/include/bakge/graphics/Crowd.h:198: Warning: The following parameters of bakge::Crowd::RotateMemberGlobal(int MemberIndex, Quaternion BGE_NCP Rot) are not documented:
+  parameter 'Rot'
 C:/bakge/include/bakge/graphics/Font.h:66: Warning: Member Load(const char *FontData) (function) of class bakge::Font is not documented.
 C:/bakge/include/bakge/graphics/Font.h:57: Warning: Member FontInfo (variable) of class bakge::Font is not documented.
 C:/bakge/include/bakge/graphics/Mesh.h:102: Warning: Member DrawStyle (variable) of class bakge::Mesh is not documented.
 C:/bakge/include/bakge/graphics/Mesh.h:104: Warning: Member NumVertices (variable) of class bakge::Mesh is not documented.
 C:/bakge/include/bakge/graphics/Mesh.h:105: Warning: Member NumTriangles (variable) of class bakge::Mesh is not documented.
-C:/bakge/include/bakge/graphics/Mesh.h:106: Warning: Member NumIndices (variable) of class bakge::Mesh is not documented.
-C:/bakge/include/bakge/graphics/Mesh.h:108: Warning: Member MeshBuffers[NUM_MESH_BUFFERS] (variable) of class bakge::Mesh is not documented.
-C:/bakge/include/bakge/graphics/Mesh.h:160: Warning: parameters of member bakge::Mesh::SetDrawStyle are not (all) documented
-C:/bakge/include/bakge/graphics/Node.h:101: Warning: Member Position (variable) of class bakge::Node is not documented.
-C:/bakge/include/bakge/graphics/Node.h:102: Warning: Member ModelMatrixBuffer (variable) of class bakge::Node is not documented.
-C:/bakge/include/bakge/graphics/Node.h:65: Warning: return type of member bakge::Node::Bind is not documented
-C:/bakge/include/bakge/graphics/Node.h:72: Warning: return type of member bakge::Node::Unbind is not documented
-C:/bakge/include/bakge/graphics/Pawn.h:141: Warning: Member Facing (variable) of class bakge::Pawn is not documented.
-C:/bakge/include/bakge/graphics/Pawn.h:142: Warning: Member Scale (variable) of class bakge::Pawn is not documented.
-C:/bakge/include/bakge/graphics/Node.h:101: Warning: Member Position (variable) of class bakge::Node is not documented.
-C:/bakge/include/bakge/graphics/Node.h:102: Warning: Member ModelMatrixBuffer (variable) of class bakge::Node is not documented.
+C:/bakge/include/bakge/graphics/Mesh.h:107: Warning: Member MeshBuffers[NUM_MESH_BUFFERS] (variable) of class bakge::Mesh is not documented.
+C:/bakge/include/bakge/graphics/Mesh.h:159: Warning: parameters of member bakge::Mesh::SetDrawStyle are not (all) documented
+C:/bakge/include/bakge/graphics/Node.h:50: Warning: Member Position (variable) of class bakge::Node is not documented.
+C:/bakge/include/bakge/graphics/Node.h:52: Warning: Member ModelMatrixBuffer (variable) of class bakge::Node is not documented.
+C:/bakge/include/bakge/graphics/Node.h:69: Warning: parameters of member bakge::Node::Create are not (all) documented
+C:/bakge/include/bakge/graphics/Node.h:77: Warning: return type of member bakge::Node::Bind is not documented
+C:/bakge/include/bakge/graphics/Node.h:84: Warning: return type of member bakge::Node::Unbind is not documented
+C:/bakge/include/bakge/graphics/Pawn.h:50: Warning: Member Facing (variable) of class bakge::Pawn is not documented.
+C:/bakge/include/bakge/graphics/Pawn.h:51: Warning: Member Scale (variable) of class bakge::Pawn is not documented.
+C:/bakge/include/bakge/graphics/Node.h:50: Warning: Member Position (variable) of class bakge::Node is not documented.
+C:/bakge/include/bakge/graphics/Node.h:52: Warning: Member ModelMatrixBuffer (variable) of class bakge::Node is not documented.
 C:/bakge/include/bakge/graphics/Shader.h:75: Warning: Member Link() (function) of class bakge::Shader is not documented.
 C:/bakge/include/bakge/graphics/Shader.h:76: Warning: Member Unlink() (function) of class bakge::Shader is not documented.
 C:/bakge/include/bakge/graphics/Shader.h:77: Warning: Member DeleteShaders() (function) of class bakge::Shader is not documented.
@@ -102,58 +100,23 @@ C:/bakge/include/bakge/graphics/Shader.h:61: Warning: Member GenericShader (vari
 C:/bakge/include/bakge/graphics/Shader.h:62: Warning: Member VertexLib (variable) of class bakge::Shader is not documented.
 C:/bakge/include/bakge/graphics/Shader.h:63: Warning: Member FragmentLib (variable) of class bakge::Shader is not documented.
 C:/bakge/include/bakge/graphics/Shader.h:64: Warning: Member Window::Create(int, int, int) (friend) of class bakge::Shader is not documented.
+C:/bakge/include/bakge/core/Utility.h:70: Warning: argument 'argc' of command @param is not found in the argument list of bakge::Shader::Init(int, char *[])
+C:/bakge/include/bakge/core/Utility.h:70: Warning: argument 'argv' of command @param is not found in the argument list of bakge::Shader::Init(int, char *[])
 C:/bakge/include/bakge/graphics/Mesh.h:102: Warning: Member DrawStyle (variable) of class bakge::Mesh is not documented.
 C:/bakge/include/bakge/graphics/Mesh.h:104: Warning: Member NumVertices (variable) of class bakge::Mesh is not documented.
 C:/bakge/include/bakge/graphics/Mesh.h:105: Warning: Member NumTriangles (variable) of class bakge::Mesh is not documented.
-C:/bakge/include/bakge/graphics/Mesh.h:106: Warning: Member NumIndices (variable) of class bakge::Mesh is not documented.
-C:/bakge/include/bakge/graphics/Mesh.h:108: Warning: Member MeshBuffers[NUM_MESH_BUFFERS] (variable) of class bakge::Mesh is not documented.
+C:/bakge/include/bakge/graphics/Mesh.h:107: Warning: Member MeshBuffers[NUM_MESH_BUFFERS] (variable) of class bakge::Mesh is not documented.
 C:/bakge/include/bakge/graphics/Texture.h:46: Warning: Member Width (variable) of class bakge::Texture is not documented.
 C:/bakge/include/bakge/graphics/Texture.h:47: Warning: Member Height (variable) of class bakge::Texture is not documented.
 C:/bakge/include/bakge/graphics/Texture.h:49: Warning: Member Location (variable) of class bakge::Texture is not documented.
 C:/bakge/include/bakge/graphics/Texture.h:50: Warning: Member TextureID (variable) of class bakge::Texture is not documented.
-C:/bakge/include/bakge/graphics/shapes/Cone.h:47: Warning: Member Create(Scalar BaseRadius, Scalar TopRadius, Scalar Height) (function) of class bakge::Cone is not documented.
-C:/bakge/include/bakge/graphics/shapes/Cone.h:49: Warning: Member SetTopRadius(Scalar Top) (function) of class bakge::Cone is not documented.
-C:/bakge/include/bakge/graphics/shapes/Cylinder.h:51: Warning: Member Create(Scalar Radius, Scalar Height) (function) of class bakge::Cylinder is not documented.
-C:/bakge/include/bakge/graphics/shapes/Cylinder.h:53: Warning: Member SetHeight(Scalar ConeHeight) (function) of class bakge::Cylinder is not documented.
-C:/bakge/include/bakge/graphics/shapes/Cylinder.h:58: Warning: Member SetRadius(Scalar BGE_NCP R) (function) of class bakge::Cylinder is not documented.
-C:/bakge/include/bakge/graphics/shapes/Cylinder.h:63: Warning: Member SetSlicesAndStacks(int NumSlices, int NumStacks) (function) of class bakge::Cylinder is not documented.
-C:/bakge/include/bakge/graphics/shapes/Cone.h:35: Warning: Member TopRadius (variable) of class bakge::Cone is not documented.
-C:/bakge/include/bakge/graphics/shapes/Cylinder.h:38: Warning: Member Radius (variable) of class bakge::Cylinder is not documented.
-C:/bakge/include/bakge/graphics/shapes/Cylinder.h:39: Warning: Member Length (variable) of class bakge::Cylinder is not documented.
-C:/bakge/include/bakge/graphics/shapes/Cylinder.h:40: Warning: Member Height (variable) of class bakge::Cylinder is not documented.
-C:/bakge/include/bakge/graphics/shapes/Cylinder.h:41: Warning: Member Slices (variable) of class bakge::Cylinder is not documented.
-C:/bakge/include/bakge/graphics/shapes/Cylinder.h:42: Warning: Member Stacks (variable) of class bakge::Cylinder is not documented.
 C:/bakge/include/bakge/graphics/Mesh.h:102: Warning: Member DrawStyle (variable) of class bakge::Mesh is not documented.
 C:/bakge/include/bakge/graphics/Mesh.h:104: Warning: Member NumVertices (variable) of class bakge::Mesh is not documented.
 C:/bakge/include/bakge/graphics/Mesh.h:105: Warning: Member NumTriangles (variable) of class bakge::Mesh is not documented.
-C:/bakge/include/bakge/graphics/Mesh.h:106: Warning: Member NumIndices (variable) of class bakge::Mesh is not documented.
-C:/bakge/include/bakge/graphics/Mesh.h:108: Warning: Member MeshBuffers[NUM_MESH_BUFFERS] (variable) of class bakge::Mesh is not documented.
-C:/bakge/include/bakge/graphics/shapes/Cube.h:64: Warning: parameters of member bakge::Cube::Create are not (all) documented
-C:/bakge/include/bakge/graphics/shapes/Cylinder.h:51: Warning: Member Create(Scalar Radius, Scalar Height) (function) of class bakge::Cylinder is not documented.
-C:/bakge/include/bakge/graphics/shapes/Cylinder.h:53: Warning: Member SetHeight(Scalar ConeHeight) (function) of class bakge::Cylinder is not documented.
-C:/bakge/include/bakge/graphics/shapes/Cylinder.h:58: Warning: Member SetRadius(Scalar BGE_NCP R) (function) of class bakge::Cylinder is not documented.
-C:/bakge/include/bakge/graphics/shapes/Cylinder.h:63: Warning: Member SetSlicesAndStacks(int NumSlices, int NumStacks) (function) of class bakge::Cylinder is not documented.
-C:/bakge/include/bakge/graphics/shapes/Cylinder.h:38: Warning: Member Radius (variable) of class bakge::Cylinder is not documented.
-C:/bakge/include/bakge/graphics/shapes/Cylinder.h:39: Warning: Member Length (variable) of class bakge::Cylinder is not documented.
-C:/bakge/include/bakge/graphics/shapes/Cylinder.h:40: Warning: Member Height (variable) of class bakge::Cylinder is not documented.
-C:/bakge/include/bakge/graphics/shapes/Cylinder.h:41: Warning: Member Slices (variable) of class bakge::Cylinder is not documented.
-C:/bakge/include/bakge/graphics/shapes/Cylinder.h:42: Warning: Member Stacks (variable) of class bakge::Cylinder is not documented.
-C:/bakge/include/bakge/graphics/shapes/Rectangle.h:47: Warning: Member Create(Scalar Length, Scalar Width) (function) of class bakge::Rectangle is not documented.
-C:/bakge/include/bakge/graphics/shapes/Rectangle.h:49: Warning: Member SetDimensions(Scalar X, Scalar Y) (function) of class bakge::Rectangle is not documented.
-C:/bakge/include/bakge/graphics/shapes/Rectangle.h:51: Warning: Member GetDimensions() const  (function) of class bakge::Rectangle is not documented.
-C:/bakge/include/bakge/graphics/shapes/Rectangle.h:38: Warning: Member Dimensions (variable) of class bakge::Rectangle is not documented.
-C:/bakge/include/bakge/graphics/shapes/Sphere.h:49: Warning: Member Create(Scalar Radius) (function) of class bakge::Sphere is not documented.
-C:/bakge/include/bakge/graphics/shapes/Sphere.h:51: Warning: Member SetRadius(Scalar BGE_NCP R) (function) of class bakge::Sphere is not documented.
-C:/bakge/include/bakge/graphics/shapes/Sphere.h:56: Warning: Member GetRadius() const  (function) of class bakge::Sphere is not documented.
-C:/bakge/include/bakge/graphics/shapes/Sphere.h:61: Warning: Member SetSlicesAndStacks(int NumSlices, int NumStacks) (function) of class bakge::Sphere is not documented.
-C:/bakge/include/bakge/graphics/shapes/Sphere.h:35: Warning: Member Radius (variable) of class bakge::Sphere is not documented.
-C:/bakge/include/bakge/graphics/shapes/Sphere.h:36: Warning: Member Slices (variable) of class bakge::Sphere is not documented.
-C:/bakge/include/bakge/graphics/shapes/Sphere.h:37: Warning: Member Stacks (variable) of class bakge::Sphere is not documented.
-C:/bakge/include/bakge/graphics/Mesh.h:102: Warning: Member DrawStyle (variable) of class bakge::Mesh is not documented.
-C:/bakge/include/bakge/graphics/Mesh.h:104: Warning: Member NumVertices (variable) of class bakge::Mesh is not documented.
-C:/bakge/include/bakge/graphics/Mesh.h:105: Warning: Member NumTriangles (variable) of class bakge::Mesh is not documented.
-C:/bakge/include/bakge/graphics/Mesh.h:106: Warning: Member NumIndices (variable) of class bakge::Mesh is not documented.
-C:/bakge/include/bakge/graphics/Mesh.h:108: Warning: Member MeshBuffers[NUM_MESH_BUFFERS] (variable) of class bakge::Mesh is not documented.
+C:/bakge/include/bakge/graphics/Mesh.h:107: Warning: Member MeshBuffers[NUM_MESH_BUFFERS] (variable) of class bakge::Mesh is not documented.
+C:/bakge/include/bakge/graphics/shapes/Rectangle.h:50: Warning: Member Width (variable) of class bakge::Rectangle is not documented.
+C:/bakge/include/bakge/graphics/shapes/Rectangle.h:51: Warning: Member Height (variable) of class bakge::Rectangle is not documented.
+C:/bakge/include/bakge/graphics/shapes/Rectangle.h:68: Warning: parameters of member bakge::Rectangle::Create are not (all) documented
 C:/bakge/include/bakge/input/GamePad.h:64: Warning: Member AvailableGamePads (variable) of class bakge::GamePad is not documented.
 C:/bakge/include/bakge/input/GamePad.h:47: Warning: Member Handle (variable) of class bakge::GamePad is not documented.
 C:/bakge/include/bakge/input/GamePad.h:49: Warning: Member NumButtons (variable) of class bakge::GamePad is not documented.
@@ -166,6 +129,7 @@ C:/bakge/include/bakge/math/Matrix.h:95: Warning: parameters of member bakge::Ma
 C:/bakge/include/bakge/math/Matrix.h:106: Warning: parameters of member bakge::Matrix::Matrix are not (all) documented
 C:/bakge/include/bakge/math/Matrix.h:139: Warning: parameters of member bakge::Matrix::operator= are not (all) documented
 C:/bakge/include/bakge/math/Quaternion.h:94: Warning: Found unknown command `\bief'
+C:/bakge/include/bakge/math/Quaternion.h:131: Warning: parameters of member bakge::Quaternion::operator= are not (all) documented
 C:/bakge/include/bakge/math/Vector3.h:41: Warning: Member Vector3(Scalar X, Scalar Y, Scalar Z) (function) of class bakge::Vector3 is not documented.
 C:/bakge/include/bakge/math/Vector3.h:42: Warning: Member Vector3(Vector3 BGE_NCP Other) (function) of class bakge::Vector3 is not documented.
 C:/bakge/include/bakge/math/Vector3.h:45: Warning: Member operator-() const  (function) of class bakge::Vector3 is not documented.
@@ -209,6 +173,15 @@ C:/bakge/include/bakge/math/Vector4.h:92: Warning: Member LengthSquared() const 
 C:/bakge/include/bakge/math/Vector4.h:93: Warning: Member Length() const  (function) of class bakge::Vector4 is not documented.
 C:/bakge/include/bakge/math/Vector4.h:63: Warning: Member Origin (variable) of class bakge::Vector4 is not documented.
 C:/bakge/include/bakge/math/Vector4.h:64: Warning: Member ZeroVector (variable) of class bakge::Vector4 is not documented.
+C:/bakge/include/bakge/audio/Environment.h:46: Warning: Member Device (variable) of class bakge::Environment is not documented.
+C:/bakge/include/bakge/audio/Environment.h:47: Warning: Member Context (variable) of class bakge::Environment is not documented.
+C:/bakge/include/bakge/audio/Source.h:51: Warning: Member SourceHandle (variable) of class bakge::Source is not documented.
+C:/bakge/include/bakge/audio/Source.h:85: Warning: parameters of member bakge::Source::Attach are not (all) documented
+C:/bakge/include/bakge/audio/Stream.h:50: Warning: Member StreamBuffer (variable) of class bakge::Stream is not documented.
+C:/bakge/include/bakge/audio/Stream.h:51: Warning: Member Info (variable) of class bakge::Stream is not documented.
+C:/bakge/include/bakge/audio/Stream.h:52: Warning: Member Vorbis (variable) of class bakge::Stream is not documented.
+C:/bakge/include/bakge/audio/Stream.h:48: Warning: Member Source::Attach(Stream *Str) (friend) of class bakge::Stream is not documented.
+C:/bakge/include/bakge/audio/Stream.h:69: Warning: parameters of member bakge::Stream::Create are not (all) documented
 C:/bakge/include/bakge/api/Socket.h:46: Warning: Member Receive()=0 (function) of class bakge::api::Socket is not documented.
 C:/bakge/include/bakge/api/Socket.h:47: Warning: Member Send(Remote *Destination, Packet *Data)=0 (function) of class bakge::api::Socket is not documented.
 C:/bakge/include/bakge/api/Thread.h:74: Warning: Found unknown command `\warn'

@@ -8,6 +8,6 @@ var searchData=
   ['operator_2d_3d',['operator-=',['../classbakge_1_1Quaternion.html#a86452e9810f4854d1ae75700520574f4',1,'bakge::Quaternion']]],
   ['operator_2f',['operator/',['../classbakge_1_1Quaternion.html#ac126dc9d3f9d15ff5b8a6229950c8280',1,'bakge::Quaternion::operator/(Quaternion BGE_NCP Other) const '],['../classbakge_1_1Quaternion.html#a9d107e742595a5322a2833c73c973c9a',1,'bakge::Quaternion::operator/(Scalar BGE_NCP Value) const ']]],
   ['operator_2f_3d',['operator/=',['../classbakge_1_1Quaternion.html#a89916ef972ef4a9c0964d93901ea6334',1,'bakge::Quaternion::operator/=(Quaternion BGE_NCP Other)'],['../classbakge_1_1Quaternion.html#ad1af5e85851a2d7c6d530e247fffd454',1,'bakge::Quaternion::operator/=(Scalar BGE_NCP Value)']]],
-  ['operator_3d',['operator=',['../classbakge_1_1Matrix.html#adb1ce0ac31d4d345b55838ad019820a8',1,'bakge::Matrix']]],
+  ['operator_3d',['operator=',['../classbakge_1_1Matrix.html#adb1ce0ac31d4d345b55838ad019820a8',1,'bakge::Matrix::operator=()'],['../classbakge_1_1Quaternion.html#acfa63c2260b7e54148c3a13cc70bd5ca',1,'bakge::Quaternion::operator=()']]],
   ['operator_5b_5d',['operator[]',['../classbakge_1_1Matrix.html#ad98df44bb7aa252bfc45592f58dae30e',1,'bakge::Matrix::operator[](int BGE_NCP At) const '],['../classbakge_1_1Matrix.html#a4edb3f9bfa819814427a366c424a886a',1,'bakge::Matrix::operator[](int BGE_NCP At)']]]
 ];

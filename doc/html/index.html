@@ -83,11 +83,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="contents">
 <div class="textblock"><h1><a class="anchor" id="intro"></a>
 Introduction</h1>
-<p>Bakge is a game engine and software project with two major goals. The first and foremost is to provide a partial and compact abstraction over OpenGL and other third-party libraries, to simplify programmatic approaches to game and game engine development using C++. The second is to provide a development kit with which developers can create a 2D or 3D game using Lua, similar to <a href="http://www.love2d.org">Love2D</a>. </p>
+<p>Bakge is a game engine and software project with two major goals. The first and foremost is to provide a partial and compact abstraction over OpenGL and other third-party libraries, to simplify programmatic approaches to game and game engine development using C++. The second is to provide a development kit with which developers can create a 2D or 3D game using Lua, similar to <a href="http://www.love2d.org">Love2D</a>.</p>
+<h1><a class="anchor" id="sdk"></a>
+SDK</h1>
+<p>The Bakge library contains abstractions over common functionality implemented in OpenGL and the other third-party libraries used by Bakge. Though Bakge is a game engine, the library portion does not contain any physics engine code or libraries. As the library provides methods to extract data about meshes or other objects in the world, it is left to the end-user to use this data to create physics colliders in their physics engine of choice.</p>
+<h1><a class="anchor" id="gdk"></a>
+GDK</h1>
+<p>The Bakge GDK contains tools and a ready-made game engine for which games can be programmed with Lua 5.1. As the SDK does not provide physics, the GDK engine will use Bullet for its 3D physics and Box2D for its 2D physics. </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Sep 24 2013 00:08:55 for Bakge by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Sep 30 2013 00:33:28 for Bakge by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.4
 </small></address>
