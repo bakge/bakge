@@ -1,7 +1,6 @@
 var searchData=
 [
   ['iconify',['Iconify',['../classbakge_1_1Window.html#a20becf7403b70afde32bb1849c0c81ae',1,'bakge::Window']]],
-  ['indexdata',['IndexData',['../classbakge_1_1Mesh.html#a3538c4d5329bfe4071d2d6acb2d937d0',1,'bakge::Mesh']]],
   ['init',['Init',['../namespacebakge.html#abac8f523e5019400d1c05ddbd6727c4e',1,'bakge']]],
   ['initialize',['Initialize',['../classbakge_1_1Engine.html#a00913f8ecfac38c25991ac6b3d300413',1,'bakge::Engine']]],
   ['invert',['Invert',['../classbakge_1_1Matrix.html#af2d80273c0f9f68bca8edd3e86d28f66',1,'bakge::Matrix::Invert()'],['../classbakge_1_1Quaternion.html#a9b599135c65f08ec557304a81bc82540',1,'bakge::Quaternion::Invert()']]],

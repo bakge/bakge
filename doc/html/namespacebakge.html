@@ -119,9 +119,6 @@ Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbakge_1_1Window.html">Window</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">GLFW window wrapper class.  <a href="classbakge_1_1Window.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbakge_1_1Camera.html">Camera</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for cameras representing view and projection transforms.  <a href="classbakge_1_1Camera.html#details">More...</a><br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbakge_1_1Camera2D.html">Camera2D</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents arbitrary view and projection transforms for rendering in 2D Cartesian space.  <a href="classbakge_1_1Camera2D.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -146,17 +143,14 @@ Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbakge_1_1Shader.html">Shader</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">GLSL shader wrapper class.  <a href="classbakge_1_1Shader.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbakge_1_1Shape.html">Shape</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shapes are special mesh objects with configurable dimensions.  <a href="classbakge_1_1Shape.html#details">More...</a><br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbakge_1_1Texture.html">Texture</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">OpenGL 2D texture wrapper class.  <a href="classbakge_1_1Texture.html#details">More...</a><br/></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">RGBA 2D texture wrapper class.  <a href="classbakge_1_1Texture.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbakge_1_1Cube.html">Cube</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="classbakge_1_1Cube.html" title="The Cube is a 3D block shape centered at the origin. ">Cube</a> is a 3D block shape centered at the origin.  <a href="classbakge_1_1Cube.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbakge_1_1Rectangle.html">Rectangle</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A <a class="el" href="classbakge_1_1Shape.html" title="Shapes are special mesh objects with configurable dimensions. ">Shape</a> primarily used for 2D rendering.  <a href="classbakge_1_1Rectangle.html#details">More...</a><br/></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A Shape primarily used for 2D rendering.  <a href="classbakge_1_1Rectangle.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbakge_1_1GamePad.html">GamePad</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A joystick or controller used for player input.  <a href="classbakge_1_1GamePad.html#details">More...</a><br/></td></tr>
@@ -326,9 +320,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ab839e6569f0d22e1fe246ebbb931f150"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab839e6569f0d22e1fe246ebbb931f150"></a>
 BGE_WUNUSED <a class="el" href="Bakge_8h.html#ad161a29f637da96c2335548a163568c1">BGE_FUNC</a> <a class="el" href="namespacebakge.html#a3901bab08209824a40d4340c90161669">Byte</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>LoadFileContents</b> (const char *Path)</td></tr>
 <tr class="separator:ab839e6569f0d22e1fe246ebbb931f150"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abdaa7e28af2a4308865420465372bd66"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Bakge_8h.html#a14c834f0052d11fa87c7fd1e3ae62cd1">BGE_INL</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacebakge.html#abdaa7e28af2a4308865420465372bd66">Log</a> (const char *Format,...)</td></tr>
-<tr class="memdesc:abdaa7e28af2a4308865420465372bd66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write a time-stamped log message to bakge.log.  <a href="#abdaa7e28af2a4308865420465372bd66">More...</a><br/></td></tr>
-<tr class="separator:abdaa7e28af2a4308865420465372bd66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8312cbaa4500e28f12fc19fa91c6e93"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacebakge.html#ad8312cbaa4500e28f12fc19fa91c6e93">Log</a> (const char *Format,...)</td></tr>
+<tr class="memdesc:ad8312cbaa4500e28f12fc19fa91c6e93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write a time-stamped log message to bakge.log.  <a href="#ad8312cbaa4500e28f12fc19fa91c6e93">More...</a><br/></td></tr>
+<tr class="separator:ad8312cbaa4500e28f12fc19fa91c6e93"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab95ff82de2e284d8010b147dcd74553b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Bakge_8h.html#ad161a29f637da96c2335548a163568c1">BGE_FUNC</a> <a class="el" href="namespacebakge.html#aa0959354a65485a10671e3408dbcef80">Result</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacebakge.html#ab95ff82de2e284d8010b147dcd74553b">Delay</a> (<a class="el" href="namespacebakge.html#a468d290e8550c4701c7bd5ddd0cd33ed">Microseconds</a> Time)</td></tr>
 <tr class="memdesc:ab95ff82de2e284d8010b147dcd74553b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pause the calling thread for a given length of time.  <a href="#ab95ff82de2e284d8010b147dcd74553b">More...</a><br/></td></tr>
 <tr class="separator:ab95ff82de2e284d8010b147dcd74553b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -656,12 +650,12 @@ BGE_WUNUSED <a class="el" href="Bakge_8h.html#ad161a29f637da96c2335548a163568c1"
 
 </div>
 </div>
-<a class="anchor" id="abdaa7e28af2a4308865420465372bd66"></a>
+<a class="anchor" id="ad8312cbaa4500e28f12fc19fa91c6e93"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="Bakge_8h.html#a14c834f0052d11fa87c7fd1e3ae62cd1">BGE_INL</a> int bakge::Log </td>
+          <td class="memname">int bakge::Log </td>
           <td>(</td>
           <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>Format</em>, </td>
@@ -929,7 +923,7 @@ template&lt;class T &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Sep 30 2013 00:33:28 for Bakge by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Oct 3 2013 18:47:31 for Bakge by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.4
 </small></address>

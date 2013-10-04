@@ -146,7 +146,7 @@ ALCcontext *&#160;</td><td class="memItemRight" valign="bottom"><b>Context</b></
 <tr class="separator:ae6cd96776cf0cf94be2cd34544ddb955"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>An audio <a class="el" href="classbakge_1_1Environment.html" title="An audio Environment through which sounds are played. ">Environment</a> consists of an OpenAL context and its associated listener. The listener, as well as any <a class="el" href="classbakge_1_1Source.html" title="A Node-like object used to play Stream objects. ">Source</a> objects, are placed in 3D Cartesian space, and OpenAL handles the positional audio. </p>
+<div class="textblock"><p>An audio <a class="el" href="classbakge_1_1Environment.html" title="An audio Environment through which sounds are played. ">Environment</a> consists of an OpenAL context and its associated listener. The listener, as well as any <a class="el" href="classbakge_1_1Source.html" title="A Node-like object used to play Stream objects. ">Source</a> objects, are placed in 3D Cartesian space, and OpenAL handles the positional audio. OpenAL contexts are per-process, not per-thread like OpenGL contexts. As such, you should only ever have one <a class="el" href="classbakge_1_1Environment.html" title="An audio Environment through which sounds are played. ">Environment</a> for your entire application. There is nothing wrong with having multiples, just know that Sources and Streams created while one <a class="el" href="classbakge_1_1Environment.html" title="An audio Environment through which sounds are played. ">Environment</a> is bound will not work if you then bind a different <a class="el" href="classbakge_1_1Environment.html" title="An audio Environment through which sounds are played. ">Environment</a>. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a02ae018e2376ea6d32e5a82822edde7d"></a>
 <div class="memitem">
@@ -275,7 +275,7 @@ ALCcontext *&#160;</td><td class="memItemRight" valign="bottom"><b>Context</b></
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Sep 30 2013 00:33:28 for Bakge by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Oct 3 2013 18:47:31 for Bakge by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.4
 </small></address>

@@ -106,7 +106,7 @@ Public Member Functions</h2></td></tr>
 <a class="el" href="Bakge_8h.html#aafce0bae86caf62f20af518f7b5b81c6">BGE_FACTORY</a> <a class="el" href="classbakge_1_1Font.html">Font</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>Load</b> (const char *FontData)</td></tr>
 <tr class="separator:a45de1665afdeaad16ed81ad565cf52ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a69575a80a3d4d1b286f7257aa8043625"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbakge_1_1Font.html#a69575a80a3d4d1b286f7257aa8043625">Bake</a> (<a class="el" href="classbakge_1_1Texture.html">Texture</a> **Target, int GlyphStart, int GlyphEnd, int PixelHeight)</td></tr>
-<tr class="memdesc:a69575a80a3d4d1b286f7257aa8043625"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a glyph map <a class="el" href="classbakge_1_1Texture.html" title="OpenGL 2D texture wrapper class. ">Texture</a> for a range of glyphs.  <a href="#a69575a80a3d4d1b286f7257aa8043625">More...</a><br/></td></tr>
+<tr class="memdesc:a69575a80a3d4d1b286f7257aa8043625"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a glyph map <a class="el" href="classbakge_1_1Texture.html" title="RGBA 2D texture wrapper class. ">Texture</a> for a range of glyphs.  <a href="#a69575a80a3d4d1b286f7257aa8043625">More...</a><br/></td></tr>
 <tr class="separator:a69575a80a3d4d1b286f7257aa8043625"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
@@ -116,7 +116,7 @@ stbtt_fontinfo&#160;</td><td class="memItemRight" valign="bottom"><b>FontInfo</b
 <tr class="separator:a77917541e29183150f39fc1290abcdd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The <a class="el" href="classbakge_1_1Font.html" title="Wrapper class for TrueType fonts. ">Font</a> class serves as a wrapper for font metadata. It has a public API for getting key information about a font such as vertical line spacing, kerning advance, and more. It also provides an API for baking glyph maps into a <a class="el" href="classbakge_1_1Texture.html" title="OpenGL 2D texture wrapper class. ">bakge::Texture</a>.</p>
+<div class="textblock"><p>The <a class="el" href="classbakge_1_1Font.html" title="Wrapper class for TrueType fonts. ">Font</a> class serves as a wrapper for font metadata. It has a public API for getting key information about a font such as vertical line spacing, kerning advance, and more. It also provides an API for baking glyph maps into a <a class="el" href="classbakge_1_1Texture.html" title="RGBA 2D texture wrapper class. ">bakge::Texture</a>.</p>
 <p>This class does not serve to render text in any way. Baking glyph map textures simply collects glyph bitmaps into a large texture and uploads them into OpenGL textures. Text rendering itself is usually done with quads drawn on the screen; managing different glyph maps as well as determining positioning and metrics of these quads is left to end-users.</p>
 <p>The glyph maps are uploaded as alphamaps; the raw data sent to OpenGL contains only alpha values with no color information. As such it is recommended you use a specialized text rendering shader. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
@@ -155,10 +155,10 @@ stbtt_fontinfo&#160;</td><td class="memItemRight" valign="bottom"><b>FontInfo</b
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This method allocates a new <a class="el" href="classbakge_1_1Texture.html" title="OpenGL 2D texture wrapper class. ">Texture</a> from a baked glyph map containing the glyphs between GlyphStart and GlyphEnd (inclusive).</p>
+<p>This method allocates a new <a class="el" href="classbakge_1_1Texture.html" title="RGBA 2D texture wrapper class. ">Texture</a> from a baked glyph map containing the glyphs between GlyphStart and GlyphEnd (inclusive).</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">Target</td><td>Pointee set to address of allocated <a class="el" href="classbakge_1_1Texture.html" title="OpenGL 2D texture wrapper class. ">Texture</a>. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">Target</td><td>Pointee set to address of allocated <a class="el" href="classbakge_1_1Texture.html" title="RGBA 2D texture wrapper class. ">Texture</a>. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">GlyphStart</td><td>First glyph index to bake. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">GlyphEnd</td><td>Last glyph to bake. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">PixelHeight</td><td>Height of font glyphs in pixels.</td></tr>
@@ -175,7 +175,7 @@ stbtt_fontinfo&#160;</td><td class="memItemRight" valign="bottom"><b>FontInfo</b
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Sep 30 2013 00:33:28 for Bakge by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Oct 3 2013 18:47:31 for Bakge by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.4
 </small></address>

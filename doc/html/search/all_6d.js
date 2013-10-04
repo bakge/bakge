@@ -17,8 +17,5 @@ var searchData=
   ['modfield',['ModField',['../namespacebakge.html#a8b477d7e86b815ec534a7b2de73b37ee',1,'bakge']]],
   ['motion',['Motion',['../namespacebakge.html#a617d948eeaf28204735993fa80e40cc7',1,'bakge']]],
   ['motionevent',['MotionEvent',['../classbakge_1_1EventHandler.html#ab136d2875f525985dda9a0cff56a9237',1,'bakge::EventHandler']]],
-  ['mouseevent',['MouseEvent',['../classbakge_1_1EventHandler.html#aca5a50ea5cc2c46314f4c1f4a18ceb5f',1,'bakge::EventHandler']]],
-  ['mutex',['Mutex',['../classbakge_1_1api_1_1Mutex.html',1,'bakge::api']]],
-  ['mutex',['Mutex',['../classbakge_1_1api_1_1Mutex.html#aecfade747b88cc686b1b5b0649397776',1,'bakge::api::Mutex']]],
-  ['mutex_2eh',['Mutex.h',['../Mutex_8h.html',1,'']]]
+  ['mouseevent',['MouseEvent',['../classbakge_1_1EventHandler.html#aca5a50ea5cc2c46314f4c1f4a18ceb5f',1,'bakge::EventHandler']]]
 ];

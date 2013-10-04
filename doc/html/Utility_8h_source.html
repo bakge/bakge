@@ -153,25 +153,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;BGE_WUNUSED <a class="code" href="Bakge_8h.html#ad161a29f637da96c2335548a163568c1" title="Declaration for Bakge global API. ">BGE_FUNC</a> <a class="code" href="namespacebakge.html#a3901bab08209824a40d4340c90161669" title="An 8-bit type definition. Is not necessarily a printable character. ">Byte</a>* LoadFileContents(<span class="keyword">const</span> <span class="keywordtype">char</span>* Path);</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
-<div class="line"><a name="l00112"></a><span class="lineno"><a class="code" href="namespacebakge.html#abdaa7e28af2a4308865420465372bd66">  112</a></span>&#160;<a class="code" href="Bakge_8h.html#a14c834f0052d11fa87c7fd1e3ae62cd1" title="Inline hint macro. ">BGE_INL</a> <span class="keywordtype">int</span> <a class="code" href="namespacebakge.html#abdaa7e28af2a4308865420465372bd66" title="Write a time-stamped log message to bakge.log. ">Log</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* Format, ...)</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;{</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keywordtype">int</span> i;</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    va_list ArgList;</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    va_start(ArgList, Format);</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    i = vprintf(Format, ArgList);</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    va_end(ArgList);</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keywordflow">return</span> i;</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;}</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;} <span class="comment">/* bakge */</span></div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* BAKGE_CORE_UTILITY_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="keywordtype">int</span> <a class="code" href="namespacebakge.html#ad8312cbaa4500e28f12fc19fa91c6e93" title="Write a time-stamped log message to bakge.log. ">Log</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* Format, ...);</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;} <span class="comment">/* bakge */</span></div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* BAKGE_CORE_UTILITY_H */</span><span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Sep 30 2013 00:33:28 for Bakge by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Oct 3 2013 18:47:31 for Bakge by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.4
 </small></address>

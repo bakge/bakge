@@ -4,6 +4,5 @@ var searchData=
   ['max',['Max',['../namespacebakge.html#a8345d9ba2197b1077b637a4bfc254b75',1,'bakge']]],
   ['mesh',['Mesh',['../classbakge_1_1Mesh.html#a888d5be1cf374d12907a6e38a7884451',1,'bakge::Mesh']]],
   ['motionevent',['MotionEvent',['../classbakge_1_1EventHandler.html#ab136d2875f525985dda9a0cff56a9237',1,'bakge::EventHandler']]],
-  ['mouseevent',['MouseEvent',['../classbakge_1_1EventHandler.html#aca5a50ea5cc2c46314f4c1f4a18ceb5f',1,'bakge::EventHandler']]],
-  ['mutex',['Mutex',['../classbakge_1_1api_1_1Mutex.html#aecfade747b88cc686b1b5b0649397776',1,'bakge::api::Mutex']]]
+  ['mouseevent',['MouseEvent',['../classbakge_1_1EventHandler.html#aca5a50ea5cc2c46314f4c1f4a18ceb5f',1,'bakge::EventHandler']]]
 ];

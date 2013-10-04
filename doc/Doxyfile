@@ -659,7 +659,6 @@ INPUT                  = C:/bakge/include/bakge/Bakge.h \
                          C:/bakge/include/bakge/input \
                          C:/bakge/include/bakge/system \
                          C:/bakge/include/bakge/math \
-                         C:/bakge/include/bakge/api \
                          C:/bakge/include/bakge/audio \
                          C:/bakge/doc \
 

@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['camera',['Camera',['../classbakge_1_1Camera.html#acef1e48b37a938af8e9920a420efd743',1,'bakge::Camera']]],
   ['camera2d',['Camera2D',['../classbakge_1_1Camera2D.html#ab7e96b6d76cb15247b3eddb3f20f345a',1,'bakge::Camera2D']]],
   ['camera3d',['Camera3D',['../classbakge_1_1Camera3D.html#ab2634a371614b376d7d67e9e888f2f6d',1,'bakge::Camera3D']]],
   ['clear',['Clear',['../classbakge_1_1Crowd.html#ac3edcd9c6d2918c9a2b2b7756916214b',1,'bakge::Crowd']]],
