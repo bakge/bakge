@@ -230,7 +230,7 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Default <a class="el" href="classbakge_1_1Shader.html" title="GLSL shader wrapper class. ">Shader</a> destructor. </p>
+<p><a class="el" href="classbakge_1_1Shader.html" title="GLSL shader wrapper class. ">Shader</a> destructor. </p>
 
 </div>
 </div>
@@ -370,7 +370,7 @@ Friends</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Init must be called before any Bakge class or method can safely be used. Calling Init twice or failing to match it with a corresponding Deinit call before your program exits can cause crashes or memory leaks.</p>
+<p>Init must be called before any Bakge class or method can safely be used. Calling Init twice or failing to match it with a corresponding Deinit call before your program exits can cause crashes or memory leaks. If any errors or failed initialization is called, Init internally calls Deinit.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">argc</td><td>Number of command-line arguments. </td></tr>
@@ -403,7 +403,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Deinit must be called before your program exits. This function cleans up internal resources that were allocated when Init was called. Calling Deinit when not preceded by an Init call may result in crashes or memory leaks.</p>
-<dl class="section return"><dt>Returns</dt><dd>BGE_SUCCESS if deinitialization was successful; BGE_FAILURE if any errors occurred. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Always returns BGE_FAILURE </dd></dl>
 
 </div>
 </div>
@@ -413,7 +413,7 @@ Friends</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Oct 3 2013 18:47:31 for Bakge by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Oct 13 2013 00:24:09 for Bakge by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.4
 </small></address>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['vertexlib',['VertexLib',['../group__VertexLib.html',1,'']]]
+  ['vertexlib',['VertexLib',['../group__vertexlib.html',1,'']]]
 ];

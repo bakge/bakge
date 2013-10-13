@@ -3,6 +3,7 @@ var searchData=
   ['rectangle',['Rectangle',['../classbakge_1_1Rectangle.html#a95b53ba4a29d373fd568d99146659336',1,'bakge::Rectangle']]],
   ['renderstage',['RenderStage',['../classbakge_1_1Engine.html#aa9ae664c48adc6ba6e893c981227bae4',1,'bakge::Engine']]],
   ['reserve',['Reserve',['../classbakge_1_1Crowd.html#af1c50bfeae6ef433266bbe8b9f6c9c1e',1,'bakge::Crowd']]],
+  ['resizable',['Resizable',['../classbakge_1_1Resizable.html#a6a95a237238fc5f45e96f0b092672bd0',1,'bakge::Resizable']]],
   ['rotate',['Rotate',['../classbakge_1_1Pawn.html#ad0f6fec0f319e3a2d836e52d942d8701',1,'bakge::Pawn::Rotate()'],['../classbakge_1_1Matrix.html#a075787cfa5702b789f2f6c32c1c41558',1,'bakge::Matrix::Rotate(Radians X, Radians Y, Radians Z)'],['../classbakge_1_1Matrix.html#ac258f49f676ff0effc20f91d779dac66',1,'bakge::Matrix::Rotate(Radians Angle, Scalar X, Scalar Y, Scalar Z)']]],
   ['rotateglobal',['RotateGlobal',['../classbakge_1_1Pawn.html#ae51d79d69a2ab5146d19a5cecd106f2b',1,'bakge::Pawn']]],
   ['rotatemember',['RotateMember',['../classbakge_1_1Crowd.html#aaedd61bdf4ea25ae3416f00ed544f408',1,'bakge::Crowd']]],

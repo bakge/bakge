@@ -318,8 +318,8 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Bind the <a class="el" href="classbakge_1_1Camera3D.html" title="Represents arbitrary view and projection transforms for rendering scenes in 3D Cartesian space...">Camera3D</a>'s viewing and projection transforms in OpenGL.</p>
-<dl class="section return"><dt>Returns</dt><dd>BGE_SUCCESS if the camera's transforms were successfully bound to OpenGL state; BGE_FAILURE if any errors occurred. </dd></dl>
+<p>Bind the <a class="el" href="classbakge_1_1Camera3D.html" title="Represents arbitrary view and projection transforms for rendering scenes in 3D Cartesian space...">Camera3D</a>'s viewing and projection transforms in OpenGL. If certain shader uniforms are not present in the currently bound <a class="el" href="classbakge_1_1Shader.html" title="GLSL shader wrapper class. ">Shader</a>, Bind will return BGE_FAILURE, even when the uniforms that are present have successfully been bound.</p>
+<dl class="section return"><dt>Returns</dt><dd>BGE_SUCCESS if the camera's transforms were successfully bound to OpenGL state; BGE_FAILURE if any errors occurred or an incomplete binding occurred due to missing uniforms. </dd></dl>
 
 <p>Reimplemented from <a class="el" href="classbakge_1_1Node.html#ac8c08e1e71c778ef875b100207b9e9f0">bakge::Node</a>.</p>
 
@@ -345,8 +345,8 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Bind default viewing and projection transforms in OpenGL.</p>
-<dl class="section return"><dt>Returns</dt><dd>BGE_SUCCESS if default view and projection transforms were bound to OpenGL; BGE_FAILURE if any errors occurred. </dd></dl>
+<p>Bind default viewing and projection transforms in OpenGL. If certain shader uniforms are not present in the currently bound <a class="el" href="classbakge_1_1Shader.html" title="GLSL shader wrapper class. ">Shader</a>, Unbind will return BGE_FAILURE, even when the uniforms that are present have successfully been bound.</p>
+<dl class="section return"><dt>Returns</dt><dd>BGE_SUCCESS if default view and projection transforms were bound to OpenGL; BGE_FAILURE if any errors occurred or an incomplete binding occurred due to missing uniforms. </dd></dl>
 
 <p>Reimplemented from <a class="el" href="classbakge_1_1Node.html#a6ef1b24b31c543f3e627f2ff90a4429e">bakge::Node</a>.</p>
 
@@ -465,7 +465,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Set the near clipping plane Z value.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">F</td><td>Z value of the new near clipping plane.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">N</td><td>Z value of the new near clipping plane.</td></tr>
   </table>
   </dd>
 </dl>
@@ -561,7 +561,7 @@ Additional Inherited Members</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Oct 3 2013 18:47:31 for Bakge by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Oct 13 2013 00:24:09 for Bakge by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.4
 </small></address>

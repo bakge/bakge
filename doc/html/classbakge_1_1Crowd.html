@@ -254,7 +254,7 @@ GLuint&#160;</td><td class="memItemRight" valign="bottom"><b>ModelMatrixBuffer</
 <div class="textblock"><p>Crowds are large groups of pawns that are drawn using instanced rendering techniques, to avoid the large overhead associated with numerous draw calls. The <a class="el" href="classbakge_1_1Crowd.html" title="A grouping of Pawns typically used for instanced rendering. ">Crowd</a> class provides a way to manage its members as a whole or as individuals through various methods. Internally the <a class="el" href="classbakge_1_1Crowd.html" title="A grouping of Pawns typically used for instanced rendering. ">Crowd</a> uses a dynamically allocated array to store data about its members.</p>
 <p>Typically the <a class="el" href="classbakge_1_1Crowd.html" title="A grouping of Pawns typically used for instanced rendering. ">Crowd</a> is used for instanced rendering, but it could also see use as a storage class for arbitrary groups of Pawns or Nodes that don't necessarily get rendered, such as pathing waypoints.</p>
 <p>When rendered using <a class="el" href="classbakge_1_1Mesh.html#a8ca510901d4b2f1dd2f301258b0fd3c4" title="Instanced drawing used for rendering Crowds. ">Mesh::DrawInstanced</a>, Crowds use a different set of shader attributes than Nodes or Pawns.</p>
-<dl class="section see"><dt>See Also</dt><dd><a class="el" href="group__VertexLib.html" title="Bakge vertex shader library. ">VertexLib</a> </dd></dl>
+<dl class="section see"><dt>See Also</dt><dd>VertexLib </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="ab8fff0f02c41f178bdfefb5c497b5705"></a>
 <div class="memitem">
@@ -611,7 +611,7 @@ GLuint&#160;</td><td class="memItemRight" valign="bottom"><b>ModelMatrixBuffer</
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">MemberIndex</td><td>Index of the member to rotate. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">Rotation</td><td><a class="el" href="classbakge_1_1Quaternion.html" title="Used to describe rotations in 3D Cartesian space. ">Quaternion</a> to rotate the member by.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">Rot</td><td><a class="el" href="classbakge_1_1Quaternion.html" title="Used to describe rotations in 3D Cartesian space. ">Quaternion</a> to rotate the member by.</td></tr>
   </table>
   </dd>
 </dl>
@@ -733,7 +733,7 @@ GLuint&#160;</td><td class="memItemRight" valign="bottom"><b>ModelMatrixBuffer</
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Oct 3 2013 18:47:31 for Bakge by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Oct 13 2013 00:24:09 for Bakge by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.4
 </small></address>

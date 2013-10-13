@@ -407,7 +407,7 @@ HIDE_UNDOC_CLASSES     = NO
 # If set to NO (the default) these declarations will be included in the
 # documentation.
 
-HIDE_FRIEND_COMPOUNDS  = NO
+HIDE_FRIEND_COMPOUNDS  = YES
 
 # If the HIDE_IN_BODY_DOCS tag is set to YES, Doxygen will hide any
 # documentation blocks found inside the body of a function.
@@ -611,7 +611,7 @@ WARNINGS               = YES
 # for undocumented members. If EXTRACT_ALL is set to YES then this flag will
 # automatically be disabled.
 
-WARN_IF_UNDOCUMENTED   = YES
+WARN_IF_UNDOCUMENTED   = NO
 
 # If WARN_IF_DOC_ERROR is set to YES, doxygen will generate warnings for
 # potential errors in the documentation, such as not documenting some
@@ -660,6 +660,7 @@ INPUT                  = C:/bakge/include/bakge/Bakge.h \
                          C:/bakge/include/bakge/system \
                          C:/bakge/include/bakge/math \
                          C:/bakge/include/bakge/audio \
+                         C:/bakge/include/bakge/ui \
                          C:/bakge/doc \
 
 # This tag can be used to specify the character encoding of the source files
