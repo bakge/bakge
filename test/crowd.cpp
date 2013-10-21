@@ -34,9 +34,15 @@ int main(int argc, char* argv[])
     bakge::Crowd* Group;
     bakge::Camera3D* Cam;
 
-    bakge::Init(argc, argv);
+    if(bakge::Init(argc, argv) == BGE_FAILURE)
+        return -1;
 
     GLubyte* Bitmap = new GLubyte[512 * 512 * 3];
+    if(Bitmap == NULL) {
+        bakge::Log("ERROR: test/crowd - Couldn't create texture buffer.\n");
+        return -1;
+    }
+
     memset((void*)Bitmap, 0, sizeof(Bitmap[0]) * 512 * 512 * 3);
 
     Win = bakge::Window::Create(1024, 768, 0);
@@ -67,11 +73,23 @@ int main(int argc, char* argv[])
 
     Tex = bakge::Texture::Create(512, 512, NULL, GL_RGB, GL_UNSIGNED_BYTE,
                                                             (void*)Bitmap);
+    if(Tex == NULL) {
+        bakge::Deinit();
+        return -1;
+    }
 
     Obj = bakge::Cube::Create();
+    if(Obj == NULL) {
+        bakge::Deinit();
+        return -1;
+    }
 
 #define CROWD_SIZE 5000
     Group = bakge::Crowd::Create(CROWD_SIZE);
+    if(Group == NULL) {
+        bakge::Deinit();
+        return -1;
+    }
 
     srand(time(0));
 
