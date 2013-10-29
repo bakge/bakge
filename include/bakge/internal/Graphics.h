@@ -37,4 +37,20 @@
  */
 #define BGE_MAP_BUFFER_MAX_ATTEMPTS 5
 
+/*! @brief Simple struct to cache current GL state.
+ *
+ * This is used internally to avoid unnecessary calls to the expensive
+ * glGet family of functions.
+ */
+typedef struct
+{
+    // Textures is an array of size NumTextureUnits. This is a dynamically
+    // allocated buffer.
+    GLint NumTextureUnits;
+    GLuint* Textures;
+
+    GLuint CurrentProgram;
+
+} ShadowState;
+
 #endif // BAKGE_INTERNAL_GRAPHICS_H
