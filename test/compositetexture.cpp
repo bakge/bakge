@@ -46,29 +46,33 @@ bakge::Result InitTest()
     LastTime = bakge::GetRunningTime();
 
     glEnable(GL_DEPTH_TEST);
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-    static bakge::Byte Corner[] = {
-        255, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 255,
-        255, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 255,
-        255, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 255,
-        255, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 255
-    };
+    int W, H, N;
+    bakge::Byte* BL;
+    bakge::Byte* TL;
+    bakge::Byte* BR;
+    bakge::Byte* TR;
+    bakge::Byte* VG;
+    bakge::Byte* HG;
+    bakge::Byte* F;
 
-    static bakge::Byte Gradient[] = {
-        255, 255, 255, 255, 200, 200, 200, 200, 150, 150, 150, 150, 100, 100,
-        100, 100
-    };
+    PHYSFS_addToSearchPath("C:/", 0);
 
-    static bakge::Byte Fill[] = {
-        30, 30, 180, 255
-    };
+    bakge::DecodeImageFile("button_f.png", &F, &W, &H, &N);
+    bakge::DecodeImageFile("button_bl.png", &BL, &W, &H, &N);
+    bakge::DecodeImageFile("button_tl.png", &TL, &W, &H, &N);
+    bakge::DecodeImageFile("button_br.png", &BR, &W, &H, &N);
+    bakge::DecodeImageFile("button_tr.png", &TR, &W, &H, &N);
+    bakge::DecodeImageFile("button_vg.png", &VG, &W, &H, &N);
+    bakge::DecodeImageFile("button_hg.png", &HG, &W, &H, &N);
 
-    Tex = bakge::CompositeTexture::Create(100, 100, 4, Corner, Corner, Corner,
-                                                            Corner, Gradient,
-                                                            Gradient, Fill);
+    Tex = bakge::CompositeTexture::Create(100, 32, W, BL, TL, TR,
+                                                BR, HG, VG, F);
 
     It = bakge::Pawn::Create();
-    Obj = bakge::Rectangle::Create(200, 200);
+    Obj = bakge::Rectangle::Create(100, 32);
 
     Obj->SetDrawStyle(bakge::SHAPE_DRAW_STYLE_SOLID);
 
