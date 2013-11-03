@@ -32,6 +32,14 @@ namespace bakge
 namespace gdk
 {
 
+/*! @brief Manages allocation, manipulation and deallocation of various GUI
+ * elements.
+ *
+ * Manages allocation, manipulation and deallocation of various GUI elements.
+ * The internal procedures are triggered and controlled by various
+ * events such as keyboard and mouse input, window events, and some generic
+ * triggers.
+ */
 class GUI
 {
     GUI();
