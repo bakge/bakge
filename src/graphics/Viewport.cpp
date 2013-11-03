@@ -60,4 +60,24 @@ Result Viewport::Bind() const
     return BGE_SUCCESS;
 }
 
+
+void Viewport::GetOrigin(uint32* X, uint32* Y)
+{
+    if(X)
+        *X = X0;
+
+    if(Y)
+        *Y = Y0;
+}
+
+
+void Viewport::GetSpan(uint32* X, uint32* Y)
+{
+    if(X)
+        *X = X1 - X0;
+
+    if(Y)
+        *Y = Y1 - Y0;
+}
+
 } /* bakge */

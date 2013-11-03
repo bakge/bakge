@@ -72,6 +72,10 @@ public:
         return BGE_FAILURE;
     }
 
+    void GetOrigin(uint32* X, uint32* Y);
+
+    void GetSpan(uint32* X, uint32* Y);
+
 }; // Viewport
 
 } // bakge
