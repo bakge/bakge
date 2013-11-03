@@ -68,6 +68,16 @@ public:
      */
     virtual bool IsHovered(Coord X, Coord Y) const = 0;
 
+    /*! @brief Called by the GUI manager when the element is hovered
+     * over.
+     *
+     * @param[in] X X-position of the mouse pointer at occurrence.
+     * @param[in] Y Y-position of the mouse pointer at occurrence.
+     *
+     * Called by the GUI manager when the element is hovered over.
+     */
+    virtual void OnHover(Coord X, Coord Y) = 0;
+
 }; /* Hoverable */
 
 } /* bakge */
