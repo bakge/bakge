@@ -22,16 +22,24 @@
  * THE SOFTWARE.
  * */
 
-#ifndef BAKGE_GDK_ENGINE_COMMON_H
-#define BAKGE_GDK_ENGINE_COMMON_H
+#include <bakge/gdk/engine/Common.h>
 
-#include <bakge/Bakge.h>
-#include <bakge/gdk/engine/GUI.h>
-#include <bakge/gdk/engine/Application.h>
-#include <bakge/gdk/engine/ui/Element.h>
+namespace bakge
+{
+namespace gdk
+{
+namespace ui
+{
 
-#define BGE_GDK_ENGINE_VER_MAJ 0
-#define BGE_GDK_ENGINE_VER_MIN 0
-#define BGE_GDK_ENGINE_VER_REV 0
+Element::Element()
+{
+}
 
-#endif /* BAKGE_GDK_ENGINE_COMMON_H */
+
+Element::~Element()
+{
+}
+
+} // ui
+} // gdk
+} // bakge

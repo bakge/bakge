@@ -22,16 +22,34 @@
  * THE SOFTWARE.
  * */
 
-#ifndef BAKGE_GDK_ENGINE_COMMON_H
-#define BAKGE_GDK_ENGINE_COMMON_H
+#ifndef BAKGE_GDK_ENGINE_UI_ELEMENT_H
+#define BAKGE_GDK_ENGINE_UI_ELEMENT_H
 
-#include <bakge/Bakge.h>
-#include <bakge/gdk/engine/GUI.h>
-#include <bakge/gdk/engine/Application.h>
-#include <bakge/gdk/engine/ui/Element.h>
+#include <bakge/gdk/engine/Common.h>
 
-#define BGE_GDK_ENGINE_VER_MAJ 0
-#define BGE_GDK_ENGINE_VER_MIN 0
-#define BGE_GDK_ENGINE_VER_REV 0
+namespace bakge
+{
+namespace gdk
+{
+namespace ui
+{
 
-#endif /* BAKGE_GDK_ENGINE_COMMON_H */
+class Element : public Frame, public Anchor, public Hoverable
+{
+
+protected:
+
+    Element();
+
+
+public:
+
+    ~Element();
+
+}; // Element
+
+} // ui
+} // gdk
+} // bakge
+
+#endif // BAKGE_GDK_ENGINE_UI_ELEMENT_H

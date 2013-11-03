@@ -11,12 +11,14 @@ set(BAKGE_GDK_ENGINE_HEADERS
   ${BAKGE_SOURCE_DIR}/engine/include/bakge/gdk/engine/Common
   ${BAKGE_SOURCE_DIR}/engine/include/bakge/gdk/engine/Application
   ${BAKGE_SOURCE_DIR}/engine/include/bakge/gdk/engine/GUI
+  ${BAKGE_SOURCE_DIR}/engine/include/bakge/gdk/engine/ui/Element
 )
 
 set(BAKGE_GDK_ENGINE_SOURCES
   ${BAKGE_SOURCE_DIR}/engine/src/gdk/engine/main
   ${BAKGE_SOURCE_DIR}/engine/src/gdk/engine/Application
   ${BAKGE_SOURCE_DIR}/engine/src/gdk/engine/GUI
+  ${BAKGE_SOURCE_DIR}/engine/src/gdk/engine/ui/Element
 )
 
 # So Bakge engine executable can find shared libs in its directory
