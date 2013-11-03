@@ -24,6 +24,7 @@
 
 #include <bakge/Bakge.h>
 #include <bakge/internal/Utility.h>
+#include <bakge/internal/Graphics.h>
 #ifdef _DEBUG
 #include <bakge/internal/Debug.h>
 #endif // _DEBUG
@@ -105,6 +106,10 @@ Result Init(int argc, char* argv[])
 
     // Check for required OpenGL extensions to run Bakge
     if(!CheckRequiredExtensions()) {
+        return Deinit();
+    }
+
+    if(GraphicsInit(argc, argv) == BGE_FAILURE) {
         return Deinit();
     }
 
