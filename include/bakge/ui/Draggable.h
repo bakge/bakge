@@ -52,9 +52,14 @@ public:
      */
     virtual ~Draggable() = 0;
 
-    /*! @brief Drag callback.
+    /*! @brief Called when an element is dragged.
      *
-     * Drag callback.
+     * Called when an element is dragged. The GUI manager calls this when it
+     * detects motion of the element. There is no guarantee that the drag is
+     * a result of a click-and-drag input from the user. The manager updates
+     * the element's anchor position immediately prior to this call, so
+     * there is no need to update it within the callback. As such, you can get
+     * the new position of the anchor by calling GetPosition on the Anchor.
      *
      * @param[in] X Distance dragged along the X axis.
      * @param[in] Y Distance dragged along the Y axis.
