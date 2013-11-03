@@ -73,7 +73,7 @@ public:
      * @param[in] X New X size of the element.
      * @param[in] Y New Y size of the element.
      */
-    virtual void OnResize(Coord X, Coord Y) = 0;
+    virtual void OnResize(Scalar X, Scalar Y) = 0;
 
 }; /* Resizable */
 
