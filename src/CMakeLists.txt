@@ -30,6 +30,7 @@ set(MODULES
   graphics/Shader
   graphics/Shape
   graphics/Texture
+  graphics/Viewport
   graphics/geometries/BezierCurve
   graphics/geometries/Grid
   graphics/geometries/Line
