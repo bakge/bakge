@@ -41,7 +41,7 @@ GUI::~GUI()
 }
 
 
-GUI* GUI::Create()
+GUI* GUI::Create(Scalar Width, Scalar Height)
 {
     GUI* G = new GUI;
     if(G == NULL) {

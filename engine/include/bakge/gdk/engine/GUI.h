@@ -51,7 +51,7 @@ public:
 
     ~GUI();
 
-    BGE_FACTORY GUI* Create();
+    BGE_FACTORY GUI* Create(Scalar Width, Scalar Height);
 
     virtual Result Bind() const;
 

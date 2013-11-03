@@ -54,7 +54,7 @@ Application* Application::Create()
         return NULL;
     }
 
-    App->Gui = GUI::Create();
+    App->Gui = GUI::Create(800, 480);
     if(App->Gui == NULL) {
         Log("ERROR: Application - Couldn't create GUI\n");
         delete App;
