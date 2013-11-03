@@ -27,6 +27,9 @@
 namespace bakge
 {
 
+// Cache these values during initialization (only occurs once) and make them
+// available internally through simple getter API.
+
 static union
 {
     int32 _ViewportMaxDimensions[2];
