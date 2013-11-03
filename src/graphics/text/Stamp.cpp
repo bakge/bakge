@@ -180,4 +180,14 @@ Result Stamp::Begin(Scalar X, Scalar Y)
     return BGE_SUCCESS;
 }
 
+
+Result Stamp::EndLine()
+{
+    Current.X = Start.X;
+    //TODO: Get line ascent/descent/gap, cache in GlyphMap, extract to Stamp
+    Current.Y += 15.0f;
+
+    return BGE_SUCCESS;
+}
+
 } // bakge

@@ -191,6 +191,8 @@ public:
         return ScaleFactor;
     }
 
+    Result EndLine();
+
 }; // Stamp
 
 } // bakge
