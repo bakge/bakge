@@ -61,9 +61,12 @@ public:
      *
      * Check if the mouse is over a Hoverable element.
      *
+     * @param[in] X X-position of the mouse pointer.
+     * @param[in] Y Y-position of the mouse pointer.
+     *
      * @return true if the element is hovered over; false otherwise.
      */
-    virtual bool IsHovered() const = 0;
+    virtual bool IsHovered(Coord X, Coord Y) const = 0;
 
 }; /* Hoverable */
 
