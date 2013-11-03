@@ -41,7 +41,7 @@ protected:
 
     Frame* Box;
     Anchor* Pin;
-    Texture* Tex;
+    Texture* Art;
 
     Element();
 
@@ -62,7 +62,7 @@ public:
 
     BGE_INL const Texture* GetTexture() const
     {
-        return Tex;
+        return Art;
     }
 
     virtual bool IsHovered(Coord X, Coord Y) const;
