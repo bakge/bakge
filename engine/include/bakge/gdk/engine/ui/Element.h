@@ -34,7 +34,7 @@ namespace gdk
 namespace ui
 {
 
-class Element
+class Element : public Hoverable
 {
 
 protected:
@@ -64,6 +64,8 @@ public:
     {
         return Tex;
     }
+
+    virtual bool IsHovered(Coord X, Coord Y) const;
 
 }; // Element
 

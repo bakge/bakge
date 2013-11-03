@@ -43,6 +43,22 @@ Element::~Element()
 {
 }
 
+
+bool Element::IsHovered(Coord X, Coord Y) const
+{
+    Vector4 Pos = Pin->GetPosition();
+
+    Box->GetDimensions(&Pos[2], &Pos[3]);
+
+    if(X < Pos[0] || X > Pos[0] + Pos[2])
+        return false;
+
+    if(Y < Pos[1] || Y > Pos[1] + Pos[3])
+        return false;
+
+    return true;
+}
+
 } // ui
 } // gdk
 } // bakge
