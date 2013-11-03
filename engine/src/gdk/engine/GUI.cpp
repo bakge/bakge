@@ -49,6 +49,13 @@ GUI* GUI::Create(Scalar Width, Scalar Height)
         return NULL;
     }
 
+    G->Canvas = Frame::Create(Width, Height);
+    if(G->Canvas == NULL) {
+        Log("ERROR: GUI - Couldn't create canvas Frame.\n");
+        delete G;
+        return NULL;
+    }
+
     return G;
 }
 
