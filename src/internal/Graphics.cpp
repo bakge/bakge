@@ -38,13 +38,39 @@ static union
 };
 
 static int _MaxTextureUnits;
+static int _MaxTextureSize;
+static int _RecMaxIndices;
+static int _RecMaxVertices;
 
 Result GraphicsInit(int argc, char* argv[])
 {
     glGetIntegerv(GL_MAX_VIEWPORT_DIMS, _ViewportMaxDimensions);
     glGetIntegerv(GL_MAX_TEXTURE_IMAGE_UNITS, &_MaxTextureUnits);
+    glGetIntegerv(GL_MAX_TEXTURE_SIZE, &_MaxTextureSize);
+    glGetIntegerv(GL_MAX_ELEMENTS_INDICES, &_RecMaxIndices);
+    glGetIntegerv(GL_MAX_ELEMENTS_VERTICES, &_RecMaxVertices);
 
     return BGE_SUCCESS;
+}
+
+int GetMaxViewportWidth()
+{
+    return _ViewportMaxWidth;
+}
+
+int GetMaxViewportHeight()
+{
+    return _ViewportMaxHeight;
+}
+
+int GetMaxTextureUnits()
+{
+    return _MaxTextureUnits;
+}
+
+int GetMaxTextureSize()
+{
+    return _MaxTextureSize;
 }
 
 } // bakge

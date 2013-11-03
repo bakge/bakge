@@ -42,20 +42,15 @@ namespace bakge
 
 Result GraphicsInit(int argc, char* argv[]);
 
-BGE_INL int GetMaxViewportWidth()
-{
-    return _ViewportMaxWidth;
-}
+int GetMaxViewportWidth();
 
-BGE_INL int GetMaxViewportHeight()
-{
-    return _ViewportMaxHeight;
-}
+int GetMaxViewportHeight();
 
-BGE_INL int GetMaxTextureUnits()
-{
-    return _MaxTextureUnits;
-}
+int GetMaxTextureUnits();
+
+// Note: Returns an estimate, not an exact value.
+// Use GL_PROXY_TEXTURE_*D to test valid size
+int GetMaxTextureSize();
 
 } // bakge
 
