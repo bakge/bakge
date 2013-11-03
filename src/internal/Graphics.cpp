@@ -37,9 +37,12 @@ static union
     };
 };
 
+static int _MaxTextureUnits;
+
 Result GraphicsInit(int argc, char* argv[])
 {
     glGetIntegerv(GL_MAX_VIEWPORT_DIMS, _ViewportMaxDimensions);
+    glGetIntegerv(GL_MAX_TEXTURE_IMAGE_UNITS, &_MaxTextureUnits);
 
     return BGE_SUCCESS;
 }
@@ -52,6 +55,11 @@ BGE_INL int GetMaxViewportWidth()
 BGE_INL int GetMaxViewportHeight()
 {
     return _ViewportMaxHeight;
+}
+
+BGE_INL int GetMaxTextureUnits()
+{
+    return _MaxTextureUnits;
 }
 
 } // bakge
