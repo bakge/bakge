@@ -88,7 +88,6 @@ Result Geometry::Draw() const
 
 Result Geometry::DrawInstanced(int Count) const
 {
-
     glDrawElementsInstancedBaseVertex(DrawStyle, NumPoints,
                   GL_UNSIGNED_INT, (void*)0, Count, 0);
 
