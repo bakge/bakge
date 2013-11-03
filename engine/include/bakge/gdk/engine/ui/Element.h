@@ -44,6 +44,7 @@ protected:
     Texture* Art;
 
     Element();
+    Element(Frame* F, Anchor* A, Texture* T);
 
 
 public:

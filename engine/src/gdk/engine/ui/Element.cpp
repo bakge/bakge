@@ -39,6 +39,14 @@ Element::Element()
 }
 
 
+Element::Element(Frame* F, Anchor* A, Texture* T)
+{
+    Box = F;
+    Pin = A;
+    Art = T;
+}
+
+
 Element::~Element()
 {
 }
