@@ -80,20 +80,41 @@ Application* Application::Create()
 
 Result Application::Initialize()
 {
+    glClearColor(0.85f, 0.85f, 0.7f, 1.0f);
+    glEnable(GL_DEPTH_TEST);
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
     return BGE_SUCCESS;
 }
 
 
 Result Application::ShutDown()
 {
+    if(Win->IsOpen())
+        Win->Close();
+
     return BGE_SUCCESS;
 }
 
 
 int Application::Run()
 {
+    Microseconds T1, T2;
+    T1 = GetRunningTime();
+
     while(Win->IsOpen()) {
         Window::PollEvents();
+
+        PreRenderStage();
+        RenderStage();
+        PostRenderStage();
+
+        T2 = GetRunningTime();
+
+        Update(((Scalar)(T2 - T1)) / 1000000);
+
+        T1 = T2;
     }
 
     return 0;
@@ -108,12 +129,16 @@ Result Application::Update(Seconds DeltaTime)
 
 Result Application::PreRenderStage()
 {
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
     return BGE_SUCCESS;
 }
 
 
 Result Application::PostRenderStage()
 {
+    Win->SwapBuffers();
+
     return BGE_SUCCESS;
 }
 
