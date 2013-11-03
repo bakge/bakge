@@ -36,6 +36,8 @@ GUI::GUI()
 
 GUI::~GUI()
 {
+    if(Canvas != NULL)
+        delete Canvas;
 }
 
 

@@ -42,6 +42,8 @@ namespace gdk
  */
 class GUI : public Drawable
 {
+    Frame* Canvas;
+
     GUI();
 
 
