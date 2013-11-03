@@ -80,4 +80,18 @@ void Viewport::GetSpan(uint32* X, uint32* Y)
         *Y = Y1 - Y0;
 }
 
+
+void Viewport::SetOrigin(uint32 X, uint32 Y)
+{
+    X0 = X;
+    Y0 = Y;
+}
+
+
+void Viewport::SetSpan(uint32 X, uint32 Y)
+{
+    X1 = X0 + X;
+    Y1 = Y0 + Y;
+}
+
 } /* bakge */

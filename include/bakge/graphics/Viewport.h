@@ -76,6 +76,10 @@ public:
 
     void GetSpan(uint32* X, uint32* Y);
 
+    void SetOrigin(uint32 X, uint32 Y);
+
+    void SetSpan(uint32 X, uint32 Y);
+
 }; // Viewport
 
 } // bakge
