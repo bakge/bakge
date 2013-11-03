@@ -34,7 +34,8 @@ namespace bakge
  * renders to.
  *
  * A rectangular area in window/screen coordinates to which OpenGL renders to.
- * Can be used to implement multiple viewports
+ * Can be used to implement multiple viewports. This is one of the few Bakge
+ * classes that can be stack-allocated through trivial constructors.
  */
 class BGE_API Viewport : public Bindable
 {
