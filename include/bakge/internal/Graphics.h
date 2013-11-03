@@ -42,6 +42,21 @@ namespace bakge
 
 Result GraphicsInit(int argc, char* argv[]);
 
+BGE_INL int GetMaxViewportWidth()
+{
+    return _ViewportMaxWidth;
+}
+
+BGE_INL int GetMaxViewportHeight()
+{
+    return _ViewportMaxHeight;
+}
+
+BGE_INL int GetMaxTextureUnits()
+{
+    return _MaxTextureUnits;
+}
+
 } // bakge
 
 #endif // BAKGE_INTERNAL_GRAPHICS_H

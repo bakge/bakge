@@ -47,19 +47,4 @@ Result GraphicsInit(int argc, char* argv[])
     return BGE_SUCCESS;
 }
 
-BGE_INL int GetMaxViewportWidth()
-{
-    return _ViewportMaxWidth;
-}
-
-BGE_INL int GetMaxViewportHeight()
-{
-    return _ViewportMaxHeight;
-}
-
-BGE_INL int GetMaxTextureUnits()
-{
-    return _MaxTextureUnits;
-}
-
 } // bakge
