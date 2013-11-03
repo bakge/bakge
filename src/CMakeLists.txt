@@ -115,6 +115,7 @@ set(EXTERN_SOURCES
 set(INTERNAL_SOURCES
   internal/Debug
   internal/Utility
+  internal/Graphics
 )
 
 set(INTERNAL_HEADERS

@@ -22,26 +22,36 @@
  * THE SOFTWARE.
  * */
 
-/*!
- * @file Graphics.h
- * @brief Internal graphics code and macro symbols not exposed as public API.
- */
-
-#ifndef BAKGE_INTERNAL_GRAPHICS_H
-#define BAKGE_INTERNAL_GRAPHICS_H
+#include <bakge/Bakge.h>
 
 namespace bakge
 {
 
-/*!
- * If mapping and filling data fails more than this number of times, consider
- * the entire buffer and data store allocation a failure, and return NULL
- * for the resource being allocated.
- */
-#define BGE_MAP_BUFFER_MAX_ATTEMPTS 5
+static union
+{
+    int32 _ViewportMaxDimensions[2];
+    struct
+    {
+        int32 _ViewportMaxWidth;
+        int32 _ViewportMaxHeight;
+    };
+};
 
-Result GraphicsInit(int argc, char* argv[]);
+Result GraphicsInit(int argc, char* argv[])
+{
+    glGetIntegerv(GL_MAX_VIEWPORT_DIMS, _ViewportMaxDimensions);
+
+    return BGE_SUCCESS;
+}
+
+BGE_INL int GetMaxViewportWidth()
+{
+    return _ViewportMaxWidth;
+}
+
+BGE_INL int GetMaxViewportHeight()
+{
+    return _ViewportMaxHeight;
+}
 
 } // bakge
-
-#endif // BAKGE_INTERNAL_GRAPHICS_H
