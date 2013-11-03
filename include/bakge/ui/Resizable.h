@@ -58,9 +58,17 @@ public:
      */
     virtual ~Resizable() = 0;
 
-    /*! @brief Resize callback.
+    /*! @brief Called when the element is resized.
      *
-     * Resize callback.
+     * Called when the element is resized. The GUI manager calls this
+     * method when it detects an element has been resized. There is no
+     * guarantee this is a result of a click-and-drag input from the
+     * user. It could be due to the insertion of a new element which
+     * requires another to shift its position, for example. The manager
+     * calls SetDimensions to the Frame and/or SetPosition for the Anchor as
+     * appropriate immediately prior to calling this function. As such, you
+     * can retrieve the new position (scale is already provided) by calling
+     * GetPosition on the Anchor.
      *
      * @param[in] X New X size of the element.
      * @param[in] Y New Y size of the element.
