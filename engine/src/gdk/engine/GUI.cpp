@@ -50,5 +50,23 @@ GUI* GUI::Create()
     return G;
 }
 
+
+Result GUI::Bind() const
+{
+    return BGE_FAILURE;
+}
+
+
+Result GUI::Unbind() const
+{
+    return BGE_FAILURE;
+}
+
+
+Result GUI::Draw() const
+{
+    return BGE_FAILURE;
+}
+
 } /* gdk */
 } /* bakge */

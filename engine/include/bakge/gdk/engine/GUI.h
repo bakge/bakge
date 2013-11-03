@@ -40,7 +40,7 @@ namespace gdk
  * events such as keyboard and mouse input, window events, and some generic
  * triggers.
  */
-class GUI
+class GUI : public Drawable
 {
     GUI();
 
@@ -50,6 +50,12 @@ public:
     ~GUI();
 
     BGE_FACTORY GUI* Create();
+
+    virtual Result Bind() const;
+
+    virtual Result Unbind() const;
+
+    virtual Result Draw() const;
 
 }; /* GUI */
 
