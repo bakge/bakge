@@ -34,10 +34,14 @@ namespace gdk
 namespace ui
 {
 
-class Element : public Frame, public Anchor, public Hoverable
+class Element
 {
 
 protected:
+
+    Frame* Box;
+    Anchor* Pin;
+    Texture* Tex;
 
     Element();
 
@@ -45,6 +49,21 @@ protected:
 public:
 
     ~Element();
+
+    BGE_INL const Frame* GetFrame() const
+    {
+        return Box;
+    }
+
+    BGE_INL const Anchor* GetAnchor() const
+    {
+        return Pin;
+    }
+
+    BGE_INL const Texture* GetTexture() const
+    {
+        return Tex;
+    }
 
 }; // Element
 

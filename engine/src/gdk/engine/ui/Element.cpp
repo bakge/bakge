@@ -33,6 +33,9 @@ namespace ui
 
 Element::Element()
 {
+    Box = NULL;
+    Pin = NULL;
+    Art = NULL;
 }
 
 
