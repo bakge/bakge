@@ -73,4 +73,14 @@ int GetMaxTextureSize()
     return _MaxTextureSize;
 }
 
+int GetRecMaxIndices()
+{
+    return _RecMaxIndices;
+}
+
+int GetRecMaxVertices()
+{
+    return _RecMaxVertices;
+}
+
 } // bakge

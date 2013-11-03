@@ -52,6 +52,10 @@ int GetMaxTextureUnits();
 // Use GL_PROXY_TEXTURE_*D to test valid size
 int GetMaxTextureSize();
 
+int GetRecMaxIndices();
+
+int GetRecMaxVertices();
+
 } // bakge
 
 #endif // BAKGE_INTERNAL_GRAPHICS_H
