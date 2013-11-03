@@ -52,13 +52,27 @@ public:
      */
     virtual ~Clickable() = 0;
 
-    /*! @brief Check if a Clickable object is currently clicked on.
+    /*! @brief Called when the element is clicked on.
      *
-     * Check if a Clickable object is currently clicked on.
+     * Called when the element is clicked on. This callback is called from the
+     * GUI manager when it detects an element has been clicked.
      *
-     * @return true if the mouse is clicked on the element; false otherwise.
+     * @param[in] X X-coordinate of the pointer at click occurrence.
+     * @param[in] Y Y-coordinate of the pointer at click occurrence.
      */
-    virtual bool IsClicked() const = 0;
+    virtual void OnClick(Coord X, Coord Y) = 0;
+
+    /*! @brief Called when the element is released.
+     *
+     * Called when the element is released. This callback is called from the
+     * GUI manager when it detects an element has been released. The manager
+     * guarantees that the object was clicked prior to the execution of this
+     * callback.
+     *
+     * @param[in] X X-coordinate of the pointer at release occurrence.
+     * @param[in] Y Y-coordinate of the pointer at release occurrence.
+     */
+    virtual void OnRelease(Coord X, Coord Y) = 0;
 
 }; /* Clickable */
 
