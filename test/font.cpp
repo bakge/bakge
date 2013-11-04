@@ -49,7 +49,7 @@ static const char* Fragment =
     "varying vec4 Position;\n"
     "void main()\n"
     "{\n"
-    "    gl_FragColor = texture(bge_Diffuse, TexCoord0);\n"
+    "    gl_FragColor = texture2D(bge_Diffuse, TexCoord0);\n"
     "}\n"
     "\n";
 
