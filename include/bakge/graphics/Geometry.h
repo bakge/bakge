@@ -119,6 +119,11 @@ public:
      */
     Result SetDrawStyle(GEOMETRY_DRAW_STYLE Style);
 
+    BGE_INL virtual int GetNumPoints() const
+    {
+        return NumPoints;
+    }
+
 }; // Geometry
 
 } // bakge
