@@ -159,4 +159,24 @@ Result Line::TranslateEnd(Scalar X, Scalar Y)
     return BGE_SUCCESS;
 }
 
+
+void Line::GetStartPosition(Scalar* X, Scalar* Y) const
+{
+    if(X)
+        *X = A[0];
+
+    if(Y)
+        *Y = A[1];
+}
+
+
+void Line::GetEndPosition(Scalar* X, Scalar* Y) const
+{
+    if(X)
+        *X = B[0];
+
+    if(Y)
+        *Y = B[1];
+}
+
 } /* bakge */

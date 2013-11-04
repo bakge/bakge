@@ -66,6 +66,10 @@ public:
 
     Result TranslateEnd(Scalar X, Scalar Y);
 
+    void GetStartPosition(Scalar* X, Scalar* Y) const;
+
+    void GetEndPosition(Scalar* X, Scalar* Y) const;
+
 }; /* Line */
 
 } /* bakge */
