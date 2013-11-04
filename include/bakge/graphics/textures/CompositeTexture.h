@@ -94,6 +94,12 @@ public:
                                             const void* BR, const void* HG,
                                             const void* VG, const void* F);
 
+    /*! @brief Get the height & width of the corner texture.
+     *
+     * Get the height & width of the corner texture.
+     *
+     * @return Width (same as height) of the corner texture.
+     */
     BGE_INL int GetCornerDimension() const
     {
         return Corner;
