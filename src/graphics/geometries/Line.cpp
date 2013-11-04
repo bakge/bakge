@@ -137,4 +137,26 @@ Line* Line::Create(Vector3 A, Vector3 B)
     return L;
 }
 
+
+Result Line::TranslateStart(Scalar X, Scalar Y)
+{
+    A[0] += X;
+    A[1] += Y;
+
+    //TODO: Fill buffer
+
+    return BGE_SUCCESS;
+}
+
+
+Result Line::TranslateEnd(Scalar X, Scalar Y)
+{
+    B[0] += X;
+    B[1] += Y;
+
+    //TODO: Fill buffer
+
+    return BGE_SUCCESS;
+}
+
 } /* bakge */

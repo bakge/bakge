@@ -62,6 +62,10 @@ public:
 
     BGE_FACTORY Line* Create(Vector3 A, Vector3 B);
 
+    Result TranslateStart(Scalar X, Scalar Y);
+
+    Result TranslateEnd(Scalar X, Scalar Y);
+
 }; /* Line */
 
 } /* bakge */
