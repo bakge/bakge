@@ -41,6 +41,10 @@ namespace bakge
  * GlyphMap from a Font, you should archive it into a GlyphLibrary to make it
  * easier to manage and keep track of which glyphs are available for rendering
  * and which ones you'll have to bake first.
+ *
+ * The GlyphMap caches various metadata about the glyphs, such as pixel-height
+ * scale factor, the range of glyph indices baked and some raw glyph data
+ * extracted by stb_truetype.
  */
 class BGE_API GlyphMap : public Bindable
 {
