@@ -48,18 +48,18 @@ struct v100
 } // bmf
 
 // Called by stb_image when it requires data to process
-int _stbicb_Read(void* User, char* Data, int Size)
+static int _stbicb_Read(void* User, char* Data, int Size)
 {
     return (int)PHYSFS_read((PHYSFS_File*)User, (void*)Data, 1, Size);
 }
 
-void _stbicb_Skip(void* User, uint32 Offset)
+static void _stbicb_Skip(void* User, uint32 Offset)
 {
     uint32 Current = (uint32)PHYSFS_tell((PHYSFS_File*)User);
     PHYSFS_seek((PHYSFS_File*)User, Current + Offset);
 }
 
-int _stbicb_EOF(void* User)
+static int _stbicb_EOF(void* User)
 {
     return PHYSFS_eof((PHYSFS_File*)User);
 }
