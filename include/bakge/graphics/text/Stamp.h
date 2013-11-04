@@ -49,6 +49,7 @@ class BGE_API Stamp : public Rectangle
 
     Scalar Adv;
     Scalar ScaleFactor;
+    Scalar LineAdv;
 
 
 protected:
@@ -148,6 +149,13 @@ public:
         return A;
     }
 
+    BGE_INL Scalar SetLineAdvance(Scalar A)
+    {
+        LineAdv = A;
+
+        return A;
+    }
+
     /*! @brief Get the glyph X-advance value.
      *
      * You can use this in tandem with SetAdvance to stylize your text
@@ -158,6 +166,11 @@ public:
     BGE_INL Scalar GetAdvance() const
     {
         return Adv;
+    }
+
+    BGE_INL Scalar GetLineAdvance() const
+    {
+        return LineAdv;
     }
 
     /*! @brief Set the glyph origin offsets, relative to the rendering

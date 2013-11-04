@@ -53,6 +53,7 @@ class BGE_API GlyphMap : public Bindable
     Texture* Tex;
 
     Scalar ScaleFactor;
+    Scalar LineHeight;
 
     stbtt_bakedchar* Data;
 

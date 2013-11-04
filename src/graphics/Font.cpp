@@ -154,6 +154,7 @@ int Font::Bake(GlyphMap** Target, int GlyphStart, int GlyphEnd,
     (*Target)->Tex = BakedMap;
     (*Target)->Data = GlyphData;
     (*Target)->Start = GlyphStart;
+    (*Target)->LineHeight = Ascent - Descent + Gap;
     (*Target)->ScaleFactor = stbtt_ScaleForPixelHeight(&FontInfo,
                                                 (float)PixelHeight);
 

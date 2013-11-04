@@ -39,6 +39,7 @@ Stamp::Stamp()
     Offset.X = 0;
     Offset.Y = 0;
     Adv = 0;
+    LineAdv = 0;
     ScaleFactor = 0;
 }
 
@@ -184,8 +185,7 @@ Result Stamp::Begin(Scalar X, Scalar Y)
 Result Stamp::EndLine()
 {
     Current.X = Start.X;
-    //TODO: Get line ascent/descent/gap, cache in GlyphMap, extract to Stamp
-    Current.Y += 15.0f;
+    Current.Y += LineAdv;
 
     return BGE_SUCCESS;
 }

@@ -34,6 +34,7 @@ GlyphMap::GlyphMap()
     Start = 0;
     End = 0;
     ScaleFactor = 0;
+    LineHeight = 0;
 }
 
 
@@ -54,6 +55,7 @@ Result GlyphMap::Extract(uint32 Codepoint, Stamp* Target)
 
     Target->SetOffsets(Data[i].xoff, Data[i].yoff);
     Target->SetAdvance(Data[i].xadvance);
+    Target->SetLineAdvance(LineHeight);
     Target->SetScaleFactor(ScaleFactor);
     Target->SetDimensions((Scalar)(Data[i].x1 - Data[i].x0),
                             (Scalar)Data[i].y1 - Data[i].y0);
