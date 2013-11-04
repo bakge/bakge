@@ -109,7 +109,7 @@ Result Init(int argc, char* argv[])
         return Deinit();
     }
 
-    if(GraphicsInit(argc, argv) == BGE_FAILURE) {
+    if(_GraphicsInit(argc, argv) == BGE_FAILURE) {
         return Deinit();
     }
 

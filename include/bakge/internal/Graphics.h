@@ -40,21 +40,21 @@ namespace bakge
  */
 #define BGE_MAP_BUFFER_MAX_ATTEMPTS 5
 
-Result GraphicsInit(int argc, char* argv[]);
+Result _GraphicsInit(int argc, char* argv[]);
 
-int GetMaxViewportWidth();
+int _GetMaxViewportWidth();
 
-int GetMaxViewportHeight();
+int _GetMaxViewportHeight();
 
-int GetMaxTextureUnits();
+int _GetMaxTextureUnits();
 
 // Note: Returns an estimate, not an exact value.
 // Use GL_PROXY_TEXTURE_*D to test valid size
-int GetMaxTextureSize();
+int _GetMaxTextureSize();
 
-int GetRecMaxIndices();
+int _GetRecMaxIndices();
 
-int GetRecMaxVertices();
+int _GetRecMaxVertices();
 
 } // bakge
 

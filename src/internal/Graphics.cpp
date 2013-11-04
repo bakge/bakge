@@ -36,7 +36,7 @@ static int _MaxTextureSize;
 static int _RecMaxIndices;
 static int _RecMaxVertices;
 
-Result GraphicsInit(int argc, char* argv[])
+Result _GraphicsInit(int argc, char* argv[])
 {
     glGetIntegerv(GL_MAX_VIEWPORT_DIMS, _ViewportMaxDimensions);
     glGetIntegerv(GL_MAX_TEXTURE_IMAGE_UNITS, &_MaxTextureUnits);
@@ -47,32 +47,32 @@ Result GraphicsInit(int argc, char* argv[])
     return BGE_SUCCESS;
 }
 
-int GetMaxViewportWidth()
+int _GetMaxViewportWidth()
 {
     return _ViewportMaxDimensions[0];
 }
 
-int GetMaxViewportHeight()
+int _GetMaxViewportHeight()
 {
     return _ViewportMaxDimensions[1];
 }
 
-int GetMaxTextureUnits()
+int _GetMaxTextureUnits()
 {
     return _MaxTextureUnits;
 }
 
-int GetMaxTextureSize()
+int _GetMaxTextureSize()
 {
     return _MaxTextureSize;
 }
 
-int GetRecMaxIndices()
+int _GetRecMaxIndices()
 {
     return _RecMaxIndices;
 }
 
-int GetRecMaxVertices()
+int _GetRecMaxVertices()
 {
     return _RecMaxVertices;
 }
