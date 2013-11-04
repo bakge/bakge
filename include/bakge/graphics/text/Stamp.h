@@ -70,12 +70,43 @@ public:
 
     BGE_FACTORY Stamp* Create();
 
+    /*! @brief Set the vertex positions of the Stamp based on the currently
+     * loaded glyph and the current position of the stamp.
+     *
+     * Set the vertex positions of the Stamp based on the currently
+     * loaded glyph and the current position of the stamp. Called internally
+     * by GlyphMap::Extract. It is recommended you do not call this function.
+     *
+     * @param[in] Width Width of the Stamp quad.
+     * @param[in] Height Height of the Stamp quad.
+     *
+     * @return BGE_SUCCESS if the Stamp's vertex positions were successfully
+     * set; BGE_FAILURE if any errors occurred.
+     */
     Result SetDimensions(Scalar Width, Scalar Height);
 
+    /*! @brief Set the texture coordinates of the Stamp quad.
+     *
+     * Set the texture coordinates of the stamp quad. This is called
+     * internally by GlyphMap::Extract. It is recommended you do not call
+     * this function.
+     *
+     * @return BGE_SUCCESS if the texture coordinates of the stamp's vertices
+     * were successfully set; BGE_FAILURE if any errors occurred.
+     */
     Result SetTexCoords(Scalar S0, Scalar T0, Scalar S1, Scalar T1);
 
     virtual Result Bind() const;
 
+    /*! @brief Advance the current x-position by the current glyph's
+     * x-advance.
+     *
+     * Advance the current x-position by the current glyph's
+     * x-advance.
+     *
+     * @return BGE_SUCCESS if the stamp's x-position was successfully
+     * advanced; BGE_FAILURE if any errors occurred.
+     */
     Result Advance();
 
     /*! @brief Set the Stamp start position and reset current position.
