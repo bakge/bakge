@@ -142,4 +142,22 @@ LineStrip* LineStrip::Create(int NumPoints, Scalar* Points)
     return L;
 }
 
+
+void LineStrip::GetPointAt(int Index, Scalar* X, Scalar* Y, Scalar* Z) const
+{
+    if(Index < 0 || Index >= NumPoints)
+        return;
+
+    //TODO: Copy position data into ptrs
+}
+
+
+void LineStrip::TranslatePointAt(int Index, Scalar X, Scalar Y, Scalar Z)
+{
+    if(Index < 0 || Index >= NumPoints)
+        return;
+
+    //TODO: Translate point, fill buffer
+}
+
 } /* bakge */

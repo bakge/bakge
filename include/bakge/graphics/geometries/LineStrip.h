@@ -59,6 +59,10 @@ public:
 
     BGE_FACTORY LineStrip* Create(int NumPoints, Scalar* Points);
 
+    void GetPointAt(int Index, Scalar* X, Scalar* Y, Scalar* Z) const;
+
+    void TranslatePointAt(int Index, Scalar X, Scalar Y, Scalar Z);
+
 }; /* LineStrip */
 
 typedef LineStrip Curve;
