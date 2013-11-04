@@ -167,9 +167,7 @@ Result Deinit()
 
 void SystemInfo()
 {
-    extern void PlatformSystemInfo();
-
-    PlatformSystemInfo();
+    _PlatformSystemInfo();
 
     Log("OpenGL v%s\n", glGetString(GL_VERSION));
     Log("  - %s\n", glGetString(GL_VENDOR));

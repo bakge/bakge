@@ -65,6 +65,8 @@ Result _PlatformInit(int, char*[]);
  */
 Result _PlatformDeinit();
 
+void _PlatformSystemInfo();
+
 } // bakge
 
 #endif // BAKGE_INTERNAL_UTILITY_H

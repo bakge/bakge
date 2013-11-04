@@ -49,7 +49,7 @@ Result _PlatformDeinit()
 }
 
 
-void PlatformSystemInfo()
+void _PlatformSystemInfo()
 {
 }
 

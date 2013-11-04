@@ -45,7 +45,7 @@ Result _PlatformDeinit()
 }
 
 
-void PlatformSystemInfo()
+void _PlatformSystemInfo()
 {
     OSVERSIONINFOEX Info;
     SYSTEM_INFO Sys;
