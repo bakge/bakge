@@ -29,6 +29,9 @@ namespace bakge
 namespace gdk
 {
 
+#define BGE_GDK_ENGINE_CONFIG_DIR "Bakge"
+#define BGE_GDK_ENGINE_CONFIG_FILE "main.bcf"
+
 Application::Application()
 {
     Gui = NULL;
@@ -54,26 +57,6 @@ Application* Application::Create()
         return NULL;
     }
 
-    App->Gui = GUI::Create(800, 480);
-    if(App->Gui == NULL) {
-        Log("ERROR: Application - Couldn't create GUI\n");
-        delete App;
-        return NULL;
-    } else {
-        Log("Application: Successfully created GUI\n");
-    }
-
-    App->Win = Window::Create(800, 480, 0);
-    if(App->Win == NULL) {
-        Log("ERROR: Application - Couldn't create Window\n");
-        delete App;
-        return NULL;
-    } else {
-        Log("Application: Successfully created Window\n");
-    }
-
-    App->Win->SetEventHandler(App);
-
     return App;
 }
 
@@ -84,6 +67,65 @@ Result Application::Initialize()
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+    const char* UserDir = PHYSFS_getUserDir();
+    if(UserDir == NULL) {
+        Log("  ERROR: Couldn't find user home directory.\n");
+        return BGE_FAILURE;
+    }
+
+    Log("  - Found user home directory \"%s\"\n", UserDir);
+
+    if(PHYSFS_addToSearchPath(UserDir, 0) == 0) {
+        Log("  ERROR: Couldn't add user home directory to search path.\n");
+        Log("    %s\n", PHYSFS_getLastError());
+    }
+
+    int Len = strlen(UserDir) + strlen(BGE_GDK_ENGINE_CONFIG_DIR);
+
+    char* DirPath = (char*)malloc(Len + 1);
+    sprintf(DirPath, "%s%s", UserDir, BGE_GDK_ENGINE_CONFIG_DIR);
+
+    if(PHYSFS_addToSearchPath(DirPath, 0) == 0) {
+        Log("  ERROR: Couldn't add Bakge directory to search path.\n");
+        Log("    %s\n", PHYSFS_getLastError());
+    }
+
+    Len += strlen(BGE_GDK_ENGINE_CONFIG_FILE);
+    char* ConfigPath = (char*)malloc(Len + 2);
+    sprintf(ConfigPath, "%s\\%s", DirPath, BGE_GDK_ENGINE_CONFIG_FILE);
+
+    Log("  - Searching for file \"%s\"\n", ConfigPath);
+
+    if(PHYSFS_exists(BGE_GDK_ENGINE_CONFIG_FILE)) {
+        if(PHYSFS_isDirectory(BGE_GDK_ENGINE_CONFIG_FILE) == 0)
+            Log("  - Found file \"%s\"\n", ConfigPath);
+        else
+            Log("  - \"%s\" is a directory.\n", ConfigPath);
+    } else {
+        Log("  - File \"%s\" not found.\n", ConfigPath);
+    }
+
+    Win = Window::Create(800, 480, 0);
+    if(Win == NULL) {
+        Log("ERROR: Application - Couldn't create Window\n");
+        return BGE_FAILURE;
+    } else {
+        Log("Application: Successfully created Window\n");
+    }
+
+    Win->SetEventHandler(this);
+
+    Gui = GUI::Create(800, 480);
+    if(Gui == NULL) {
+        Log("ERROR: Application - Couldn't create GUI\n");
+        return BGE_FAILURE;
+    } else {
+        Log("Application: Successfully created GUI\n");
+    }
+
+    free(DirPath);
+    free(ConfigPath);
 
     return BGE_SUCCESS;
 }
