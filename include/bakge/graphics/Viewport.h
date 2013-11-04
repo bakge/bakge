@@ -60,6 +60,16 @@ public:
 
     ~Viewport();
 
+    /*! @brief Bind the viewport, setting the drawable client screen area.
+     *
+     * Bind the viewport, setting the drawable client screen area. The
+     * internal state cannot be affected by any other GL calls, since the
+     * data is stored in memory. As such, there is no need to Unbind a
+     * Viewport.
+     *
+     * @return BGE_SUCCESS if the Viewport was successfully bound;
+     * BGE_FAILURE if any errors occurred.
+     */
     Result Bind() const;
 
     /*! @brief A no-op. No need to call.
@@ -72,12 +82,44 @@ public:
         return BGE_FAILURE;
     }
 
+    /*! @brief Get the screen origin of the Viewport.
+     *
+     * Get the screen origin of the Viewport. This is expressed in absolute
+     * world-coordinates.
+     *
+     * @param[out] X Pointee set to X-position of the Viewport origin.
+     * @param[out] Y Pointee set to Y-position of the Viewport origin.
+     */
     void GetOrigin(uint32* X, uint32* Y);
 
+    /*! @brief Get the span of the Viewport.
+     *
+     * Get the span of the Viewport. This is expressed as a relative distance
+     * to the Viewport origin. Absolute position is Origin.X + Span.X.
+     *
+     * @param[out] X Pointee set to the horizontal span of the Viewport.
+     * @param[out] Y Pointee set to the vertical span of the Viewport.
+     */
     void GetSpan(uint32* X, uint32* Y);
 
+    /*! @brief Set the screen origin of the Viewport.
+     *
+     * Set the screen origin of the Viewport. This is expressed as an absolute
+     * world position.
+     *
+     * @param[in] X X-position of the Viewport origin.
+     * @param[in] Y Y-position of the Viewport origin.
+     */
     void SetOrigin(uint32 X, uint32 Y);
 
+    /*! @brief Set the screen span of the Viewport.
+     *
+     * Set the screen span of the Viewport. This is expressed as a relativ
+     * distance from the origin. The absolute position is Origin.X + Span.X.
+     *
+     * @param[in] X Horizontal span of the Viewport origin.
+     * @param[in] Y Vertical span of the Viewport origin.
+     */
     void SetSpan(uint32 X, uint32 Y);
 
 }; // Viewport
