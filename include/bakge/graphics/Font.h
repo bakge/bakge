@@ -83,6 +83,10 @@ class BGE_API Font
 {
     stbtt_fontinfo FontInfo;
 
+    int Ascent;
+    int Descent;
+    int Gap;
+
     Font();
 
 
@@ -108,6 +112,21 @@ public:
                                             int PixelHeight);
 
     int GetKerning(int A, int B);
+
+    BGE_INL int GetLineAscent() const
+    {
+        return Ascent;
+    }
+
+    int GetLineDescent() const
+    {
+        return Descent;
+    }
+
+    int GetLineGap() const
+    {
+        return Gap;
+    }
 
 }; /* Font */
 

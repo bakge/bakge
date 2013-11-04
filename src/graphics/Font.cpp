@@ -29,6 +29,9 @@ namespace bakge
 
 Font::Font()
 {
+    Ascent = 0;
+    Descent = 0;
+    Gap = 0;
 }
 
 
@@ -84,6 +87,9 @@ Font* Font::Load(const char* FileName)
 
     // Fill font info struct
     stbtt_InitFont(&(F->FontInfo), Data, 0);
+
+    stbtt_GetFontVMetrics(&(F->FontInfo), &(F->Ascent), &(F->Descent),
+                                                            &(F->Gap));
 
     // Cleanup
     PHYSFS_close(FontFile);
