@@ -41,10 +41,10 @@ Geometry::Geometry()
 
 Geometry::~Geometry()
 {
-    if(PointsBuffer != NULL)
+    if(PointsBuffer != 0)
         glDeleteBuffers(1, &PointsBuffer);
 
-    if(IndicesBuffer != NULL)
+    if(IndicesBuffer != 0)
         glDeleteBuffers(1, &IndicesBuffer);
 }
 
