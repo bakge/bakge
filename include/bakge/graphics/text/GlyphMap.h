@@ -75,12 +75,12 @@ public:
      */
     ~GlyphMap();
 
-    Result Bind() const
+    BGE_INL Result Bind() const
     {
         return Tex->Bind();
     }
 
-    Result Unbind() const
+    BGE_INL Result Unbind() const
     {
         return Tex->Unbind();
     }
