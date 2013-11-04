@@ -30,7 +30,7 @@ namespace bakge
 NSAutoreleasePool* NSPool;
 NSDate* StartTime;
 
-Result PlatformInit(int argc, char* argv[])
+Result _PlatformInit(int argc, char* argv[])
 {
     NSPool = [[NSAutoreleasePool alloc] init];
 
@@ -41,7 +41,7 @@ Result PlatformInit(int argc, char* argv[])
 }
 
 
-Result PlatformDeinit()
+Result _PlatformDeinit()
 {
     [StartTime release];
 

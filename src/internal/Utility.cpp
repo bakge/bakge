@@ -27,7 +27,7 @@
 namespace bakge
 {
 
-bool CheckRequiredExtensions()
+bool _CheckRequiredExtensions()
 {
     if(!glewIsSupported("GL_ARB_vertex_buffer_object")) {
         Log("GLEW: Required extension %s is unavailable\n",

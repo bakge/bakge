@@ -29,7 +29,7 @@ namespace bakge
 
 timespec StartTime;
 
-Result PlatformInit(int argc, char* argv[])
+Result _PlatformInit(int argc, char* argv[])
 {
     clock_gettime(CLOCK_MONOTONIC, &StartTime);
 
@@ -37,7 +37,7 @@ Result PlatformInit(int argc, char* argv[])
 }
 
 
-Result PlatformDeinit()
+Result _PlatformDeinit()
 {
     return BGE_SUCCESS;
 }

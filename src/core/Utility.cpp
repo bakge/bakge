@@ -70,7 +70,7 @@ Result Init(int argc, char* argv[])
     }
 
     /* Run platform-specific initialization protocol */
-    if(PlatformInit(argc, argv) != BGE_SUCCESS)
+    if(_PlatformInit(argc, argv) != BGE_SUCCESS)
         return Deinit();
 
     if(!glfwInit()) {
@@ -105,7 +105,7 @@ Result Init(int argc, char* argv[])
     }
 
     // Check for required OpenGL extensions to run Bakge
-    if(!CheckRequiredExtensions()) {
+    if(!_CheckRequiredExtensions()) {
         return Deinit();
     }
 
@@ -151,7 +151,7 @@ Result Deinit()
         delete LogLock;
 
     /* Run platform-specific deinitialization protocol */
-    PlatformDeinit();
+    _PlatformDeinit();
 
     Shader::DeinitShaderLibrary();
 

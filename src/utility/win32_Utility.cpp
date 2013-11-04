@@ -30,7 +30,7 @@ namespace bakge
 static LARGE_INTEGER ClockFreq;
 static LARGE_INTEGER StartCount;
 
-Result PlatformInit(int argc, char* argv[])
+Result _PlatformInit(int argc, char* argv[])
 {
     extern void _BeginClock();
     _BeginClock();
@@ -39,7 +39,7 @@ Result PlatformInit(int argc, char* argv[])
 }
 
 
-Result PlatformDeinit()
+Result _PlatformDeinit()
 {
     return BGE_SUCCESS;
 }

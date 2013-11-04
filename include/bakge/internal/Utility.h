@@ -45,7 +45,7 @@ namespace bakge
  * @return true if all required extensions are supported; false if one or
  * more are unavailable.
  */
-bool CheckRequiredExtensions();
+bool _CheckRequiredExtensions();
 
 /*! @brief Platform-specific initialization.
  *
@@ -54,7 +54,7 @@ bool CheckRequiredExtensions();
  * @return BGE_SUCCESS if initialization was successful; BGE_FAILURE if
  * any errors occurred.
  */
-Result PlatformInit(int, char*[]);
+Result _PlatformInit(int, char*[]);
 
 /*! @brief Platform-specific deinitialization.
  *
@@ -63,7 +63,7 @@ Result PlatformInit(int, char*[]);
  * @return BGE_SUCCESS if deinitialization was successful; BGE_FAILURE if
  * any errors occurred.
  */
-Result PlatformDeinit();
+Result _PlatformDeinit();
 
 } // bakge
 
