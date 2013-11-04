@@ -62,13 +62,13 @@ public:
 
     BGE_FACTORY Line* Create(Vector3 A, Vector3 B);
 
-    Result TranslateStart(Scalar X, Scalar Y);
+    Result TranslateStart(Scalar X, Scalar Y, Scalar Z);
 
-    Result TranslateEnd(Scalar X, Scalar Y);
+    Result TranslateEnd(Scalar X, Scalar Y, Scalar Z);
 
-    void GetStartPosition(Scalar* X, Scalar* Y) const;
+    void GetStartPosition(Scalar* X, Scalar* Y, Scalar* Z) const;
 
-    void GetEndPosition(Scalar* X, Scalar* Y) const;
+    void GetEndPosition(Scalar* X, Scalar* Y, Scalar* Z) const;
 
 }; /* Line */
 

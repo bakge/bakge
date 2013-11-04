@@ -138,10 +138,11 @@ Line* Line::Create(Vector3 A, Vector3 B)
 }
 
 
-Result Line::TranslateStart(Scalar X, Scalar Y)
+Result Line::TranslateStart(Scalar X, Scalar Y, Scalar Z)
 {
     A[0] += X;
     A[1] += Y;
+    A[2] += Z;
 
     //TODO: Fill buffer
 
@@ -149,10 +150,11 @@ Result Line::TranslateStart(Scalar X, Scalar Y)
 }
 
 
-Result Line::TranslateEnd(Scalar X, Scalar Y)
+Result Line::TranslateEnd(Scalar X, Scalar Y, Scalar Z)
 {
     B[0] += X;
     B[1] += Y;
+    B[2] += Z;
 
     //TODO: Fill buffer
 
@@ -160,23 +162,29 @@ Result Line::TranslateEnd(Scalar X, Scalar Y)
 }
 
 
-void Line::GetStartPosition(Scalar* X, Scalar* Y) const
+void Line::GetStartPosition(Scalar* X, Scalar* Y, Scalar* Z) const
 {
     if(X)
         *X = A[0];
 
     if(Y)
         *Y = A[1];
+
+    if(Z)
+        *Z = A[2];
 }
 
 
-void Line::GetEndPosition(Scalar* X, Scalar* Y) const
+void Line::GetEndPosition(Scalar* X, Scalar* Y, Scalar* Z) const
 {
     if(X)
         *X = B[0];
 
     if(Y)
         *Y = B[1];
+
+    if(Z)
+        *Z = B[2];
 }
 
 } /* bakge */
