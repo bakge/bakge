@@ -164,26 +164,26 @@ Result Line::TranslateEnd(Scalar X, Scalar Y, Scalar Z)
 
 void Line::GetStartPosition(Scalar* X, Scalar* Y, Scalar* Z) const
 {
-    if(X)
+    if(X != NULL)
         *X = A[0];
 
-    if(Y)
+    if(Y != NULL)
         *Y = A[1];
 
-    if(Z)
+    if(Z != NULL)
         *Z = A[2];
 }
 
 
 void Line::GetEndPosition(Scalar* X, Scalar* Y, Scalar* Z) const
 {
-    if(X)
+    if(X != NULL)
         *X = B[0];
 
-    if(Y)
+    if(Y != NULL)
         *Y = B[1];
 
-    if(Z)
+    if(Z != NULL)
         *Z = B[2];
 }
 
