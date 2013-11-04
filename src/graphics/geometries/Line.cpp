@@ -64,7 +64,7 @@ Line* Line::Create(Vector3 A, Vector3 B)
     GLenum Error = glGetError();
     if(Error != GL_NO_ERROR) {
         Log("ERROR: Line - Unexpected error %s while creating points "
-                                   "buffer.\n", GetGLErrorName(Error));
+                                   "buffer.\n", _GetGLErrorName(Error));
         delete L;
         return NULL;
     }
@@ -81,7 +81,7 @@ Line* Line::Create(Vector3 A, Vector3 B)
     Error = glGetError();
     if(Error != GL_NO_ERROR) {
         Log("ERROR: Line - Unexpected error %s while creating points "
-                                   "buffer.\n", GetGLErrorName(Error));
+                                   "buffer.\n", _GetGLErrorName(Error));
         delete L;
         return NULL;
     }

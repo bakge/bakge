@@ -100,7 +100,7 @@ Result Camera3D::Bind() const
         Res = BGE_FAILURE;
         Log("WARNING: Unexpected GL error %s while setting uniform "
                                             "%s in Camera3D::Bind\n",
-                                                GetGLErrorName(Error),
+                                                _GetGLErrorName(Error),
                                                 BGE_PROJECTION_UNIFORM);
     }
 #endif // _DEBUG
@@ -130,7 +130,7 @@ Result Camera3D::Bind() const
         Res = BGE_FAILURE;
         Log("WARNING: Unexpected GL error %s while setting uniform "
                                             "%s in Camera3D::Bind\n",
-                                                GetGLErrorName(Error),
+                                                _GetGLErrorName(Error),
                                                     BGE_VIEW_UNIFORM);
     }
 #endif // _DEBUG
@@ -174,7 +174,7 @@ Result Camera3D::Unbind() const
         Res = BGE_FAILURE;
         Log("WARNING: Unexpected GL error %s while setting uniform "
                                             "%s in Camera3D::Unbind\n",
-                                                GetGLErrorName(Error),
+                                                _GetGLErrorName(Error),
                                                 BGE_PROJECTION_UNIFORM);
     }
 #endif // _DEBUG
@@ -204,7 +204,7 @@ Result Camera3D::Unbind() const
         Res = BGE_FAILURE;
         Log("WARNING: Unexpected GL error %s while setting uniform "
                                             "%s in Camera3D::Unbind\n",
-                                                GetGLErrorName(Error),
+                                                _GetGLErrorName(Error),
                                                     BGE_VIEW_UNIFORM);
     }
 #endif // _DEBUG

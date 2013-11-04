@@ -60,7 +60,7 @@ LineStrip* LineStrip::Create(int NumPoints, Scalar* Points)
     GLenum Error = glGetError();
     if(Error != GL_NO_ERROR) {
         Log("ERROR: LineStrip - Unexpected error %s while creating points "
-                                       "buffer.\n", GetGLErrorName(Error));
+                                       "buffer.\n", _GetGLErrorName(Error));
         delete L;
         return NULL;
     }
@@ -75,7 +75,7 @@ LineStrip* LineStrip::Create(int NumPoints, Scalar* Points)
     Error = glGetError();
     if(Error != GL_NO_ERROR) {
         Log("ERROR: LineStrip - Unexpected error %s while creating indices "
-                                       "buffer.\n", GetGLErrorName(Error));
+                                       "buffer.\n", _GetGLErrorName(Error));
         delete L;
         return NULL;
     }
@@ -94,7 +94,7 @@ LineStrip* LineStrip::Create(int NumPoints, Scalar* Points)
     Error = glGetError();
     if(Error != GL_NO_ERROR) {
         Log("ERROR: LineStrip - Unexpected error %s while setting postions "
-                                        "store.\n", GetGLErrorName(Error));
+                                        "store.\n", _GetGLErrorName(Error));
         glBindBuffer(GL_ARRAY_BUFFER, 0);
         delete L;
         return NULL;

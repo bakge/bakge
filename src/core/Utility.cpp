@@ -79,7 +79,7 @@ Result Init(int argc, char* argv[])
     }
 
 #ifdef _DEBUG
-    glfwSetErrorCallback(GLFWErrorHandler);
+    glfwSetErrorCallback(_GLFWErrorHandler);
 #endif // _DEBUG
 
     /* We don't want the shared context window visible */

@@ -42,7 +42,7 @@ namespace bakge
  * @param[in] Code GLFW error code
  * @param[in] Description String description of error.
  */
-void GLFWErrorHandler(int Code, const char* Description);
+void _GLFWErrorHandler(int Code, const char* Description);
 
 /*! @brief Get a string representation of an OpenGL error flag.
  *
@@ -50,7 +50,7 @@ void GLFWErrorHandler(int Code, const char* Description);
  *
  * @return String constant of the OpenGL error flag.
  */
-const char* GetGLErrorName(GLenum Error);
+const char* _GetGLErrorName(GLenum Error);
 
 #if BGE_WARN_MISSING_VARIABLES
 /*! @brief Log a warning that an attribute variable is missing.

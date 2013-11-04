@@ -76,7 +76,7 @@ Result Geometry::Draw() const
 
         default:
             Log("ERROR: Geometry - Unexpected error %s while rendering.\n",
-                                                    GetGLErrorName(Error));
+                                                    _GetGLErrorName(Error));
             return BGE_FAILURE;
         }
     }

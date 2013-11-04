@@ -138,13 +138,13 @@ Result Shader::InitShaderLibrary()
         case GL_OUT_OF_MEMORY:
             Log("ERROR: Shader Library - Not enough memory to create "
                                                     "vertex shader %s\n",
-                                                    GetGLErrorName(Error));
+                                                    _GetGLErrorName(Error));
             return BGE_FAILURE;
 
         default:
             Log("ERROR: Shader Library - Unexpected error while creating "
                                                     "fragment shader %s\n",
-                                                    GetGLErrorName(Error));
+                                                    _GetGLErrorName(Error));
             return BGE_FAILURE;
         }
 
@@ -165,13 +165,13 @@ Result Shader::InitShaderLibrary()
         case GL_OUT_OF_MEMORY:
             Log("ERROR: Shader Library - Not enough memory to create "
                                                     "fragment shader %s\n",
-                                                    GetGLErrorName(Error));
+                                                    _GetGLErrorName(Error));
             return BGE_FAILURE;
 
         default:
             Log("ERROR: Shader Library - Unexpected error while creating "
                                                     "fragment shader %s\n",
-                                                    GetGLErrorName(Error));
+                                                    _GetGLErrorName(Error));
             return BGE_FAILURE;
         }
 
@@ -186,7 +186,7 @@ Result Shader::InitShaderLibrary()
     if(Error != GL_NO_ERROR) {
         Log("ERROR: Shader Library - Unexpected error while attaching "
                                     "library vertex shader source %s\n",
-                                                    GetGLErrorName(Error));
+                                                    _GetGLErrorName(Error));
         return BGE_FAILURE;
     }
 #endif // _DEBUG
@@ -198,7 +198,7 @@ Result Shader::InitShaderLibrary()
     if(Error != GL_NO_ERROR) {
         Log("ERROR: Shader Library - Unexpected error while attaching "
                                     "library fragment shader source %s\n",
-                                                    GetGLErrorName(Error));
+                                                    _GetGLErrorName(Error));
         return BGE_FAILURE;
     }
 #endif // _DEBUG

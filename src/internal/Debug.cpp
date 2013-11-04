@@ -27,13 +27,13 @@
 namespace bakge
 {
 
-void GLFWErrorHandler(int Code, const char* Description)
+void _GLFWErrorHandler(int Code, const char* Description)
 {
     Log("ERROR: GLFW Error (%x) - \"%s\"\n", Description, Code);
 }
 
 
-const char* GetGLErrorName(GLenum Error)
+const char* _GetGLErrorName(GLenum Error)
 {
 #define BGE_GL_ERROR_CASE(ERR) case ERR: return #ERR;
     switch(Error) {
