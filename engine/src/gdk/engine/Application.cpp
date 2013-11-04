@@ -79,16 +79,17 @@ Result Application::Initialize()
     if(PHYSFS_addToSearchPath(UserDir, 0) == 0) {
         Log("  ERROR: Couldn't add user home directory to search path.\n");
         Log("    %s\n", PHYSFS_getLastError());
+        return BGE_FAILURE;
     }
 
     int Len = strlen(UserDir) + strlen(BGE_GDK_ENGINE_CONFIG_DIR);
-
     char* DirPath = (char*)malloc(Len + 1);
     sprintf(DirPath, "%s%s", UserDir, BGE_GDK_ENGINE_CONFIG_DIR);
 
     if(PHYSFS_addToSearchPath(DirPath, 0) == 0) {
         Log("  ERROR: Couldn't add Bakge directory to search path.\n");
         Log("    %s\n", PHYSFS_getLastError());
+        return BGE_FAILURE;
     }
 
     Len += strlen(BGE_GDK_ENGINE_CONFIG_FILE);
@@ -106,26 +107,33 @@ Result Application::Initialize()
         Log("  - File \"%s\" not found.\n", ConfigPath);
     }
 
-    Win = Window::Create(800, 480, 0);
+    free(DirPath);
+    free(ConfigPath);
+
+    uint32 Width = 800;
+    uint32 Height = 600;
+
+    Win = Window::Create(Width, Height, 0);
     if(Win == NULL) {
-        Log("ERROR: Application - Couldn't create Window\n");
+        Log("  ERROR: Couldn't create Window\n");
         return BGE_FAILURE;
     } else {
-        Log("Application: Successfully created Window\n");
+        Log("  - Created Window\n");
+        Log("    - %d x %d\n", Width, Height);
+        //TODO: Update when full-screen window support added
+        Log("    - %s\n", "Windowed");
     }
 
     Win->SetEventHandler(this);
 
-    Gui = GUI::Create(800, 480);
+    Gui = GUI::Create(Width, Height);
     if(Gui == NULL) {
-        Log("ERROR: Application - Couldn't create GUI\n");
+        Log("  ERROR: Couldn't create GUI\n");
         return BGE_FAILURE;
     } else {
-        Log("Application: Successfully created GUI\n");
+        Log("  - Created GUI\n");
+        Log("    - %d x %d\n", Width, Height);
     }
-
-    free(DirPath);
-    free(ConfigPath);
 
     return BGE_SUCCESS;
 }
