@@ -30,16 +30,7 @@ namespace bakge
 // Cache these values during initialization (only occurs once) and make them
 // available internally through simple getter API.
 
-static union
-{
-    int32 _ViewportMaxDimensions[2];
-    struct
-    {
-        int32 _ViewportMaxWidth;
-        int32 _ViewportMaxHeight;
-    };
-};
-
+static int32 _ViewportMaxDimensions[2];
 static int _MaxTextureUnits;
 static int _MaxTextureSize;
 static int _RecMaxIndices;
@@ -58,12 +49,12 @@ Result GraphicsInit(int argc, char* argv[])
 
 int GetMaxViewportWidth()
 {
-    return _ViewportMaxWidth;
+    return _ViewportMaxDimensions[0];
 }
 
 int GetMaxViewportHeight()
 {
-    return _ViewportMaxHeight;
+    return _ViewportMaxDimensions[1];
 }
 
 int GetMaxTextureUnits()
