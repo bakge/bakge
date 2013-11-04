@@ -42,6 +42,9 @@ namespace bakge
  * baked from a font, making it easier to check if a glyph is loaded, and
  * to extract that glyph's data and metadata for use in rendering it to
  * screen.
+ *
+ * GlyphMaps archived into a GlyphLibrary need not be freed, as the library
+ * will free them in its destructor.
  */
 class BGE_API GlyphLibrary
 {
