@@ -35,7 +35,10 @@ namespace bakge
  *
  * A rectangular area in window/screen coordinates to which OpenGL renders to.
  * Can be used to implement multiple viewports. This is one of the few Bakge
- * classes that can be stack-allocated through trivial constructors.
+ * classes that can be stack-allocated through trivial constructors. The
+ * origin of the Viewport is the lower-left corner of the drawable area, and
+ * the upper-right corner is computed as the origin point plus the Viewport
+ * span.
  */
 class BGE_API Viewport : public Bindable
 {
