@@ -95,14 +95,21 @@ bakge::Result PreRenderTest()
 
 bakge::Result RenderTest()
 {
-    const char* Str = "The Quick Brown Fox Jumps Over the Lazy Dog.";
+    const char* Str = "The Quick Brown Fox Jumps Over the Lazy Dog,\n"
+                      "But Alas, He Has Tripped and Hurt His Paw.\n\n"
+                      "Despite The Dog-Wife's Best Efforts, He Lazes On.\n"
+                      "He Is Distraught For His Dog-Son Has Left Him;\n"
+                      "And Embarked On His Own Lazy Journey.\n";
     const char* C = Str;
     while(*C) {
-        Tex->Extract(*C, St);
-        bakge::Scalar K = Tex->GetScaleFactor() * F->GetKerning(*C, *(C+1));
-        St->Kern(K);
-        St->Draw();
-        St->Advance();
+        if(*C == '\n') {
+            St->EndLine();
+        } else {
+            Tex->Extract(*C, St);
+            St->Kern(Tex->GetScaleFactor() * F->GetKerning(*C, *(C+1)));
+            St->Draw();
+            St->Advance();
+        }
         ++C;
     }
 
