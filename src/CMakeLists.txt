@@ -41,6 +41,7 @@ set(MODULES
   graphics/text/GlyphLibrary
   graphics/text/GlyphMap
   graphics/text/Stamp
+  graphics/textures/AnimationTexture
   graphics/textures/CompositeTexture
   input/GamePad
   ui/Anchor
