@@ -185,7 +185,7 @@ Result Stamp::Begin(Scalar X, Scalar Y)
 Result Stamp::EndLine()
 {
     Current.X = Start.X;
-    Current.Y += LineAdv;
+    Current.Y += LineAdv * ScaleFactor;
 
     return BGE_SUCCESS;
 }
