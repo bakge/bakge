@@ -77,6 +77,12 @@ bakge::Result InitTest()
     St = bakge::Stamp::Create();
     St->SetDimensions(50, 50);
 
+    // Since we're rendering using orthographic projection, texture
+    // interpolation doesn't need to be anything but fast.
+    glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_FASTEST);
+    // We also don't need particularly need depth testing.
+    glDisable(GL_DEPTH_TEST);
+
     return BGE_SUCCESS;
 }
 
