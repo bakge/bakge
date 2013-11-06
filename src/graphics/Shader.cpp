@@ -382,6 +382,9 @@ Shader* Shader::LoadFromStrings(int NumVertex, int NumFragment,
     glShaderSource(S->Vertex, NumVertex + 1, VertexShaderBuffer, NULL);
     glShaderSource(S->Fragment, NumFragment + 1, FragmentShaderBuffer, NULL);
 
+    delete[] VertexShaderBuffer;
+    delete[] FragmentShaderBuffer;
+
     // Compile vertex shader and check for errors
     if(Compile(S->Vertex) == BGE_FAILURE) {
         Log("ERROR: Shader - Vertex shader compilation failed\n");
