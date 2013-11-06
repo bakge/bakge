@@ -50,6 +50,16 @@ public:
 
     ~AnimationTexture();
 
+    /*! @brief Create an animation layout texture for a given set of keyframes
+     * and the bone positions for those frames.
+     *
+     * Create an animation layout texture for a given set of keyframes and
+     * the bone positions for those frames. Layout is an array of pointers to
+     * arrays of bone matrix transformations at each keyframe.
+     */
+    BGE_FACTORY AnimationTexture* Create(int NumFrames, int NumBones,
+                                                    Matrix** Layout);
+
 }; // AnimationTexture
 
 } // bakge
