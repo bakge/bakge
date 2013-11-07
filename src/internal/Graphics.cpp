@@ -61,6 +61,7 @@ void _CheckOptionalExtensions()
     //TODO: Implement use of any optional extensions here
 
     Log("  - Found %d optional extensions.\n", Num);
+    Log("\n");
 
     EndLogBlock();
 }
