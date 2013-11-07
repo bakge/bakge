@@ -230,8 +230,11 @@ int Application::Run()
     Microseconds T1, T2;
     T1 = GetRunningTime();
 
-    while(Win->IsOpen()) {
+    while(1) {
         Window::PollEvents();
+
+        if(Win->IsOpen() == false)
+            break;
 
         PreRenderStage();
         RenderStage();
