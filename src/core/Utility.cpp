@@ -104,15 +104,6 @@ Result Init(int argc, char* argv[])
         return Deinit();
     }
 
-    // Check for required OpenGL extensions to run Bakge
-    if(!_CheckRequiredExtensions()) {
-        return Deinit();
-    }
-
-    if(_GraphicsInit(argc, argv) == BGE_FAILURE) {
-        return Deinit();
-    }
-
     /* Initialize our Bakge shader library */
     if(Shader::InitShaderLibrary() != BGE_SUCCESS) {
         Log("Failed to initialize shader library\n");
@@ -133,6 +124,15 @@ Result Init(int argc, char* argv[])
 
     Log("\n");
     EndLogBlock();
+
+    // Check for required OpenGL extensions to run Bakge
+    if(!_CheckRequiredExtensions()) {
+        return Deinit();
+    }
+
+    if(_GraphicsInit(argc, argv) == BGE_FAILURE) {
+        return Deinit();
+    }
 
     return BGE_SUCCESS;
 }
