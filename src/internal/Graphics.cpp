@@ -23,6 +23,7 @@
  * */
 
 #include <bakge/Bakge.h>
+#include <bakge/internal/Graphics.h>
 
 namespace bakge
 {
