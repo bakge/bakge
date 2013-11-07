@@ -23,6 +23,7 @@
  * */
 
 #include <bakge/gdk/engine/Common.h>
+#include <pugi/pugixml.hpp>
 
 namespace bakge
 {
@@ -31,6 +32,8 @@ namespace gdk
 
 #define BGE_GDK_ENGINE_CONFIG_DIR "Bakge"
 #define BGE_GDK_ENGINE_CONFIG_FILE "main.bcf"
+#define BGE_CONFIG_DEFAULT_WINDOW_WIDTH 800
+#define BGE_CONFIG_DEFAULT_WINDOW_HEIGHT 600
 
 Application::Application()
 {
@@ -98,20 +101,94 @@ Result Application::Initialize()
 
     Log("  - Searching for file \"%s\"\n", ConfigPath);
 
+    uint32 Width = BGE_CONFIG_DEFAULT_WINDOW_WIDTH;
+    uint32 Height = BGE_CONFIG_DEFAULT_WINDOW_HEIGHT;
+    bool FoundConfig = false;
+
     if(PHYSFS_exists(BGE_GDK_ENGINE_CONFIG_FILE)) {
-        if(PHYSFS_isDirectory(BGE_GDK_ENGINE_CONFIG_FILE) == 0)
+        if(PHYSFS_isDirectory(BGE_GDK_ENGINE_CONFIG_FILE) == 0) {
             Log("  - Found file \"%s\"\n", ConfigPath);
-        else
+            FoundConfig = true;
+        } else {
             Log("  - \"%s\" is a directory.\n", ConfigPath);
+        }
     } else {
         Log("  - File \"%s\" not found.\n", ConfigPath);
     }
 
+    pugi::xml_document Config;
+    if(FoundConfig) {
+        Log("  - Loading config file...\n");
+        //TODO: Use PhysFS and buffer file contents?
+        pugi::xml_parse_result Load = Config.load_file(ConfigPath);
+        Log("  - pugixml document load result: %s\n", Load.description());
+        Log("  - Scanning for \"window\" node...\n");
+        pugi::xml_node WindowNode = Config.child("window");
+        if(WindowNode.empty()) {
+            Log("  ERROR: \"window\" node not found.\n");
+            return BGE_FAILURE;
+        } else {
+            Log("  - Found \"window\" node, extracting dimensions info.\n");
+        }
+        pugi::xml_attribute Attr = WindowNode.attribute("width");
+        Height = WindowNode.attribute("height").as_int(-1);
+        if(Attr.empty()) {
+            Log("  ERROR: \"width\" attribute not found.\n");
+            return BGE_FAILURE;
+        } else {
+            // Get value as int; return -1 if value is not an int
+            Width = Attr.as_int(-1);
+            if(Width < 0) {
+                Log("  ERROR: \"width\" attribute not a number.\n");
+                return BGE_FAILURE;
+            } else {
+                Log("  - Found \"width\" attribute: %d\n", Width);
+            }
+        }
+        Attr = WindowNode.attribute("height");
+        if(Attr.empty()) {
+            Log("  ERROR: \"height\" attribute not found.\n");
+            return BGE_FAILURE;
+        } else {
+            Height = Attr.as_int(-1);
+            if(Height < 0) {
+                Log("  ERROR: \"height\" attribute not a number.\n");
+                return BGE_FAILURE;
+            } else {
+                Log("  - Found \"height\" attribute: %d\n", Height);
+            }
+        }
+    } else {
+        Log("  - No config file found. Creating a default.\n");
+        pugi::xml_node Node = Config.append_child("window");
+        if(Node.empty()) {
+            Log("  ERROR: Couldn't create \"window\" node.\n");
+            return BGE_FAILURE;
+        }
+        // Create a width attribute on our window node.
+        pugi::xml_attribute Attr = Node.append_attribute("width");
+        if(Attr.empty()) {
+            Log("  ERROR: Couldn't create \"width\" attribute.\n");
+            return BGE_FAILURE;
+        } else {
+            Attr.set_value(BGE_CONFIG_DEFAULT_WINDOW_WIDTH);
+        }
+        // Now make a height attribute
+        Attr = Node.append_attribute("height");
+        if(Attr.empty()) {
+            Log("  ERROR: Couldn't create \"height\" attribute.\n");
+            return BGE_FAILURE;
+        } else {
+            Attr.set_value(BGE_CONFIG_DEFAULT_WINDOW_HEIGHT);
+        }
+        // Save document to file
+        if(Config.save_file(ConfigPath, "  ") == false) {
+            Log("  ERROR: Couldn't write to file \"%s\"\n", ConfigPath);
+        }
+    }
+
     free(DirPath);
     free(ConfigPath);
-
-    uint32 Width = 800;
-    uint32 Height = 600;
 
     Win = Window::Create(Width, Height, 0);
     if(Win == NULL) {
