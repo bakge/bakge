@@ -42,6 +42,9 @@ namespace bakge
 
 Result _GraphicsInit(int argc, char* argv[]);
 
+// Check for some optional extensions that Bakge might use
+void _CheckOptionalExtensions();
+
 int _GetMaxViewportWidth();
 
 int _GetMaxViewportHeight();

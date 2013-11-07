@@ -44,7 +44,24 @@ Result _GraphicsInit(int argc, char* argv[])
     glGetIntegerv(GL_MAX_ELEMENTS_INDICES, &_RecMaxIndices);
     glGetIntegerv(GL_MAX_ELEMENTS_VERTICES, &_RecMaxVertices);
 
+    _CheckOptionalExtensions();
+
     return BGE_SUCCESS;
+}
+
+void _CheckOptionalExtensions()
+{
+    BeginLogBlock();
+
+    int Num = 0;
+
+    Log("Checking for optional GL extensions...\n");
+
+    //TODO: Implement use of any optional extensions here
+
+    Log("  - Found %d optional extensions.\n", Num);
+
+    EndLogBlock();
 }
 
 int _GetMaxViewportWidth()
