@@ -249,6 +249,8 @@ Result _CreateDefaultMainConfig(const char* Path, MainConfig* Config)
 
 Result Application::Initialize()
 {
+    ClearFlags = GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT;
+
     glClearColor(0.85f, 0.85f, 0.7f, 1.0f);
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_BLEND);
@@ -354,7 +356,7 @@ Result Application::Update(Seconds DeltaTime)
 
 Result Application::PreRenderStage()
 {
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    glClear(ClearFlags);
 
     return BGE_SUCCESS;
 }
