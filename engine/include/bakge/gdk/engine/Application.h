@@ -34,6 +34,9 @@ namespace gdk
 
 class Application : public Engine, public EventHandler
 {
+
+protected:
+
     GLbitfield ClearFlags;
 
     GUI* Gui;
