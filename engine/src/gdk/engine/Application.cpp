@@ -193,6 +193,8 @@ static Result _LoadMainConfig(const char* Path, MainConfig* Config)
 }
 
 
+// Creates a default config file with the given path, also setting the values
+// of a MainConfig struct to those same defaults written to file.
 Result _CreateDefaultMainConfig(const char* Path, MainConfig* Config)
 {
     Log("  - No config file found. Creating a default.\n");
