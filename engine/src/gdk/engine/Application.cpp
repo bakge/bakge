@@ -83,7 +83,7 @@ static char* _FindMainConfig()
     }
 
     // Found home directory; add it to search path for PhysFS
-    Log("  - Found user home directory \"%s\"\n", UserDir);
+    Log("  - Found user home directory\n", UserDir);
     if(PHYSFS_addToSearchPath(UserDir, 0) == 0) {
         Log("  ERROR: Couldn't add user home directory to search path.\n");
         Log("    %s\n", PHYSFS_getLastError());
@@ -111,16 +111,16 @@ static char* _FindMainConfig()
     }
 
     // Now that home directory is in search path, search for it
-    Log("  - Searching for file \"%s\"\n", ConfigPath);
+    Log("  - Searching for file \"main.config\"\n");
     if(PHYSFS_exists("main.config") == 0) {
-        Log("  - File \"%s\" not found.\n", ConfigPath);
+        Log("  - File \"main.config\" not found.\n");
         goto _MainConfigNotFound; // Stop looking at me like that
     }
 
     if(PHYSFS_isDirectory("main.config") == 0) {
-        Log("  - Found file \"%s\"\n", ConfigPath);
+        Log("  - Found \"main.config\" file.\n");
     } else {
-        Log("  - \"%s\" is a directory.\n", ConfigPath);
+        Log("  - \"main.config\" is a directory.\n");
     }
 
 _MainConfigNotFound:
@@ -153,7 +153,7 @@ static Result _LoadMainConfig(const char* Path, MainConfig* Config)
     Log("  - Loading config file...%s\n", Load.description());
 
     // Find window node.
-    Log("  - Scanning for \"window\" node...\n");
+    Log("  - Searching for \"window\" node...\n");
     pugi::xml_node WindowNode = Doc.child("window");
     if(WindowNode.empty()) {
         Log("  WARNING: \"window\" node not found.\n");
@@ -247,7 +247,6 @@ Result _CreateDefaultMainConfig(const char* Path, MainConfig* Config)
     return CreateResult;
 }
 
-
 Result Application::Initialize()
 {
     glClearColor(0.85f, 0.85f, 0.7f, 1.0f);
@@ -308,6 +307,9 @@ Result Application::Initialize()
     return BGE_SUCCESS;
 }
 
+// Undefine these; no longer needed
+#undef BGE_CONFIG_DEFAULT_WINDOW_WIDTH
+#undef BGE_CONFIG_DEFAULT_WINDOW_HEIGHT
 
 Result Application::ShutDown()
 {
