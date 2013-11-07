@@ -22,17 +22,35 @@
  * THE SOFTWARE.
  * */
 
-#ifndef BAKGE_GDK_ENGINE_COMMON_H
-#define BAKGE_GDK_ENGINE_COMMON_H
+#ifndef BAKGE_GDK_ENGINE_CONFIG_H
+#define BAKGE_GDK_ENGINE_CONFIG_H
 
-#include <bakge/Bakge.h>
-#include <bakge/gdk/engine/Config.h>
-#include <bakge/gdk/engine/GUI.h>
-#include <bakge/gdk/engine/Application.h>
-#include <bakge/gdk/engine/ui/Element.h>
+#include <bakge/gdk/engine/Common.h>
 
-#define BGE_GDK_ENGINE_VER_MAJ 0
-#define BGE_GDK_ENGINE_VER_MIN 0
-#define BGE_GDK_ENGINE_VER_REV 0
+namespace bakge
+{
+namespace gdk
+{
 
-#endif /* BAKGE_GDK_ENGINE_COMMON_H */
+typedef struct
+{
+    // Dimensions of mian application window.
+    struct
+    {
+        uint32 Width;
+        uint32 Height;
+    } Win;
+    // Clear color of the framebuffer.
+    struct
+    {
+        Byte R;
+        Byte G;
+        Byte B;
+        Byte A;
+    } ClearColor;
+} MainConfig;
+
+} // gdk
+} // bakge
+
+#endif // BAKGE_GDK_ENGINE_CONFIG_H

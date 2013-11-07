@@ -10,6 +10,7 @@ include_directories(${BAKGE_GDK_ENGINE_DIR}/include)
 set(BAKGE_GDK_ENGINE_HEADERS
   ${BAKGE_SOURCE_DIR}/engine/include/bakge/gdk/engine/Common
   ${BAKGE_SOURCE_DIR}/engine/include/bakge/gdk/engine/Application
+  ${BAKGE_SOURCE_DIR}/engine/include/bakge/gdk/engine/Config
   ${BAKGE_SOURCE_DIR}/engine/include/bakge/gdk/engine/GUI
   ${BAKGE_SOURCE_DIR}/engine/include/bakge/gdk/engine/ui/Element
 )
