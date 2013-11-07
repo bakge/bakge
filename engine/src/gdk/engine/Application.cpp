@@ -254,6 +254,8 @@ Result Application::Initialize()
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+    BeginLogBlock();
 	
     MainConfig Config;
     char* Path = _FindMainConfig();
@@ -281,6 +283,7 @@ Result Application::Initialize()
 
     Win = Window::Create(Config.Win.Width, Config.Win.Height, 0);
     if(Win == NULL) {
+        EndLogBlock();
         return BGE_FAILURE;
     } else {
         Log("  - Created Window\n");
@@ -293,11 +296,14 @@ Result Application::Initialize()
 
     Gui = GUI::Create(Config.Win.Width, Config.Win.Height);
     if(Gui == NULL) {
+        EndLogBlock();
         return BGE_FAILURE;
     } else {
         Log("  - Created GUI\n");
         Log("    - %d x %d\n", Config.Win.Width, Config.Win.Height);
     }
+
+    EndLogBlock();
 
     return BGE_SUCCESS;
 }

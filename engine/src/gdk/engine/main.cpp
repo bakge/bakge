@@ -30,19 +30,13 @@ int main(int argc, char* argv[])
         return -1;
 
     // Log some info about the engine
-    int VerLen = bakge::Log("Bakge GDK Engine v%d.%d.%d\n",
-                                    BGE_GDK_ENGINE_VER_MAJ,
-                                    BGE_GDK_ENGINE_VER_MIN,
-                                    BGE_GDK_ENGINE_VER_REV);
-    char* LineBuf = (char*)malloc(VerLen);
-    memset((void*)LineBuf, 61, (size_t)VerLen);
-    LineBuf[VerLen-1] = 0;
-    bakge::Log("%s\n", LineBuf);
-    free(LineBuf);
+    bakge::Log("Bakge GDK Engine v%d.%d.%d\n", BGE_GDK_ENGINE_VER_MAJ,
+                                                BGE_GDK_ENGINE_VER_MIN,
+                                                BGE_GDK_ENGINE_VER_REV);
 
     bakge::gdk::Application* App = bakge::gdk::Application::Create();
-    int Code;
 
+    int Code;
     if(App->Initialize() == BGE_FAILURE) {
         Code = -1;
         goto ExitEngine;
