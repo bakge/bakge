@@ -306,6 +306,17 @@ Result Application::Initialize()
         Log("    - %d x %d\n", Config.Win.Width, Config.Win.Height);
     }
 
+    View = new Viewport(0, 0, Config.Win.Width, Config.Win.Height);
+    if(View == NULL) {
+        Log("  ERROR: Couldn't create Viewport.\n");
+        return BGE_FAILURE;
+    } else {
+        Log("  - Created Viewport.\n");
+        Log("    - %d x %d\n", Config.Win.Width, Config.Win.Height);
+    }
+
+    View->Bind();
+
     EndLogBlock();
 
     return BGE_SUCCESS;

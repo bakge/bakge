@@ -41,6 +41,7 @@ protected:
 
     GUI* Gui;
     Window* Win;
+    Viewport* View;
 
     Application();
 
