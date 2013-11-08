@@ -67,6 +67,46 @@ bool Element::IsHovered(Coord X, Coord Y) const
     return true;
 }
 
+
+Result Element::Bind() const
+{
+    Result Res = BGE_SUCCESS;
+
+    if(Pin->Bind() == BGE_FAILURE)
+        Res = BGE_FAILURE;
+
+    if(Box->Bind() == BGE_FAILURE)
+        Res = BGE_FAILURE;
+
+    if(Art->Bind() == BGE_FAILURE)
+        Res = BGE_FAILURE;
+
+    return Res;
+}
+
+
+Result Element::Unbind() const
+{
+    Result Res = BGE_SUCCESS;
+
+    if(Pin->Unbind() == BGE_FAILURE)
+        Res = BGE_FAILURE;
+
+    if(Box->Unbind() == BGE_FAILURE)
+        Res = BGE_FAILURE;
+
+    if(Art->Unbind() == BGE_FAILURE)
+        Res = BGE_FAILURE;
+
+    return Res;
+}
+
+
+Result Element::Draw() const
+{
+    return Box->Draw();
+}
+
 } // ui
 } // gdk
 } // bakge

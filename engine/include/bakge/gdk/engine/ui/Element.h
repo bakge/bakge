@@ -34,7 +34,7 @@ namespace gdk
 namespace ui
 {
 
-class Element : public Hoverable
+class Element : public Hoverable, public Drawable
 {
 
 protected:
@@ -65,6 +65,12 @@ public:
     {
         return Art;
     }
+
+    virtual Result Bind() const;
+
+    virtual Result Unbind() const;
+
+    virtual Result Draw() const;
 
     virtual bool IsHovered(Coord X, Coord Y) const;
 
