@@ -421,6 +421,9 @@ Result Application::CloseEvent()
 
 Result Application::ResizeEvent(int X, int Y)
 {
+    View->SetSpan(X, Y);
+    View->Bind();
+
     return BGE_SUCCESS;
 }
 
