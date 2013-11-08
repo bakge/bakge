@@ -133,6 +133,30 @@ public:
      */
     virtual Result CloseEvent() = 0;
 
+    /*! @brief Called when the Window is resized.
+     *
+     * Called when the Window is resized.
+     *
+     * @param[in] X Width of the Window after being resized.
+     * @param[in] Y Height of the Window after being resized.
+     *
+     * @return BGE_FAILURE if any errors occurred while processing the event;
+     * BGE_SUCCESS otherwise.
+     */
+    virtual Result ResizeEvent(int X, int Y) = 0;
+
+    /*! @brief Called when the Window is dragged.
+     *
+     * Called when Window is dragged.
+     *
+     * @param[in] X X-position of the Window after being dragged.
+     * @param[in] Y Y-position of the Window after being dragged.
+     *
+     * @return BGE_FAILURE if any errors occurred while processing the event;
+     * BGE_SUCCESS otherwise.
+     */
+    virtual Result DragEvent(int X, int Y) = 0;
+
 }; /* EventHandler */
 
 } /* bakge */

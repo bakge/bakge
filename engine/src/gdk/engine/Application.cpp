@@ -418,5 +418,17 @@ Result Application::CloseEvent()
     return BGE_SUCCESS;
 }
 
+
+Result Application::ResizeEvent(int X, int Y)
+{
+    return BGE_SUCCESS;
+}
+
+
+Result Application::DragEvent(int X, int Y)
+{
+    return BGE_SUCCESS;
+}
+
 } /* gdk */
 } /* bakge */

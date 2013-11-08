@@ -29,7 +29,7 @@ namespace bakge
 
 GLFWwindow* Window::SharedContext = NULL;
 
-void Window::Moved(GLFWwindow* Handle,  int X, int Y)
+void Window::Moved(GLFWwindow* Handle, int X, int Y)
 {
     Window* Win;
     EventHandler* Handler;
@@ -38,7 +38,7 @@ void Window::Moved(GLFWwindow* Handle,  int X, int Y)
     Handler = Win->Handler;
 
     if(Handler != NULL) {
-        /* Deploy event here */
+        Handler->DragEvent(X, Y);
     }
 }
 
@@ -52,7 +52,7 @@ void Window::Resized(GLFWwindow* Handle, int Width, int Height)
     Handler = Win->Handler;
 
     if(Handler != NULL) {
-        /* Deploy event here */
+        Handler->ResizeEvent(Width, Height);
     }
 }
 
