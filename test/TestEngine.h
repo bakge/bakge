@@ -196,6 +196,16 @@ class TestEngine : public Engine, public EventHandler
         return BGE_FAILURE;
     }
 
+    Result ResizeEvent(int X, int Y)
+    {
+        return BGE_FAILURE;
+    }
+
+    Result DragEvent(int X, int Y)
+    {
+        return BGE_FAILURE;
+    }
+
     Window* EngineWindow;
 
     GenericCallback InitCB;
