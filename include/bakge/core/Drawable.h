@@ -69,6 +69,8 @@ public:
      */
     virtual Result Draw() const = 0;
 
+    virtual Result DrawInstanced(int Count) const = 0;
+
 }; /* Drawable */
 
 } /* bakge */
