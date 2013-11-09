@@ -263,7 +263,7 @@ Result Application::Initialize()
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
     BeginLogBlock();
-	
+
     MainConfig Config;
     char* Path = _FindMainConfig();
     // If file couldn't be found, make a default one.
