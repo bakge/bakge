@@ -62,6 +62,34 @@ Application* Application::Create()
 }
 
 
+static Result _FindWindowWidth(pugi::xml_node BGE_NCP Ch, uint32* W)
+{
+    pugi::xml_attribute Attr = Ch.attribute("width");
+    if(Attr.empty()) {
+        *W = 0;
+        return BGE_FAILURE;
+    }
+
+    *W = Attr.as_int(0);
+
+    return BGE_SUCCESS;
+}
+
+
+static Result _FindWindowHeight(pugi::xml_node BGE_NCP Ch, uint32* H)
+{
+    pugi::xml_attribute Attr = Ch.attribute("height");
+    if(Attr.empty()) {
+        *H = 0;
+        return BGE_FAILURE;
+    }
+
+    *H = Attr.as_int(0);
+
+    return BGE_SUCCESS;
+}
+
+
 // Scans user's home directory for the main configuration file. Every
 // Application loads up this config. Whether or not specialized applications
 // extract and use info from this file depends on the implementation of
@@ -162,32 +190,8 @@ static Result _LoadMainConfig(const char* Path, MainConfig* Config)
         Log("  - Found \"window\" node, extracting dimensions info.\n");
     }
 
-    // pugixml is swell in that empty nodes return empty attributes/child
-    // nodes if they themselves are empty.
-    pugi::xml_attribute Attr = WindowNode.attribute("width");
-    if(Attr.empty()) {
-        Log("  WARNING: \"width\" attribute not found.\n");
-        Config->Win.Width = 0;
-        LoadResult = BGE_FAILURE;
-    } else {
-        // Get value as int; return -1 if value is not an int
-        Config->Win.Width = Attr.as_int(0);
-        if(Config->Win.Width == 0) {
-            Log("  WARNING: \"width\" attribute not a number.\n");
-        }
-    }
-
-    Attr = WindowNode.attribute("height");
-    if(Attr.empty()) {
-        Log("  WARNING: \"height\" attribute not found.\n");
-        Config->Win.Height = 0;
-        LoadResult = BGE_FAILURE;
-    } else {
-        Config->Win.Height = Attr.as_int(0);
-        if(Config->Win.Height == 0) {
-            Log("  WARNING: \"height\" attribute not a number.\n");
-        }
-    }
+    _FindWindowWidth(WindowNode, &(Config->Win.Width));
+    _FindWindowHeight(WindowNode, &(Config->Win.Height));
 
     return LoadResult;
 }
