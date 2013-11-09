@@ -148,6 +148,8 @@ static char* _FindMainConfig()
     if(PHYSFS_isDirectory("main.config") == 0) {
         Log("  - Found \"main.config\" file.\n");
     } else {
+        //TODO: Propagate this result upwards and do not try to create
+        // a default config, since a file already exists.
         Log("  - \"main.config\" is a directory.\n");
     }
 
