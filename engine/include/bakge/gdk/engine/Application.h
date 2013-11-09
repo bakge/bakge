@@ -45,6 +45,9 @@ protected:
 
     Application();
 
+    // Enables/disables GL depth test and changes ClearFlags appropriately
+    void SetDepthTest(bool On);
+
 
 public:
 

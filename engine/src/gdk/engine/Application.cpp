@@ -437,5 +437,17 @@ Result Application::DragEvent(int X, int Y)
     return BGE_SUCCESS;
 }
 
+
+void Application::SetDepthTest(bool On)
+{
+    if(On) {
+        glEnable(GL_DEPTH_TEST);
+        ClearFlags |= GL_DEPTH_BUFFER_BIT;
+    } else {
+        glDisable(GL_DEPTH_TEST);
+        ClearFlags &= ~GL_DEPTH_BUFFER_BIT;
+    }
+}
+
 } /* gdk */
 } /* bakge */
