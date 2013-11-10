@@ -23,6 +23,9 @@
  * */
 
 #include <bakge/Bakge.h>
+#ifdef _DEBUG
+#include <bakge/internal/Debug.h>
+#endif // _DEBUG
 
 namespace bakge
 {
@@ -57,6 +60,60 @@ Crowd* Crowd::Create(int ReserveMembers)
     C->Reserve(ReserveMembers);
 
     return C;
+}
+
+
+static void _SetAttributeOffset(GLint Loc, GLint Offset)
+{
+    for(int i=0;i<4;++i) {
+        glVertexAttribPointer(Loc + i, 4, GL_FLOAT, GL_FALSE, sizeof(Matrix),
+                           (GLvoid*)(Offset + (sizeof(Scalar) * 4 * i)));
+    }
+}
+
+
+Result Crowd::StreamDraw(Drawable* Obj)
+{
+    GLint Program, Location;
+
+    /* Retrieve current shader program */
+    glGetIntegerv(GL_CURRENT_PROGRAM, &Program);
+    if(Program == 0)
+        return BGE_FAILURE;
+
+    /* Retrieve location of the bge_Translation vec4 */
+    Location = glGetAttribLocation(Program, BGE_MODEL_ATTRIBUTE);
+    if(Location < 0)
+        return BGE_FAILURE;
+
+
+    for(int i=0;i<4;++i) {
+        glEnableVertexAttribArray(Location + i);
+        glVertexAttribDivisor(Location + i, 1);
+    }
+
+    glBindBuffer(GL_ARRAY_BUFFER, CrowdBuffer);
+
+    Matrix Transformation;
+    Scalar* Ptr;
+    int Size = sizeof(Transformation);
+    for(int i=0;i<Population;++i) {
+        Transformation = Matrix::Scaling(Scales[i * 3 + 0],
+                                        Scales[i * 3 + 1],
+                                        Scales[i * 3 + 2]);
+        Transformation *= Rotations[i].ToMatrix();
+        Transformation.Translate(Positions[i * 3 + 0],
+                                Positions[i * 3 + 1],
+                                Positions[i * 3 + 2]);
+
+        glBufferSubData(GL_ARRAY_BUFFER, Size * i, Size, &Transformation[0]);
+
+        _SetAttributeOffset(Location, Size * i);
+
+        Obj->Draw();
+    }
+
+    return BGE_SUCCESS;
 }
 
 
@@ -162,7 +219,7 @@ Result Crowd::Reserve(int NumMembers)
     /* Allocates the buffer */
     glBindBuffer(GL_ARRAY_BUFFER, CrowdBuffer);
     glBufferData(GL_ARRAY_BUFFER, sizeof(Scalar) * 16 * NumMembers,
-                                            NULL, GL_DYNAMIC_DRAW);
+                                            NULL, GL_STREAM_DRAW);
 
     /* Now set each matrix in the buffer to identity */
     GLint Stride = sizeof(Scalar) * 16;
@@ -188,7 +245,7 @@ Result Crowd::TranslateMember(int MemberIndex, Scalar X, Scalar Y, Scalar Z)
     Positions[MemberIndex * 3 + 1] += Y;
     Positions[MemberIndex * 3 + 2] += Z;
 
-    SetDataStore(MemberIndex);
+    //SetDataStore(MemberIndex);
 
     return BGE_SUCCESS;
 }
@@ -204,7 +261,7 @@ Result Crowd::RotateMember(int MemberIndex, Quaternion BGE_NCP Rotation)
     /* Rotate the member */
     Rotations[MemberIndex] *= Rotation;
 
-    SetDataStore(MemberIndex);
+    //SetDataStore(MemberIndex);
 
     return BGE_SUCCESS;
 }
@@ -220,7 +277,7 @@ Result Crowd::RotateMemberGlobal(int MemberIndex, Quaternion BGE_NCP Rot)
     /* Rotate the member */
     Rotations[MemberIndex] = Rot * Rotations[MemberIndex];
 
-    SetDataStore(MemberIndex);
+    //SetDataStore(MemberIndex);
 
     return BGE_SUCCESS;
 }
@@ -238,7 +295,7 @@ Result Crowd::ScaleMember(int MemberIndex, Scalar X, Scalar Y, Scalar Z)
     Scales[MemberIndex * 3 + 1] *= Y;
     Scales[MemberIndex * 3 + 2] *= Z;
 
-    SetDataStore(MemberIndex);
+    //SetDataStore(MemberIndex);
 
     return BGE_SUCCESS;
 }
@@ -253,7 +310,7 @@ Quaternion BGE_NCP Crowd::SetMemberRotation(int Index, Quaternion BGE_NCP Rot)
 
     Rotations[Index] = Rot;
 
-    SetDataStore(Index);
+    //SetDataStore(Index);
 
     return Rotations[Index];
 }

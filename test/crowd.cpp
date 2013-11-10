@@ -116,9 +116,10 @@ int main(int argc, char* argv[])
         Cam->Bind();
         Tex->Bind();
         Obj->Bind();
-        Group->Bind();
-        Obj->DrawInstanced(Group->GetPopulation()); /* No renderer for now */
-        Group->Unbind();
+        //Group->Bind();
+        //Obj->DrawInstanced(Group->GetPopulation()); /* No renderer for now */
+        Group->StreamDraw(Obj);
+        //Group->Unbind();
         Obj->Unbind();
         Tex->Unbind();
         Cam->Unbind();

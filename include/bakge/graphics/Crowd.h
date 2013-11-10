@@ -100,6 +100,8 @@ public:
      */
     virtual ~Crowd();
 
+    Result StreamDraw(Drawable* Obj);
+
     /*! @brief Create a Crowd with a given capacity.
      *
      * Allocates a Crowd and creates storage for a given number of members.
