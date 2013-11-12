@@ -64,6 +64,8 @@ set(HEADERS
   ${BAKGE_SOURCE_DIR}/include/bakge/math/Math
   ${BAKGE_SOURCE_DIR}/include/bakge/core/Type
   ${BAKGE_SOURCE_DIR}/include/bakge/input/XboxController
+  ${BAKGE_SOURCE_DIR}/include/bakge/interface/IRectangle
+  ${BAKGE_SOURCE_DIR}/include/bakge/interface/ICuboid
   ${BAKGE_SOURCE_DIR}/include/bakge/data/Format
 )
 
@@ -127,8 +129,6 @@ set(INTERNAL_HEADERS
   ${BAKGE_SOURCE_DIR}/include/bakge/internal/Utility
   ${BAKGE_SOURCE_DIR}/include/bakge/internal/Format
   ${BAKGE_SOURCE_DIR}/include/bakge/internal/Graphics
-  ${BAKGE_SOURCE_DIR}/include/bakge/internal/interface/IRectangle
-  ${BAKGE_SOURCE_DIR}/include/bakge/internal/interface/ICuboid
 )
 
 if(BUILD_SHARED_LIBS)
