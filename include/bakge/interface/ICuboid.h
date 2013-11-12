@@ -42,19 +42,19 @@ namespace bakge
  * faces whose edges meet in right angles. In layman's terms, it is a box
  * of arbitrary length, width and height.
  */
-class ICuboid : public IRectangle
+template<class T> class ICuboid : public IRectangle<T>
 {
 
 protected:
 
-    int Length;
+    T Length;
 
     ICuboid() : IRectangle(0, 0)
     {
         Length = 0;
     }
 
-    ICuboid(int W, int H, int L) : IRectangle(W, H)
+    ICuboid(T W, T H, T L) : IRectangle(W, H)
     {
         Length = L;
     }
@@ -63,12 +63,12 @@ protected:
     {
     }
 
-    BGE_INL virtual const int GetLength() const
+    BGE_INL virtual const T GetLength() const
     {
         return Length;
     }
 
-    BGE_INL virtual void GetDimensions(int *W, int *H, int *L) const
+    BGE_INL virtual void GetDimensions(T *W, T *H, T *L) const
     {
         IRectangle::GetDimension(W, H);
 
@@ -76,14 +76,14 @@ protected:
             *L = Length;
     }
 
-    BGE_INL virtual void SetDimensions(int W, int H, int L)
+    BGE_INL virtual void SetDimensions(T W, T H, T L)
     {
         SetDimensions(W, H);
 
         Length = L;
     }
 
-    BGE_INL virtual const int SetLength(int L)
+    BGE_INL virtual const T SetLength(T L)
     {
         Length = L;
 

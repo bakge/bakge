@@ -60,7 +60,7 @@ namespace bakge
  * across which they can share resources such as meshes, textures and
  * more.
  */
-class BGE_API Window : public Bindable, public IRectangle
+class BGE_API Window : public Bindable, public IRectangle<int>
 {
     friend BGE_API Result Init(int argc, char* argv[]);
     friend BGE_API Result Deinit();

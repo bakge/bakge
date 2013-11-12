@@ -38,13 +38,13 @@ namespace bakge
  * Any object that has a width and height. Provides some mutator and accessor
  * API that can be overloaded by inheriting classes.
  */
-class IRectangle
+template<class T> class IRectangle
 {
 
 protected:
 
-    int Width;
-    int Height;
+    T Width;
+    T Height;
 
     IRectangle()
     {
@@ -52,7 +52,7 @@ protected:
         Height = 0;
     }
 
-    IRectangle(int W, int H)
+    IRectangle(T W, T H)
     {
         Width = W;
         Height = H;
@@ -62,17 +62,17 @@ protected:
     {
     }
 
-    BGE_INL virtual const int GetWidth() const
+    BGE_INL virtual const T GetWidth() const
     {
         return Width;
     }
 
-    BGE_INL virtual const int GetHeight() const
+    BGE_INL virtual const T GetHeight() const
     {
         return Height;
     }
 
-    BGE_INL virtual void GetDimensions(int *W, int *H) const
+    BGE_INL virtual void GetDimensions(T *W, T *H) const
     {
         if(W != NULL)
             *W = Width;
@@ -81,20 +81,20 @@ protected:
             *H = Height;
     }
 
-    BGE_INL virtual void SetDimensions(int W, int H)
+    BGE_INL virtual void SetDimensions(T W, T H)
     {
         Width = W;
         Height = H;
     }
 
-    BGE_INL virtual const int SetWidth(int W)
+    BGE_INL virtual const T SetWidth(T W)
     {
         Width = W;
 
         return Width;
     }
 
-    BGE_INL virtual const int SetHeight(int H)
+    BGE_INL virtual const T SetHeight(T H)
     {
         Height = H;
 
