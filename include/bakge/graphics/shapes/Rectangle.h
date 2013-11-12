@@ -42,7 +42,7 @@ namespace bakge
  * drawing 2D scenes, it could technically be used in a 3D setting. The
  * Rectangle's normals point along the +Z axis.
  */
-class BGE_API Rectangle : public Shape
+class BGE_API Rectangle : public Shape, public IRectangle<Scalar>
 {
 
 protected:
@@ -73,28 +73,7 @@ public:
      */
     BGE_FACTORY Rectangle* Create(Scalar Width, Scalar Height);
 
-    /*! @brief Set the size of the Rectangle.
-     *
-     * Set the size of the Rectangle.
-     *
-     * @param[in] Width Size along the X axis.
-     * @param[in] Height Size along the Y axis.
-     *
-     * @return BGE_SUCCESS if Rectangle size was successfully changed;
-     * BGE_FAILURE if any errors occurred.
-     */
-    Result SetDimensions(Scalar Width, Scalar Height);
-
-    /*! @brief Get the width and height of the Rectangle;
-     *
-     * Get the width and height of the Rectangle;
-     *
-     * @param[out] W Pointee set to width of the Rectangle.
-     * @param[out] H Pointee set to height of the Rectangle.
-     *
-     * @return Area of the Rectangle.
-     */
-    Scalar GetDimensions(Scalar* W, Scalar* H) const;
+    virtual void SetDimensions(Scalar Width, Scalar Height);
 
 }; /* Rectangle */
 

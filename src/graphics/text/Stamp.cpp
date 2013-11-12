@@ -113,8 +113,10 @@ Result Stamp::Bind() const
 }
 
 
-Result Stamp::SetDimensions(Scalar W, Scalar H)
+void Stamp::SetDimensions(Scalar W, Scalar H)
 {
+    IRectangle<Scalar>::SetDimensions(W, H);
+
     Scalar X = Current.X + Offset.X;
     Scalar Y = Current.Y + Offset.Y;
 
@@ -132,8 +134,6 @@ Result Stamp::SetDimensions(Scalar W, Scalar H)
     glBufferData(GL_ARRAY_BUFFER, sizeof(Scalar) * 12, (GLvoid*)Positions,
                                                             GL_DYNAMIC_DRAW);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
-
-    return BGE_SUCCESS;
 }
 
 
