@@ -42,6 +42,13 @@ enum GEOMETRY_DRAW_STYLE
     NUM_GEOMETRY_DRAW_STYLES
 };
 
+enum GEOMETRY_BUFFERS
+{
+    GEOMETRY_BUFFER_POSITIONS = 0,
+    GEOMETRY_BUFFER_INDICES,
+    NUM_GEOMETRY_BUFFERS
+};
+
 /*! @brief Geometries are unenclosed objects that are drawn as a set of line
  * segments.
  *
@@ -49,15 +56,12 @@ enum GEOMETRY_DRAW_STYLE
  * drawn. Geometries are objects like lines, line strips or curves which
  * are unenclosed, and therefore have no volume.
  */
-class BGE_API Geometry : public Drawable
+class BGE_API Geometry : public Drawable, protected BufferList
 {
 
 protected:
 
     GLenum DrawStyle;
-
-    GLuint PointsBuffer;
-    GLuint IndicesBuffer;
 
     int NumPoints;
 

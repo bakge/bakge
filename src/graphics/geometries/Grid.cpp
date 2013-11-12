@@ -63,8 +63,8 @@ Grid* Grid::Create(int HalfRows, int HalfCols, Scalar Width, Scalar Length)
         return NULL;
     }
 
-    glGenBuffers(1, &G->PointsBuffer);
-    glGenBuffers(1, &G->IndicesBuffer);
+    glGenBuffers(1, &G->Buffers[GEOMETRY_BUFFER_POSITIONS]);
+    glGenBuffers(1, &G->Buffers[GEOMETRY_BUFFER_INDICES]);
 
     G->HalfRows = HalfRows;
     G->HalfCols = HalfCols;
@@ -93,7 +93,7 @@ Result Grid::Bufferize()
     Log("  %d lines.\n", NumColLines + NumRowLines);
 
     do {
-        glBindBuffer(GL_ARRAY_BUFFER, PointsBuffer);
+        glBindBuffer(GL_ARRAY_BUFFER, Buffers[GEOMETRY_BUFFER_POSITIONS]);
         glBufferData(GL_ARRAY_BUFFER, sizeof(Scalar) * 3 * NumPoints, NULL,
                                                             GL_DYNAMIC_DRAW);
 
@@ -138,7 +138,7 @@ Result Grid::Bufferize()
     Tries = 0;
 
     do {
-        glBindBuffer(GL_ARRAY_BUFFER, IndicesBuffer);
+        glBindBuffer(GL_ARRAY_BUFFER, Buffers[GEOMETRY_BUFFER_INDICES]);
         glBufferData(GL_ARRAY_BUFFER, sizeof(GLuint) * NumPoints * 2, NULL,
                                                             GL_DYNAMIC_DRAW);
 

@@ -30,22 +30,15 @@
 namespace bakge
 {
 
-Geometry::Geometry()
+Geometry::Geometry() : BufferList(NUM_GEOMETRY_BUFFERS)
 {
     DrawStyle = GL_LINE_STRIP;
-    PointsBuffer = 0;
-    IndicesBuffer = 0;
     NumPoints = 0;
 }
 
 
 Geometry::~Geometry()
 {
-    if(PointsBuffer != 0)
-        glDeleteBuffers(1, &PointsBuffer);
-
-    if(IndicesBuffer != 0)
-        glDeleteBuffers(1, &IndicesBuffer);
 }
 
 
@@ -103,12 +96,12 @@ Result Geometry::Bind() const
     if(Program == 0)
         return BGE_FAILURE;
 
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IndicesBuffer);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, Buffers[GEOMETRY_BUFFER_INDICES]);
 
     // Set vertex attribute properties
     GLint Location = glGetAttribLocation(Program, BGE_VERTEX_ATTRIBUTE);
     if(Location >= 0) {
-        glBindBuffer(GL_ARRAY_BUFFER, PointsBuffer);
+        glBindBuffer(GL_ARRAY_BUFFER, Buffers[GEOMETRY_BUFFER_POSITIONS]);
         glEnableVertexAttribArray(Location);
         glVertexAttribPointer(Location, 3, GL_FLOAT, GL_FALSE, 0, 0);
 #ifdef _DEBUG

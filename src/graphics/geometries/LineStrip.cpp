@@ -49,49 +49,12 @@ LineStrip* LineStrip::Create(int NumPoints, Scalar* Points)
         return NULL;
     }
 
-#ifdef _DEBUG
-    while(glGetError() != GL_NO_ERROR)
-        ;
-#endif // _DEBUG
-
-    glGenBuffers(1, &L->PointsBuffer);
-
-#ifdef _DEBUG
-    GLenum Error = glGetError();
-    if(Error != GL_NO_ERROR) {
-        Log("ERROR: LineStrip - Unexpected error %s while creating points "
-                                       "buffer.\n", _GetGLErrorName(Error));
-        delete L;
-        return NULL;
-    }
-
-    while(glGetError() != GL_NO_ERROR)
-        ;
-#endif // _DEBUG
-
-    glGenBuffers(1, &L->IndicesBuffer);
-
-#ifdef _DEBUG
-    Error = glGetError();
-    if(Error != GL_NO_ERROR) {
-        Log("ERROR: LineStrip - Unexpected error %s while creating indices "
-                                       "buffer.\n", _GetGLErrorName(Error));
-        delete L;
-        return NULL;
-    }
-#endif // _DEBUG
-
-#ifdef _DEBUG
-    while(glGetError() != GL_NO_ERROR)
-        ;
-#endif // _DEBUG
-
-    glBindBuffer(GL_ARRAY_BUFFER, L->PointsBuffer);
+    glBindBuffer(GL_ARRAY_BUFFER, L->Buffers[GEOMETRY_BUFFER_POSITIONS]);
     glBufferData(GL_ARRAY_BUFFER, sizeof(Scalar) * 3 * NumPoints,
                                (GLvoid*)Points, GL_DYNAMIC_DRAW);
 
 #ifdef _DEBUG
-    Error = glGetError();
+    GLenum Error = glGetError();
     if(Error != GL_NO_ERROR) {
         Log("ERROR: LineStrip - Unexpected error %s while setting postions "
                                         "store.\n", _GetGLErrorName(Error));
@@ -101,7 +64,7 @@ LineStrip* LineStrip::Create(int NumPoints, Scalar* Points)
     }
 #endif // _DEBUG
 
-    glBindBuffer(GL_ARRAY_BUFFER, L->IndicesBuffer);
+    glBindBuffer(GL_ARRAY_BUFFER, L->Buffers[GEOMETRY_BUFFER_INDICES]);
 
     int Tries = 0;
 

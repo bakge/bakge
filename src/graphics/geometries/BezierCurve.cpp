@@ -68,7 +68,7 @@ BezierCurve* BezierCurve::Create(int NumPoints, Scalar* Points)
         ;
 #endif // _DEBUG
 
-    glGenBuffers(1, &B->PointsBuffer);
+    glGenBuffers(1, &B->Buffers[GEOMETRY_BUFFER_POSITIONS]);
 
 #ifdef _DEBUG
     if(glGetError() != GL_NO_ERROR) {
@@ -81,7 +81,7 @@ BezierCurve* BezierCurve::Create(int NumPoints, Scalar* Points)
         ;
 #endif // _DEBUG
 
-    glGenBuffers(1, &B->IndicesBuffer);
+    glGenBuffers(1, &B->Buffers[GEOMETRY_BUFFER_INDICES]);
 
 #ifdef _DEBUG
     if(glGetError() != GL_NO_ERROR) {
@@ -97,7 +97,7 @@ BezierCurve* BezierCurve::Create(int NumPoints, Scalar* Points)
     // Amalgamated curves have 2 anchors; the rest are control points
     B->HighOrder = NumPoints - 2;
 
-    glBindBuffer(GL_ARRAY_BUFFER, B->PointsBuffer);
+    glBindBuffer(GL_ARRAY_BUFFER, B->Buffers[GEOMETRY_BUFFER_POSITIONS]);
     glBufferData(GL_ARRAY_BUFFER, NumPoints * sizeof(Scalar) * 3, Points,
                                                         GL_DYNAMIC_DRAW);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
@@ -138,7 +138,7 @@ BezierCurve* BezierCurve::Create(int NumPoints, Scalar* Points)
         B->AllPoints[i][2] = Points[i * 3 + 2];
     }
 
-    glBindBuffer(GL_ARRAY_BUFFER, B->IndicesBuffer);
+    glBindBuffer(GL_ARRAY_BUFFER, B->Buffers[GEOMETRY_BUFFER_INDICES]);
     glBufferData(GL_ARRAY_BUFFER, NumPoints * sizeof(int), Indices,
                                                    GL_DYNAMIC_DRAW);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
@@ -253,19 +253,19 @@ int BezierCurve::Separate(int MinOrder)
 
 void BezierCurve::GetPointAt(int NumControlPoints,
                         const Vector3* SegmentPoints,
-                        Vector3* PointsBuffer, Scalar T)
+                        Vector3* Points, Scalar T)
 {
     // If there no control points, segment is a line. Simple case
     if(NumControlPoints < 1) {
         // Start at first anchor
-        (*PointsBuffer) = SegmentPoints[0];
+        (*Points) = SegmentPoints[0];
         // Translate T * (anchor2 - anchor1)
-        (*PointsBuffer) += (SegmentPoints[1] - SegmentPoints[0]) * T;
+        (*Points) += (SegmentPoints[1] - SegmentPoints[0]) * T;
 #if defined(_DEBUG) && BGE_BEZIER_VERBOSE_BUILD == 1
         Log("BezierCurve: Built point P(%2.2f) = (%2.3f, %2.3f, %2.3f)\n", T,
-                                                        (*PointsBuffer)[0],
-                                                        (*PointsBuffer)[1],
-                                                        (*PointsBuffer)[2]);
+                                                        (*Points)[0],
+                                                        (*Points)[1],
+                                                        (*Points)[2]);
 #endif // defined(_DEBUG) && BGE_BEZIER_VERBOSE_BUILD == 1
         return;
     }
@@ -278,8 +278,8 @@ void BezierCurve::GetPointAt(int NumControlPoints,
         return;
     }
 
-    if(PointsBuffer == NULL) {
-        Log("ERROR: BezierCurve - GetPointAt requires PointsBuffer "
+    if(Buffers[GEOMETRY_BUFFER_POSITIONS] == NULL) {
+        Log("ERROR: BezierCurve - GetPointAt requires Buffers[GEOMETRY_BUFFER_POSITIONS] "
                                                        "!= NULL.\n");
         return;
     }
@@ -308,13 +308,13 @@ void BezierCurve::GetPointAt(int NumControlPoints,
     }
 
     // Temp[0] will end up in the position P(T) after the final shift.
-    (*PointsBuffer) = Temp[0];
+    (*Points) = Temp[0];
 
 #if defined(_DEBUG) && BGE_BEZIER_VERBOSE_BUILD == 1
     Log("BezierCurve: Built point P(%2.2f) = (%2.3f, %2.3f, %2.3f)\n", T,
-                                                        (*PointsBuffer)[0],
-                                                        (*PointsBuffer)[1],
-                                                        (*PointsBuffer)[2]);
+                                                        (*Points)[0],
+                                                        (*Points)[1],
+                                                        (*Points)[2]);
 #endif // defined(_DEBUG) && BGE_BEZIER_VERBOSE_BUILD == 1
 
     delete[] Temp;

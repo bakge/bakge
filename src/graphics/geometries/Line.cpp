@@ -58,7 +58,7 @@ Line* Line::Create(Vector3 A, Vector3 B)
         ;
 #endif // _DEBUG
 
-    glGenBuffers(1, &L->PointsBuffer);
+    glGenBuffers(1, &L->Buffers[GEOMETRY_BUFFER_POSITIONS]);
 
 #ifdef _DEBUG
     GLenum Error = glGetError();
@@ -75,7 +75,7 @@ Line* Line::Create(Vector3 A, Vector3 B)
         ;
 #endif // _DEBUG
 
-    glGenBuffers(1, &L->IndicesBuffer);
+    glGenBuffers(1, &L->Buffers[GEOMETRY_BUFFER_INDICES]);
 
 #ifdef _DEBUG
     Error = glGetError();
@@ -87,7 +87,7 @@ Line* Line::Create(Vector3 A, Vector3 B)
     }
 #endif // _DEBUG
 
-    glBindBuffer(GL_ARRAY_BUFFER, L->PointsBuffer);
+    glBindBuffer(GL_ARRAY_BUFFER, L->Buffers[GEOMETRY_BUFFER_POSITIONS]);
 
     do {
         // If glUnmapBuffer fails, we'll need to reinitialize the data store
@@ -125,7 +125,7 @@ Line* Line::Create(Vector3 A, Vector3 B)
 
     } while(glUnmapBuffer(GL_ARRAY_BUFFER) == GL_FALSE);
 
-    glBindBuffer(GL_ARRAY_BUFFER, L->IndicesBuffer);
+    glBindBuffer(GL_ARRAY_BUFFER, L->Buffers[GEOMETRY_BUFFER_INDICES]);
     glBufferData(GL_ARRAY_BUFFER, sizeof(GLuint) * 2, (GLvoid*)Indices,
                                                        GL_DYNAMIC_DRAW);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
