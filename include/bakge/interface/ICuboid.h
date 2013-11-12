@@ -83,7 +83,8 @@ public:
 
     BGE_INL virtual Result SetDimensions(T W, T H, T L)
     {
-        SetDimensions(W, H);
+        // Don't call overloads of SetDimensions(T, T)
+        IRectangle<T>::SetDimensions(W, H);
 
         Length = L;
 
