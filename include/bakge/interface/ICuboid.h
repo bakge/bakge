@@ -30,6 +30,8 @@
 #ifndef BAKGE_INTERFACE_ICUBOID_H
 #define BAKGE_INTERFACE_ICUBOID_H
 
+#include <bakge/interface/IRectangle.h>
+
 namespace bakge
 {
 
