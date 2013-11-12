@@ -43,13 +43,10 @@ namespace bakge
  * a different color format for your texture, you will have to program
  * directly against the OpenGL API.
  */
-class BGE_API Texture : public Bindable
+class BGE_API Texture : public Bindable, public IRectangle<uint32>
 {
 
 protected:
-
-    int Width;
-    int Height;
 
     GLenum TextureUnit;
     GLuint TextureID;
@@ -113,28 +110,6 @@ public:
      * if any errors occurred.
      */
     Result Unbind() const;
-
-    /*! @brief Get the width of the texture in pixels.
-     *
-     * Get the width of the texture in pixels.
-     *
-     * @return Width of the texture in pixels.
-     */
-    BGE_INL int GetWidth() const
-    {
-        return Width;
-    }
-
-    /*! @brief Get the height of the texture in pixels.
-     *
-     * Get the height of the texture in pixels.
-     *
-     * @return Height of the texture in pixels.
-     */
-    BGE_INL int GetHeight() const
-    {
-        return Height;
-    }
 
     /*! @brief Set the texture unit location.
      *
