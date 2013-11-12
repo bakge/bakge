@@ -57,95 +57,70 @@ BezierCurve::~BezierCurve()
 
 BezierCurve* BezierCurve::Create(int NumPoints, Scalar* Points)
 {
-    BezierCurve* B = new BezierCurve;
-    if(B == NULL) {
-        Log("ERROR: BezierCurve - Couldn't allocate memory.\n");
-        return NULL;
-    }
+    try {
+        BezierCurve* B = new BezierCurve;
+        if(B == NULL)
+            throw "Unable to allocate memory";
 
-#ifdef _DEBUG
-    while(glGetError() != GL_NO_ERROR)
-        ;
-#endif // _DEBUG
+        B->NumPoints = NumPoints;
+        // All BezierCurve objects start out amalgamated
+        B->NumSegments = 1;
+        // Amalgamated curves have 2 anchors; the rest are control points
+        B->HighOrder = NumPoints - 2;
 
-    glGenBuffers(1, &B->Buffers[GEOMETRY_BUFFER_POSITIONS]);
+        glBindBuffer(GL_ARRAY_BUFFER, B->Buffers[GEOMETRY_BUFFER_POSITIONS]);
+        glBufferData(GL_ARRAY_BUFFER, NumPoints * sizeof(Scalar) * 3, Points,
+                                                            GL_DYNAMIC_DRAW);
+        glBindBuffer(GL_ARRAY_BUFFER, 0);
 
-#ifdef _DEBUG
-    if(glGetError() != GL_NO_ERROR) {
-        Log("ERROR: BezierCurve - Error allocating control point buffer.\n");
-        delete B;
-        return NULL;
-    }
+        // Allocate points cache
+        B->AllPoints = new Vector3[NumPoints];
+        // Indices buffer, for setting GL data store
+        int* Indices = new int[NumPoints];
 
-    while(glGetError() != GL_NO_ERROR)
-        ;
-#endif // _DEBUG
+        // Start amalgamated; all but 2 endpoints are control points
+        B->NumAnchors = 2;
 
-    glGenBuffers(1, &B->Buffers[GEOMETRY_BUFFER_INDICES]);
+        B->AnchorIndicesSize = 64;
+        B->AnchorIndices = new int[B->AnchorIndicesSize];
+        if(B->AnchorIndices == NULL) {
+            Log("ERROR: BezierCurve::Create - Couldn't allocate anchor indices "
+                                                                    "buffer.\n");
+            delete B;
+            return NULL;
+        }
 
-#ifdef _DEBUG
-    if(glGetError() != GL_NO_ERROR) {
-        Log("ERROR: BezierCurve - Error allocating indices buffer.\n");
-        delete B;
-        return NULL;
-    }
-#endif // _DEBUG
-
-    B->NumPoints = NumPoints;
-    // All BezierCurve objects start out amalgamated
-    B->NumSegments = 1;
-    // Amalgamated curves have 2 anchors; the rest are control points
-    B->HighOrder = NumPoints - 2;
-
-    glBindBuffer(GL_ARRAY_BUFFER, B->Buffers[GEOMETRY_BUFFER_POSITIONS]);
-    glBufferData(GL_ARRAY_BUFFER, NumPoints * sizeof(Scalar) * 3, Points,
-                                                        GL_DYNAMIC_DRAW);
-    glBindBuffer(GL_ARRAY_BUFFER, 0);
-
-    // Allocate points cache
-    B->AllPoints = new Vector3[NumPoints];
-    // Indices buffer, for setting GL data store
-    int* Indices = new int[NumPoints];
-
-    // Start amalgamated; all but 2 endpoints are control points
-    B->NumAnchors = 2;
-
-    B->AnchorIndicesSize = 64;
-    B->AnchorIndices = new int[B->AnchorIndicesSize];
-    if(B->AnchorIndices == NULL) {
-        Log("ERROR: BezierCurve::Create - Couldn't allocate anchor indices "
-                                                                "buffer.\n");
-        delete B;
-        return NULL;
-    }
-
-    B->AnchorIndices[0] = 0;
-    B->AnchorIndices[1] = NumPoints - 1;
+        B->AnchorIndices[0] = 0;
+        B->AnchorIndices[1] = NumPoints - 1;
 
 #if defined(_DEBUG) && BGE_BEZIER_VERBOSE_CREATE == 1
-    BeginLogBlock();
-    Log("BezierCurve anchor buffer size: %d\n", B->AnchorIndicesSize);
-    Log("  Anchor points:\n");
-    for(int i=0;i<B->NumAnchors;++i)
-        Log("    %d: %d\n", i, B->AnchorIndices[i]);
-    EndLogBlock();
+        BeginLogBlock();
+        Log("BezierCurve anchor buffer size: %d\n", B->AnchorIndicesSize);
+        Log("  Anchor points:\n");
+        for(int i=0;i<B->NumAnchors;++i)
+            Log("    %d: %d\n", i, B->AnchorIndices[i]);
+        EndLogBlock();
 #endif // defined(_DEBUG) && BGE_BEZIER_VERBOSE_CREATE == 1
 
-    for(int i=0;i<NumPoints;++i) {
-        Indices[i] = i;
-        B->AllPoints[i][0] = Points[i * 3 + 0];
-        B->AllPoints[i][1] = Points[i * 3 + 1];
-        B->AllPoints[i][2] = Points[i * 3 + 2];
+        for(int i=0;i<NumPoints;++i) {
+            Indices[i] = i;
+            B->AllPoints[i][0] = Points[i * 3 + 0];
+            B->AllPoints[i][1] = Points[i * 3 + 1];
+            B->AllPoints[i][2] = Points[i * 3 + 2];
+        }
+
+        glBindBuffer(GL_ARRAY_BUFFER, B->Buffers[GEOMETRY_BUFFER_INDICES]);
+        glBufferData(GL_ARRAY_BUFFER, NumPoints * sizeof(int), Indices,
+                                                       GL_DYNAMIC_DRAW);
+        glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+        delete Indices;
+
+        return B;
+    } catch(const char* Message) {
+        Log("ERROR: BezierCurve - %s\n", Message);
+        return NULL;
     }
-
-    glBindBuffer(GL_ARRAY_BUFFER, B->Buffers[GEOMETRY_BUFFER_INDICES]);
-    glBufferData(GL_ARRAY_BUFFER, NumPoints * sizeof(int), Indices,
-                                                   GL_DYNAMIC_DRAW);
-    glBindBuffer(GL_ARRAY_BUFFER, 0);
-
-    delete Indices;
-
-    return B;
 }
 
 
