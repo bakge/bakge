@@ -69,8 +69,10 @@ Rectangle* Rectangle::Create(Scalar Width, Scalar Height)
         R->Height = Height;
         R->NumIndices = 6;
 
-        if(R->SetDimensions(Width, Height) != BGE_SUCCESS)
+        if(R->SetDimensions(Width, Height) != BGE_SUCCESS) {
+            delete R;
             throw "Unable to set Rectangle dimensions";
+        }
 
         glBindBuffer(GL_ARRAY_BUFFER, R->Buffers[SHAPE_BUFFER_NORMALS]);
         glBufferData(GL_ARRAY_BUFFER, sizeof(Scalar) * 12, (GLvoid*)Normals,
