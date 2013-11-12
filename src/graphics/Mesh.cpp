@@ -43,19 +43,24 @@ Mesh::~Mesh()
 
 Mesh* Mesh::Create()
 {
-    Mesh* M = new Mesh;
-    if(M == NULL) {
-        Log("ERROR: Mesh - Couldn't allocate memory.\n");
+    try {
+        Mesh* M = new Mesh;
+        if(M == NULL) {
+            Log("ERROR: Mesh - Couldn't allocate memory.\n");
+            return NULL;
+        }
+
+        if(M->CreateBuffers() == BGE_FAILURE) {
+            Log("ERROR: Mesh - Error creating mesh buffers.\n");
+            delete M;
+            return NULL;
+        }
+
+        return M;
+    } catch(const char* Message) {
+        Log("ERROR: Mesh - %s\n", Message);
         return NULL;
     }
-
-    if(M->CreateBuffers() == BGE_FAILURE) {
-        Log("ERROR: Mesh - Error creating mesh buffers.\n");
-        delete M;
-        return NULL;
-    }
-
-    return M;
 }
 
 
