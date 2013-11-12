@@ -60,32 +60,35 @@ Rectangle* Rectangle::Create(Scalar Width, Scalar Height)
         1, 0
     };
 
-    Rectangle* R = new Rectangle;
+    try {
+        Rectangle* R = new Rectangle;
+        if(R == NULL)
+            throw "Unable to allocate memory";
 
-    R->Width = Width;
-    R->Height = Height;
-    R->NumIndices = 6;
+        R->Width = Width;
+        R->Height = Height;
+        R->NumIndices = 6;
 
-    glGenBuffers(NUM_SHAPE_BUFFERS, R->Buffers);
+        if(R->SetDimensions(Width, Height) != BGE_SUCCESS)
+            throw "Unable to set Rectangle dimensions";
 
-    if(R->SetDimensions(Width, Height) != BGE_SUCCESS) {
-        delete R;
+        glBindBuffer(GL_ARRAY_BUFFER, R->Buffers[SHAPE_BUFFER_NORMALS]);
+        glBufferData(GL_ARRAY_BUFFER, sizeof(Scalar) * 12, (GLvoid*)Normals,
+                                                            GL_STATIC_DRAW);
+        glBindBuffer(GL_ARRAY_BUFFER, R->Buffers[SHAPE_BUFFER_TEXCOORDS]);
+        glBufferData(GL_ARRAY_BUFFER, sizeof(Scalar) * 8, (GLvoid*)TexCoords,
+                                                            GL_STATIC_DRAW);
+        glBindBuffer(GL_ARRAY_BUFFER, R->Buffers[SHAPE_BUFFER_INDICES]);
+        glBufferData(GL_ARRAY_BUFFER, sizeof(uint32) * 6, (GLvoid*)Indices,
+                                                            GL_STATIC_DRAW);
+
+        R->Unbind();
+
+        return R;
+    } catch(const char* Message) {
+        Log("ERROR: Rectangle - %s\n", Message);
         return NULL;
     }
-
-    glBindBuffer(GL_ARRAY_BUFFER, R->Buffers[SHAPE_BUFFER_NORMALS]);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(Scalar) * 12, (GLvoid*)Normals,
-                                                        GL_STATIC_DRAW);
-    glBindBuffer(GL_ARRAY_BUFFER, R->Buffers[SHAPE_BUFFER_TEXCOORDS]);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(Scalar) * 8, (GLvoid*)TexCoords,
-                                                        GL_STATIC_DRAW);
-    glBindBuffer(GL_ARRAY_BUFFER, R->Buffers[SHAPE_BUFFER_INDICES]);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(uint32) * 6, (GLvoid*)Indices,
-                                                        GL_STATIC_DRAW);
-
-    R->Unbind();
-
-    return R;
 }
 
 
