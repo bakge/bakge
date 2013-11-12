@@ -40,7 +40,7 @@ namespace bakge
  * Any object that has a width and height. Provides some mutator and accessor
  * API that can be overloaded by inheriting classes.
  */
-template<class T> class IRectangle
+template<typename T> class IRectangle
 {
 
 protected:

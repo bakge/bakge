@@ -44,7 +44,7 @@ namespace bakge
  * faces whose edges meet in right angles. In layman's terms, it is a box
  * of arbitrary length, width and height.
  */
-template<class T> class ICuboid : public IRectangle<T>
+template<typename T> class ICuboid : public IRectangle<T>
 {
 
 protected:
