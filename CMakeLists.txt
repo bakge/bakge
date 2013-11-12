@@ -245,6 +245,7 @@ set(BAKGE_HEADER_MODULES
   data
   graphics
   input
+  interface
   math
   mutex
   platform
