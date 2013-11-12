@@ -58,26 +58,33 @@ Frame* Frame::Create(Scalar Width, Scalar Height)
         1, 0
     };
 
-    Frame* U = new Frame;
+    try {
+        Frame* F = new Frame;
+        if(F == NULL)
+            throw "Unable to allcoate memory";
 
-    glGenBuffers(NUM_SHAPE_BUFFERS, U->Buffers);
+        glGenBuffers(NUM_SHAPE_BUFFERS, U->Buffers);
 
-    if(U->SetDimensions(Width, Height) == BGE_FAILURE) {
-        delete U;
+        if(U->SetDimensions(Width, Height) == BGE_FAILURE) {
+            delete U;
+            throw "Unable to set Frame dimensions";
+        }
+
+        glBindBuffer(GL_ARRAY_BUFFER, U->Buffers[SHAPE_BUFFER_NORMALS]);
+        glBufferData(GL_ARRAY_BUFFER, sizeof(Scalar) * 12, (GLvoid*)Normals,
+                                                            GL_STATIC_DRAW);
+        glBindBuffer(GL_ARRAY_BUFFER, U->Buffers[SHAPE_BUFFER_TEXCOORDS]);
+        glBufferData(GL_ARRAY_BUFFER, sizeof(Scalar) * 8, (GLvoid*)TexCoords,
+                                                            GL_STATIC_DRAW);
+        glBindBuffer(GL_ARRAY_BUFFER, U->Buffers[SHAPE_BUFFER_INDICES]);
+        glBufferData(GL_ARRAY_BUFFER, sizeof(uint32) * 6, (GLvoid*)Indices,
+                                                            GL_STATIC_DRAW);
+
+        return U;
+    } catch(const char* Message) {
+        Log("ERROR: Frame - %s\n", Message)
         return NULL;
     }
-
-    glBindBuffer(GL_ARRAY_BUFFER, U->Buffers[SHAPE_BUFFER_NORMALS]);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(Scalar) * 12, (GLvoid*)Normals,
-                                                        GL_STATIC_DRAW);
-    glBindBuffer(GL_ARRAY_BUFFER, U->Buffers[SHAPE_BUFFER_TEXCOORDS]);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(Scalar) * 8, (GLvoid*)TexCoords,
-                                                        GL_STATIC_DRAW);
-    glBindBuffer(GL_ARRAY_BUFFER, U->Buffers[SHAPE_BUFFER_INDICES]);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(uint32) * 6, (GLvoid*)Indices,
-                                                        GL_STATIC_DRAW);
-
-    return U;
 }
 
 
