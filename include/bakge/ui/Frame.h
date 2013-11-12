@@ -75,7 +75,7 @@ public:
      * @param[in] Width New width of the Frame.
      * @param[in] Height New height of the Frame.
      */
-    virtual void SetDimensions(Scalar Width, Scalar Height);
+    virtual Result SetDimensions(Scalar Width, Scalar Height);
 
 }; /* Frame */
 

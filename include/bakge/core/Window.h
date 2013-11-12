@@ -344,7 +344,7 @@ public:
      * @return BGE_SUCCESS if the Window size was successfully set; BGE_FAILURE
      * otherwise.
      */
-    virtual void SetDimensions(int X, int Y);
+    virtual Result SetDimensions(int X, int Y);
 
     /*! @brief Get the Window's client area size.
      *

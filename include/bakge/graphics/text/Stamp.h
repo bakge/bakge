@@ -84,7 +84,7 @@ public:
      * @return BGE_SUCCESS if the Stamp's vertex positions were successfully
      * set; BGE_FAILURE if any errors occurred.
      */
-    virtual void SetDimensions(Scalar Width, Scalar Height);
+    virtual Result SetDimensions(Scalar Width, Scalar Height);
 
     /*! @brief Set the texture coordinates of the Stamp quad.
      *

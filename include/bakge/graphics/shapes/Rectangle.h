@@ -73,7 +73,7 @@ public:
      */
     BGE_FACTORY Rectangle* Create(Scalar Width, Scalar Height);
 
-    virtual void SetDimensions(Scalar Width, Scalar Height);
+    virtual Result SetDimensions(Scalar Width, Scalar Height);
 
 }; /* Rectangle */
 

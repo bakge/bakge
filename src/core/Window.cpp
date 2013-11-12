@@ -499,14 +499,16 @@ Result Window::GetPosition(Coord* X, Coord* Y) const
 }
 
 
-void Window::SetDimensions(int X, int Y)
+Result Window::SetDimensions(int X, int Y)
 {
     IRectangle::SetDimensions(X, Y);
 
     if(!IsOpen())
-        return;
+        return BGE_FAILURE;
 
     glfwSetWindowSize(WindowHandle, X, Y);
+
+    return BGE_SUCCESS;
 }
 
 

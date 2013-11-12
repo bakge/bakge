@@ -94,7 +94,7 @@ Rectangle* Rectangle::Create(Scalar Width, Scalar Height)
 }
 
 
-void Rectangle::SetDimensions(Scalar Width, Scalar Height)
+Result Rectangle::SetDimensions(Scalar Width, Scalar Height)
 {
     IRectangle<Scalar>::SetDimensions(Width, Height);
 
@@ -117,6 +117,8 @@ void Rectangle::SetDimensions(Scalar Width, Scalar Height)
     glBufferData(GL_ARRAY_BUFFER, sizeof(Scalar) * 12, (GLvoid*)Positions,
                                                             GL_STATIC_DRAW);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+    return BGE_SUCCESS;
 }
 
 } /* bakge */
