@@ -59,7 +59,9 @@ protected:
         Length = L;
     }
 
-    virtual ~ICuboid() = 0;
+    virtual ~ICuboid() = 0
+    {
+    }
 
     BGE_INL virtual const int GetLength() const
     {
