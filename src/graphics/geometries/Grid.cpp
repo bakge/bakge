@@ -57,28 +57,31 @@ Grid* Grid::Create(int HalfRows, int HalfCols, Scalar Width, Scalar Length)
         return NULL;
     }
 
-    Grid* G = new Grid;
-    if(G == NULL) {
-        Log("ERROR: Grid - Couldn't allocate memory.\n");
+    try {
+        Grid* G = new Grid;
+        if(G == NULL)
+            throw "Unable to allocate memory";
+
+        glGenBuffers(1, &G->Buffers[GEOMETRY_BUFFER_POSITIONS]);
+        glGenBuffers(1, &G->Buffers[GEOMETRY_BUFFER_INDICES]);
+
+        G->HalfRows = HalfRows;
+        G->HalfCols = HalfCols;
+        G->UnitWidth = Width;
+        G->UnitLength = Length;
+        G->NumPoints = 2 * ((HalfCols * 2 + 1) + (HalfRows * 2 + 1));
+
+        if(G->Bufferize() != BGE_SUCCESS) {
+            Log("ERROR: Grid::Create - Failed to bufferize the grid.\n");
+            delete G;
+            return NULL;
+        }
+
+        return G;
+    } catch(const char* Message) {
+        Log("ERROR: Grid - %s\n", Message);
         return NULL;
     }
-
-    glGenBuffers(1, &G->Buffers[GEOMETRY_BUFFER_POSITIONS]);
-    glGenBuffers(1, &G->Buffers[GEOMETRY_BUFFER_INDICES]);
-
-    G->HalfRows = HalfRows;
-    G->HalfCols = HalfCols;
-    G->UnitWidth = Width;
-    G->UnitLength = Length;
-    G->NumPoints = 2 * ((HalfCols * 2 + 1) + (HalfRows * 2 + 1));
-
-    if(G->Bufferize() != BGE_SUCCESS) {
-        Log("ERROR: Grid::Create - Failed to bufferize the grid.\n");
-        delete G;
-        return NULL;
-    }
-
-    return G;
 }
 
 
