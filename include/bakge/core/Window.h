@@ -31,6 +31,7 @@
 #define BAKGE_CORE_WINDOW_H
 
 #include <bakge/Bakge.h>
+#include <bakge/interface/IRectangle.h>
 
 namespace bakge
 {
@@ -59,7 +60,7 @@ namespace bakge
  * across which they can share resources such as meshes, textures and
  * more.
  */
-class BGE_API Window : public Bindable
+class BGE_API Window : public Bindable, public IRectangle
 {
     friend BGE_API Result Init(int argc, char* argv[]);
     friend BGE_API Result Deinit();
@@ -93,9 +94,6 @@ class BGE_API Window : public Bindable
         Coord X;
         Coord Y;
     } ScrollCache;
-
-    int Width;
-    int Height;
 
 
 protected:
@@ -346,7 +344,7 @@ public:
      * @return BGE_SUCCESS if the Window size was successfully set; BGE_FAILURE
      * otherwise.
      */
-    Result SetSize(int X, int Y);
+    virtual void SetDimensions(int X, int Y);
 
     /*! @brief Get the Window's client area size.
      *
@@ -359,7 +357,7 @@ public:
      * @return BGE_SUCCESS if the Window size was successfully retrieved;
      * BGE_FAILURE otherwise.
      */
-    Result GetSize(int* X, int* Y) const;
+    virtual void GetDimensions(int* X, int* Y) const;
 
     /*! @brief Set the title of the window.
      *

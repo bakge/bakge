@@ -499,31 +499,25 @@ Result Window::GetPosition(Coord* X, Coord* Y) const
 }
 
 
-Result Window::SetSize(int X, int Y)
+void Window::SetDimensions(int X, int Y)
 {
-    if(!IsOpen()) {
-        return BGE_FAILURE;
-    }
+    IRectangle::SetDimensions(X, Y);
+
+    if(!IsOpen())
+        return;
 
     glfwSetWindowSize(WindowHandle, X, Y);
-
-    return BGE_SUCCESS;
 }
 
 
-Result Window::GetSize(int* X, int* Y) const
+void Window::GetDimensions(int* X, int* Y) const
 {
-    if(!IsOpen()) {
-        return BGE_FAILURE;
+    // If window is open, ask GLFW for its size. Otherwise use cached values
+    if(IsOpen()) {
+        glfwGetWindowSize(WindowHandle, X, Y);
+    } else {
+        IRectangle::GetDimensions(X, Y);
     }
-
-    if(X != NULL)
-        *X = Width;
-
-    if(Y != NULL)
-        *Y = Height;
-
-    return BGE_SUCCESS;
 }
 
 
