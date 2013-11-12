@@ -219,6 +219,7 @@ namespace bakge
 
 /* Additional Bakge classes */
 #include <bakge/graphics/Viewport.h>
+#include <bakge/graphics/BufferList.h>
 #include <bakge/graphics/Shape.h>
 #include <bakge/graphics/Shader.h>
 #include <bakge/graphics/Mesh.h>
