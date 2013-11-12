@@ -128,6 +128,7 @@ set(INTERNAL_HEADERS
   ${BAKGE_SOURCE_DIR}/include/bakge/internal/Format
   ${BAKGE_SOURCE_DIR}/include/bakge/internal/Graphics
   ${BAKGE_SOURCE_DIR}/include/bakge/internal/interface/IRectangle
+  ${BAKGE_SOURCE_DIR}/include/bakge/internal/interface/ICuboid
 )
 
 if(BUILD_SHARED_LIBS)
