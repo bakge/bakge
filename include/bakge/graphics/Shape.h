@@ -91,14 +91,12 @@ enum SHAPE_BUFFERS
  * require more vertex data than geometries (texture coordinates, vertex
  * normals, etc).
  */
-class BGE_API Shape : public Drawable
+class BGE_API Shape : public Drawable, protected BufferList
 {
 
 protected:
 
     GLenum DrawStyle;
-
-    GLuint ShapeBuffers[NUM_SHAPE_BUFFERS];
 
     int NumVertices;
     int NumIndices;
