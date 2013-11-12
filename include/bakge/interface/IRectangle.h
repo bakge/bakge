@@ -58,9 +58,7 @@ protected:
         Height = H;
     }
 
-    virtual ~IRectangle()
-    {
-    } = 0;
+    virtual ~IRectangle() = 0;
 
     BGE_INL virtual const int GetWidth() const
     {
