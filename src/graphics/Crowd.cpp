@@ -27,7 +27,7 @@
 namespace bakge
 {
 
-Crowd::Crowd()
+Crowd::Crowd() : BufferList(1)
 {
     Population = 0;
     Capacity = 0;
@@ -74,7 +74,7 @@ Result Crowd::Bind() const
     if(Location < 0)
         return BGE_FAILURE;
 
-    glBindBuffer(GL_ARRAY_BUFFER, CrowdBuffer);
+    glBindBuffer(GL_ARRAY_BUFFER, *Buffers);
 
     /* *
      * Each attribute pointer has a stride of 4. Since mat4x4 are composed
@@ -157,10 +157,10 @@ Result Crowd::Reserve(int NumMembers)
         Scales[i * 3 + 2] = 1;
     }
 
-    glGenBuffers(1, &CrowdBuffer);
+    glGenBuffers(1, Buffers);
 
     /* Allocates the buffer */
-    glBindBuffer(GL_ARRAY_BUFFER, CrowdBuffer);
+    glBindBuffer(GL_ARRAY_BUFFER, *Buffers);
     glBufferData(GL_ARRAY_BUFFER, sizeof(Scalar) * 16 * NumMembers,
                                             NULL, GL_DYNAMIC_DRAW);
 
@@ -282,7 +282,7 @@ Result Crowd::SetDataStore(int Index)
                             Positions[Index * 3 + 1],
                             Positions[Index * 3 + 2]);
 
-    glBindBuffer(GL_ARRAY_BUFFER, CrowdBuffer);
+    glBindBuffer(GL_ARRAY_BUFFER, *Buffers);
     glBufferSubData(GL_ARRAY_BUFFER, 64 * Index, 64, &Transformation[0]);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
 

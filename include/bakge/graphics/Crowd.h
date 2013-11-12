@@ -52,7 +52,7 @@ namespace bakge
  *
  * @see VertexLib
  */
-class BGE_API Crowd : public Pawn
+class BGE_API Crowd : public Pawn, protected BufferList
 {
 
 protected:
@@ -67,9 +67,6 @@ protected:
     Scalar* Positions;
     Quaternion* Rotations;
     Scalar* Scales;
-
-    /* Buffer for the Crowd's members' model matrices */
-    GLuint CrowdBuffer;
 
     /*! @brief Default Crowd constructor.
      *
