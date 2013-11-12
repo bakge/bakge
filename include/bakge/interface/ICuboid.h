@@ -79,11 +79,13 @@ public:
             *L = Length;
     }
 
-    BGE_INL virtual void SetDimensions(T W, T H, T L)
+    BGE_INL virtual Result SetDimensions(T W, T H, T L)
     {
         SetDimensions(W, H);
 
         Length = L;
+
+        return BGE_SUCCESS;
     }
 
     BGE_INL virtual const T SetLength(T L)

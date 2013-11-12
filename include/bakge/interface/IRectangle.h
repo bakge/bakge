@@ -30,6 +30,8 @@
 #ifndef BAKGE_INTERFACE_IRECTANGLE_H
 #define BAKGE_INTERFACE_IRECTANGLE_H
 
+#include <bakge/core/Type.h>
+
 namespace bakge
 {
 
@@ -84,10 +86,12 @@ public:
             *H = Height;
     }
 
-    BGE_INL virtual void SetDimensions(T W, T H)
+    BGE_INL virtual Result SetDimensions(T W, T H)
     {
         Width = W;
         Height = H;
+
+        return BGE_SUCCESS;
     }
 
     BGE_INL virtual const T SetWidth(T W)
