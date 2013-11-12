@@ -58,6 +58,9 @@ protected:
         Height = H;
     }
 
+
+public:
+
     virtual ~IRectangle() = 0
     {
     }

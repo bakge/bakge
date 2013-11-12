@@ -59,6 +59,9 @@ protected:
         Length = L;
     }
 
+
+public:
+
     virtual ~ICuboid() = 0
     {
     }
