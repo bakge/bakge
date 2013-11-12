@@ -127,6 +127,7 @@ set(INTERNAL_HEADERS
   ${BAKGE_SOURCE_DIR}/include/bakge/internal/Utility
   ${BAKGE_SOURCE_DIR}/include/bakge/internal/Format
   ${BAKGE_SOURCE_DIR}/include/bakge/internal/Graphics
+  ${BAKGE_SOURCE_DIR}/include/bakge/internal/interface/IRectangle
 )
 
 if(BUILD_SHARED_LIBS)
