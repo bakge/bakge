@@ -47,94 +47,65 @@ Line* Line::Create(Vector3 A, Vector3 B)
         0, 1
     };
 
-    Line* L = new Line;
-    if(L == NULL) {
-        Log("ERROR: Line - Couldn't allocate memory.\n");
-        return NULL;
-    }
-
-#ifdef _DEBUG
-    while(glGetError() != GL_NO_ERROR)
-        ;
-#endif // _DEBUG
-
-    glGenBuffers(1, &L->Buffers[GEOMETRY_BUFFER_POSITIONS]);
-
-#ifdef _DEBUG
-    GLenum Error = glGetError();
-    if(Error != GL_NO_ERROR) {
-        Log("ERROR: Line - Unexpected error %s while creating points "
-                                   "buffer.\n", _GetGLErrorName(Error));
-        delete L;
-        return NULL;
-    }
-#endif // _DEBUG
-
-#ifdef _DEBUG
-    while(glGetError() != GL_NO_ERROR)
-        ;
-#endif // _DEBUG
-
-    glGenBuffers(1, &L->Buffers[GEOMETRY_BUFFER_INDICES]);
-
-#ifdef _DEBUG
-    Error = glGetError();
-    if(Error != GL_NO_ERROR) {
-        Log("ERROR: Line - Unexpected error %s while creating points "
-                                   "buffer.\n", _GetGLErrorName(Error));
-        delete L;
-        return NULL;
-    }
-#endif // _DEBUG
-
-    glBindBuffer(GL_ARRAY_BUFFER, L->Buffers[GEOMETRY_BUFFER_POSITIONS]);
-
-    do {
-        // If glUnmapBuffer fails, we'll need to reinitialize the data store
-        glBufferData(GL_ARRAY_BUFFER, sizeof(Scalar) * 6, NULL,
-                                                GL_DYNAMIC_DRAW);
-
-        // Get a pointer for writing to the data store
-        Scalar* BufferMap = (Scalar*)glMapBuffer(GL_ARRAY_BUFFER,
-                                                    GL_WRITE_ONLY);
-
-        int Tries = 0;
-
-        if(BufferMap == NULL) {
-            Log("ERROR: Line - Failed to map buffer (attempt %d).\n", ++Tries);
-
-            // Sentinel to avoid infinite or long loops
-            if(Tries >= BGE_MAP_BUFFER_MAX_ATTEMPTS) {
-                Log("ERROR: Line - Couldn't map buffer after %d attempts.\n",
-                                               BGE_MAP_BUFFER_MAX_ATTEMPTS);
-                glBindBuffer(GL_ARRAY_BUFFER, 0);
-                delete L;
-                return NULL;
-            }
-
-            // Keep attempting to map and fill buffer
-            continue;
+    try {
+        Line* L = new Line;
+        if(L == NULL) {
+            Log("ERROR: Line - Couldn't allocate memory.\n");
+            return NULL;
         }
 
-        BufferMap[0] = A[0];
-        BufferMap[1] = A[1];
-        BufferMap[2] = A[2];
-        BufferMap[3] = B[0];
-        BufferMap[4] = B[1];
-        BufferMap[5] = B[2];
+        glBindBuffer(GL_ARRAY_BUFFER, L->Buffers[GEOMETRY_BUFFER_POSITIONS]);
 
-    } while(glUnmapBuffer(GL_ARRAY_BUFFER) == GL_FALSE);
+        do {
+            // If glUnmapBuffer fails, we'll need to reinitialize the data store
+            glBufferData(GL_ARRAY_BUFFER, sizeof(Scalar) * 6, NULL,
+                                                    GL_DYNAMIC_DRAW);
 
-    glBindBuffer(GL_ARRAY_BUFFER, L->Buffers[GEOMETRY_BUFFER_INDICES]);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(GLuint) * 2, (GLvoid*)Indices,
-                                                       GL_DYNAMIC_DRAW);
-    glBindBuffer(GL_ARRAY_BUFFER, 0);
+            // Get a pointer for writing to the data store
+            Scalar* BufferMap = (Scalar*)glMapBuffer(GL_ARRAY_BUFFER,
+                                                        GL_WRITE_ONLY);
 
-    L->NumPoints = 2;
-    L->A = A;
-    L->B = B;
+            int Tries = 0;
 
-    return L;
+            if(BufferMap == NULL) {
+                Log("ERROR: Line - Failed to map buffer (attempt %d).\n", ++Tries);
+
+                // Sentinel to avoid infinite or long loops
+                if(Tries >= BGE_MAP_BUFFER_MAX_ATTEMPTS) {
+                    Log("ERROR: Line - Couldn't map buffer after %d attempts.\n",
+                                                   BGE_MAP_BUFFER_MAX_ATTEMPTS);
+                    glBindBuffer(GL_ARRAY_BUFFER, 0);
+                    delete L;
+                    return NULL;
+                }
+
+                // Keep attempting to map and fill buffer
+                continue;
+            }
+
+            BufferMap[0] = A[0];
+            BufferMap[1] = A[1];
+            BufferMap[2] = A[2];
+            BufferMap[3] = B[0];
+            BufferMap[4] = B[1];
+            BufferMap[5] = B[2];
+
+        } while(glUnmapBuffer(GL_ARRAY_BUFFER) == GL_FALSE);
+
+        glBindBuffer(GL_ARRAY_BUFFER, L->Buffers[GEOMETRY_BUFFER_INDICES]);
+        glBufferData(GL_ARRAY_BUFFER, sizeof(GLuint) * 2, (GLvoid*)Indices,
+                                                           GL_DYNAMIC_DRAW);
+        glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+        L->NumPoints = 2;
+        L->A = A;
+        L->B = B;
+
+        return L;
+    } catch(const char* Message) {
+        Log("ERROR: Line - %s\n", Message);
+        return NULL;
+    }
 }
 
 
