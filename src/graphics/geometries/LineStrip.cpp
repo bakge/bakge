@@ -43,66 +43,69 @@ LineStrip::~LineStrip()
 
 LineStrip* LineStrip::Create(int NumPoints, Scalar* Points)
 {
-    LineStrip* L = new LineStrip;
-    if(L == NULL) {
-        Log("ERROR: LineStrip - Couldn't allocate memory.\n");
-        return NULL;
-    }
+    try {
+        LineStrip* L = new LineStrip;
+        if(L == NULL)
+            throw "Unable to allocate memory";
 
-    glBindBuffer(GL_ARRAY_BUFFER, L->Buffers[GEOMETRY_BUFFER_POSITIONS]);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(Scalar) * 3 * NumPoints,
-                               (GLvoid*)Points, GL_DYNAMIC_DRAW);
+        glBindBuffer(GL_ARRAY_BUFFER, L->Buffers[GEOMETRY_BUFFER_POSITIONS]);
+        glBufferData(GL_ARRAY_BUFFER, sizeof(Scalar) * 3 * NumPoints,
+                                   (GLvoid*)Points, GL_DYNAMIC_DRAW);
 
 #ifdef _DEBUG
-    GLenum Error = glGetError();
-    if(Error != GL_NO_ERROR) {
-        Log("ERROR: LineStrip - Unexpected error %s while setting postions "
-                                        "store.\n", _GetGLErrorName(Error));
-        glBindBuffer(GL_ARRAY_BUFFER, 0);
-        delete L;
-        return NULL;
-    }
+        GLenum Error = glGetError();
+        if(Error != GL_NO_ERROR) {
+            Log("ERROR: LineStrip - Unexpected error %s while setting postions "
+                                            "store.\n", _GetGLErrorName(Error));
+            glBindBuffer(GL_ARRAY_BUFFER, 0);
+            delete L;
+            return NULL;
+        }
 #endif // _DEBUG
 
-    glBindBuffer(GL_ARRAY_BUFFER, L->Buffers[GEOMETRY_BUFFER_INDICES]);
+        glBindBuffer(GL_ARRAY_BUFFER, L->Buffers[GEOMETRY_BUFFER_INDICES]);
 
-    int Tries = 0;
+        int Tries = 0;
 
-    do {
-        // Allocate storage here, in case unmapping fails
-        glBufferData(GL_ARRAY_BUFFER, sizeof(GLuint) * NumPoints, NULL,
-                                                       GL_DYNAMIC_DRAW);
+        do {
+            // Allocate storage here, in case unmapping fails
+            glBufferData(GL_ARRAY_BUFFER, sizeof(GLuint) * NumPoints, NULL,
+                                                           GL_DYNAMIC_DRAW);
 
-        // Map the indices store instead of making a temp buffer
-        GLuint* IndicesMap = (GLuint*)glMapBuffer(GL_ARRAY_BUFFER,
-                                                   GL_WRITE_ONLY);
-        if(IndicesMap == NULL) {
-            Log("ERROR: LineStrip - Failed to map buffer (attempt %d).\n",
-                                                                   ++Tries);
+            // Map the indices store instead of making a temp buffer
+            GLuint* IndicesMap = (GLuint*)glMapBuffer(GL_ARRAY_BUFFER,
+                                                       GL_WRITE_ONLY);
+            if(IndicesMap == NULL) {
+                Log("ERROR: LineStrip - Failed to map buffer (attempt %d).\n",
+                                                                       ++Tries);
 
-            // Sentinel
-            if(Tries >= BGE_MAP_BUFFER_MAX_ATTEMPTS) {
-                Log("ERROR: LineStrip - Couldn't map buffer after %d "
-                           "attempts.\n", BGE_MAP_BUFFER_MAX_ATTEMPTS);
-                delete L;
-                return NULL;
+                // Sentinel
+                if(Tries >= BGE_MAP_BUFFER_MAX_ATTEMPTS) {
+                    Log("ERROR: LineStrip - Couldn't map buffer after %d "
+                               "attempts.\n", BGE_MAP_BUFFER_MAX_ATTEMPTS);
+                    delete L;
+                    return NULL;
+                }
+
+                // Keep allocating storage and attempting to map and fill buffer
+                continue;
             }
 
-            // Keep allocating storage and attempting to map and fill buffer
-            continue;
-        }
+            // Fill indices data store
+            for(int i=0;i<NumPoints;++i)
+                IndicesMap[i] = i;
 
-        // Fill indices data store
-        for(int i=0;i<NumPoints;++i)
-            IndicesMap[i] = i;
+        } while(glUnmapBuffer(GL_ARRAY_BUFFER) == GL_FALSE);
 
-    } while(glUnmapBuffer(GL_ARRAY_BUFFER) == GL_FALSE);
+        glBindBuffer(GL_ARRAY_BUFFER, 0);
 
-    glBindBuffer(GL_ARRAY_BUFFER, 0);
+        L->NumPoints = NumPoints;
 
-    L->NumPoints = NumPoints;
-
-    return L;
+        return L;
+    } catch(const char* Message) {
+        Log("ERROR: LineStrip - %s\n", Message);
+        return NULL;
+    }
 }
 
 
