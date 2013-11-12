@@ -39,7 +39,16 @@ Sphere::~Sphere()
 
 Sphere* Sphere::Create()
 {
-    return NULL;
+    try {
+        Sphere* S = new Sphere;
+        if(S == NULL)
+            throw "Unable to allocate memory";
+
+        return S;
+    } catch(const char* Message) {
+        Log("ERROR: Sphere - %s\n", Message);
+        return NULL;
+    }
 }
 
 } // bakge
