@@ -51,6 +51,9 @@ void Window::Resized(GLFWwindow* Handle, int Width, int Height)
     Win = (Window*)glfwGetWindowUserPointer(Handle);
     Handler = Win->Handler;
 
+    Win->Width = Width;
+    Win->Height = Height;
+
     if(Handler != NULL) {
         Handler->ResizeEvent(Width, Height);
     }
@@ -144,6 +147,8 @@ Window::Window()
     MouseCache.Y = 0;
     ScrollCache.X = 0;
     ScrollCache.Y = 0;
+    Width = 0;
+    Height = 0;
 }
 
 
@@ -489,6 +494,34 @@ Result Window::GetPosition(Coord* X, Coord* Y) const
 
     *X = (float)PX;
     *Y = (float)PY;
+
+    return BGE_SUCCESS;
+}
+
+
+Result Window::SetSize(int X, int Y)
+{
+    if(!IsOpen()) {
+        return BGE_FAILURE;
+    }
+
+    glfwSetWindowSize(WindowHandle, X, Y);
+
+    return BGE_SUCCESS;
+}
+
+
+Result Window::GetSize(int* X, int* Y) const
+{
+    if(!IsOpen()) {
+        return BGE_FAILURE;
+    }
+
+    if(X != NULL)
+        *X = Width;
+
+    if(Y != NULL)
+        *Y = Height;
 
     return BGE_SUCCESS;
 }

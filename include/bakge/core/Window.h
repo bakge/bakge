@@ -94,6 +94,9 @@ class BGE_API Window : public Bindable
         Coord Y;
     } ScrollCache;
 
+    int Width;
+    int Height;
+
 
 protected:
 
@@ -331,6 +334,32 @@ public:
      * @return BGE_FAILURE if any errors occurred; BGE_SUCCESS otherwise.
      */
     Result GetPosition(Coord* X, Coord* Y) const;
+
+    /*! @brief Set the Window's client area size.
+     *
+     * Set the Window's client area size. This does not include borders or
+     * other window decorations.
+     *
+     * @param[in] X New width of the Window.
+     * @param[in] Y New height of the Window.
+     *
+     * @return BGE_SUCCESS if the Window size was successfully set; BGE_FAILURE
+     * otherwise.
+     */
+    Result SetSize(int X, int Y);
+
+    /*! @brief Get the Window's client area size.
+     *
+     * Get the Windnow's client area size. This does not include borders or
+     * other window decorations.
+     *
+     * @param[out] X Pointee set to width of the Window.
+     * @param[out] Y Pointee set to height of the Window.
+     *
+     * @return BGE_SUCCESS if the Window size was successfully retrieved;
+     * BGE_FAILURE otherwise.
+     */
+    Result GetSize(int* X, int* Y) const;
 
     /*! @brief Set the title of the window.
      *

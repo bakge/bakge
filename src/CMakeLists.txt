@@ -138,7 +138,7 @@ add_definitions(-DSTB_TRUETYPE_IMPLEMENTATION)
 add_definitions(-DHAVE_SNPRINTF)
 add_definitions(-DPREFER_PORTABLE_SNPRINTF)
 add_library(bakge ${MODULES} ${PLATFORM_MODULES} ${HEADERS} ${EXTERN_SOURCES}
-                                    ${PLATFORM_HEADERS} ${INTERNAL_SOURCES})
+                 ${INTERNAL_HEADERS} ${PLATFORM_HEADERS} ${INTERNAL_SOURCES})
 if(BUILD_SHARED_LIBS)
   target_link_libraries(bakge ${BAKGE_LIBRARIES})
   target_link_libraries(bakge ${BAKGE_BULLET_TARGETS})
