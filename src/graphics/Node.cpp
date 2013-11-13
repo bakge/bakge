@@ -53,33 +53,18 @@ Result Node::Bind() const
         return BGE_FAILURE;
 
     /* Retrieve location of the bge_Translation vec4 */
-    Location = glGetAttribLocation(Program, BGE_MODEL_ATTRIBUTE);
+    Location = glGetUniformLocation(Program, BGE_MODEL_UNIFORM);
     if(Location < 0) {
 #ifdef _DEBUG
-        BGE_WARN_MISSING_ATTRIBUTE(BGE_MODEL_ATTRIBUTE);
+        BGE_WARN_MISSING_UNIFORM(BGE_MODEL_UNIFORM);
 #endif // _DEBUG
         return BGE_FAILURE;
     }
 
     Matrix Translation = Matrix::Translation(Position[0], Position[1],
                                                         Position[2]);
-
-    /* Update the buffer with the new position */
-    glBindBuffer(GL_ARRAY_BUFFER, ModelMatrixBuffer);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(Translation[0]) * 16, &Translation[0],
-                                                            GL_DYNAMIC_DRAW);
-
-    /* *
-     * Each attribute pointer has a stride of 4. Since mat4x4 are composed
-     * of 4 vec4 components, set each of these individually
-     * */
-    for(int i=0;i<4;++i) {
-        glEnableVertexAttribArray(Location + i);
-        glVertexAttribPointer(Location + i, 4, GL_FLOAT, GL_FALSE, 0,
-                            (const GLvoid*)(sizeof(Scalar) * 4 * i));
-        /* So the attribute is updated per instance, not per vertex */
-        glVertexAttribDivisor(Location + i, 1);
-    }
+	
+    glUniformMatrix4fv(Location, 1, GL_FALSE, &Translation[0]);
 
     return BGE_SUCCESS;
 }
@@ -95,17 +80,16 @@ Result Node::Unbind() const
     glGetIntegerv(GL_CURRENT_PROGRAM, &Program);
     if(Program == 0)
         return BGE_FAILURE;
-
-    Location = glGetAttribLocation(Program, BGE_MODEL_ATTRIBUTE);
+	
+    Location = glGetUniformLocation(Program, BGE_MODEL_UNIFORM);
     if(Location < 0) {
 #ifdef _DEBUG
-        BGE_WARN_MISSING_ATTRIBUTE(BGE_MODEL_ATTRIBUTE);
+        BGE_WARN_MISSING_UNIFORM(BGE_MODEL_UNIFORM);
 #endif // _DEBUG
         return BGE_FAILURE;
     }
 
-    for(int i=0;i<4;++i)
-        glDisableVertexAttribArray(Location + i);
+    glUniformMatrix4fv(Location, 1, GL_FALSE, &Matrix::Identity[0]);
 
     return BGE_SUCCESS;
 }

@@ -32,12 +32,12 @@
 
 #include <bakge/Bakge.h>
 
+#define BGE_MODEL_UNIFORM "bge_Model"
 #define BGE_VIEW_UNIFORM "bge_View"
 #define BGE_PROJECTION_UNIFORM "bge_Projection"
 #define BGE_DIFFUSE_UNIFORM "bge_Diffuse"
-#define BGE_CROWD_UNIFORM "bge_Crowd"
 
-#define BGE_MODEL_ATTRIBUTE "bge_Model"
+#define BGE_INSTANCEMODEL_ATTRIBUTE "bge_InstanceModel"
 #define BGE_VERTEX_ATTRIBUTE "bge_Vertex"
 #define BGE_NORMAL_ATTRIBUTE "bge_Normal"
 #define BGE_TEXCOORD_ATTRIBUTE "bge_TexCoord"

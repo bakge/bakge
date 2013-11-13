@@ -37,7 +37,7 @@ GLuint Shader::FragmentLib = 0;
 static const char* VertexShaderLibSource =
     "#version 120\n"
     "\n"
-    "attribute mat4x4 bge_Model;\n"
+    "uniform mat4x4 bge_Model;\n"
     "\n"
     "uniform mat4x4 bge_Projection;\n"
     "uniform mat4x4 bge_View;\n"
@@ -104,13 +104,14 @@ static const char* FragmentShaderLibHeader =
 static const char* VertexShaderLibHeader =
     "#version 120\n"
     "\n"
-    "attribute mat4x4 bge_Model;\n"
+    "uniform mat4x4 bge_Model;\n"
     "\n"
     "uniform mat4x4 bge_Projection;\n"
     "uniform mat4x4 bge_View;\n"
     "\n"
     "uniform mat4x4 bge_Crowd;\n"
     "\n"
+    "attribute mat4x4 bge_InstanceModel;\n"
     "attribute vec4 bge_Vertex;\n"
     "attribute vec4 bge_Normal;\n"
     "\n"
@@ -498,7 +499,7 @@ Result Shader::Bind() const
     if(Location >= 0)
         glUniform1i(Location, 0);
 
-    Location = glGetUniformLocation(Program, BGE_CROWD_UNIFORM);
+    Location = glGetUniformLocation(Program, BGE_MODEL_UNIFORM);
     if(Location >= 0)
         glUniformMatrix4fv(Location, 1, GL_FALSE, &Matrix::Identity[0]);
 

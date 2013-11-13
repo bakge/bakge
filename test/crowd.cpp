@@ -26,6 +26,43 @@
 #include <stdlib.h>
 #include <bakge/Bakge.h>
 
+static const char* Vertex =
+    "varying float LightIntensity;\n"
+    "varying vec2 TexCoord0;\n"
+    "\n"
+    "void main()\n"
+    "{\n"
+    "    vec4 VertexPosition = bge_View * bge_Model * bge_InstanceModel * bge_Vertex;\n"
+    "\n"
+    "    mat3x3 NormalMatrix = mat3x3(\n"
+    "        normalize(vec3(bge_InstanceModel[0].xyz)),\n"
+    "        normalize(vec3(bge_InstanceModel[1].xyz)),\n"
+    "        normalize(vec3(bge_InstanceModel[2].xyz))\n"
+    "    );\n"
+    "\n"
+    "    TexCoord0 = bge_TexCoord;\n"
+    "\n"
+    "    vec3 VertexNormal = NormalMatrix * vec3(bge_Normal.xyz);\n"
+    "    LightIntensity = dot(normalize(VertexNormal), vec3(0, 0, 1));\n"
+    "\n"
+    "    gl_Position = bge_Projection * VertexPosition;\n"
+    "}\n"
+    "\n";
+
+static const char* Fragment =
+    "varying float LightIntensity;\n"
+    "varying vec2 TexCoord0;\n"
+    "\n"
+    "void main()\n"
+    "{\n"
+    "    vec4 Diffuse = texture2D(bge_Diffuse, TexCoord0);\n"
+    "    vec4 FinalColor = vec4(0.2f, 0.2f, 0.2f, 1.0f) * Diffuse;\n"
+    "    FinalColor += Diffuse * max(LightIntensity, 0);\n"
+    "\n"
+    "    gl_FragColor = FinalColor;\n"
+    "}\n"
+    "\n";
+
 int main(int argc, char* argv[])
 {
     bakge::Window* Win;
@@ -33,6 +70,7 @@ int main(int argc, char* argv[])
     bakge::Texture* Tex;
     bakge::Crowd* Group;
     bakge::Camera3D* Cam;
+    bakge::Shader* Sh;
 
     bakge::Init(argc, argv);
 
@@ -91,6 +129,10 @@ int main(int argc, char* argv[])
     Cam->SetPosition(0, 0.5f, 1.25f);
     Cam->SetTarget(0, 0, 0);
 
+    Sh = bakge::Shader::LoadFromStrings(1, 1, &Vertex, &Fragment);
+
+    Sh->Bind();
+
     float Rot = 0;
     bakge::Microseconds NowTime;
     bakge::Microseconds LastTime = bakge::GetRunningTime();
@@ -140,6 +182,9 @@ int main(int argc, char* argv[])
 
     if(Cam != NULL)
         delete Cam;
+
+    if(Sh != NULL)
+        delete Sh;
 
     bakge::Deinit();
 

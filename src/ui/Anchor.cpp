@@ -73,7 +73,7 @@ Result Anchor::Bind() const
         Errors = BGE_FAILURE;
 
     /* Get location of bge_Rotation uniform */
-    Location = glGetAttribLocation(Program, BGE_MODEL_ATTRIBUTE);
+    Location = glGetUniformLocation(Program, BGE_MODEL_UNIFORM);
     if(Location < 0)
         Errors = BGE_FAILURE;
 
@@ -86,21 +86,7 @@ Result Anchor::Bind() const
     Transformation.Translate(AnchorOffset[0], AnchorOffset[1],
                                                 AnchorOffset[2]);
 
-    glBindBuffer(GL_ARRAY_BUFFER, ModelMatrixBuffer);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(Transformation[0]) * 16,
-                            &Transformation[0], GL_DYNAMIC_DRAW);
-
-    /* *
-     * Each attribute pointer has a stride of 4. Since mat4x4 are composed
-     * of 4 vec4 components, set each of these individually
-     * */
-    for(int i=0;i<4;++i) {
-        glEnableVertexAttribArray(Location + i);
-        glVertexAttribPointer(Location + i, 4, GL_FLOAT, GL_FALSE, 0,
-                            (const GLvoid*)(sizeof(Scalar) * 4 * i));
-        /* So the attribute is updated per instance, not per vertex */
-        glVertexAttribDivisor(Location + i, 1);
-    }
+    glUniformMatrix4fv(Location, 1, GL_FALSE, &Transformation[0]);
 
     return Errors;
 }

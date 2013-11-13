@@ -23,6 +23,9 @@
  * */
 
 #include <bakge/Bakge.h>
+#ifdef _DEBUG
+#include <bakge/internal/Debug.h>
+#endif // _DEBUG
 
 namespace bakge
 {
@@ -77,26 +80,7 @@ Result Crowd::Bind() const
         return BGE_FAILURE;
 
     /* Retrieve location of the bge_Translation vec4 */
-    Location = glGetAttribLocation(Program, BGE_MODEL_ATTRIBUTE);
-    if(Location < 0)
-        return BGE_FAILURE;
-
-    glBindBuffer(GL_ARRAY_BUFFER, *Buffers);
-
-    /* *
-     * Each attribute pointer has a stride of 4. Since mat4x4 are composed
-     * of 4 vec4 components, set each of these individually
-     * */
-    for(int i=0;i<4;++i) {
-        glEnableVertexAttribArray(Location);
-        glVertexAttribPointer(Location, 4, GL_FLOAT, GL_FALSE, sizeof(Matrix),
-                                    (const GLvoid*)(sizeof(Scalar) * 4 * i));
-        /* So the attribute is updated per instance, not per vertex */
-        glVertexAttribDivisor(Location, 1);
-        ++Location;
-    }
-
-    Location = glGetUniformLocation(Program, BGE_CROWD_UNIFORM);
+    Location = glGetUniformLocation(Program, BGE_MODEL_UNIFORM);
     if(Location < 0)
         return BGE_FAILURE;
 
@@ -105,6 +89,23 @@ Result Crowd::Bind() const
     CrowdTransform.Translate(Position[0], Position[1], Position[2]);
 
     glUniformMatrix4fv(Location, 1, GL_FALSE, &CrowdTransform[0]);
+
+    Location = glGetAttribLocation(Program, BGE_INSTANCEMODEL_ATTRIBUTE);
+    if(Location < 0) {
+#ifdef _DEBUG
+        BGE_WARN_MISSING_ATTRIBUTE(BGE_INSTANCEMODEL_ATTRIBUTE);
+#endif // _DEBUG
+        return BGE_FAILURE;
+    }
+
+    glBindBuffer(GL_ARRAY_BUFFER, *Buffers);
+
+    for(int i=0;i<4;++i) {
+        glEnableVertexAttribArray(Location + i);
+        glVertexAttribPointer(Location + i, 4, GL_FLOAT, GL_FALSE,
+                        sizeof(Matrix), (void*)(sizeof(Scalar) * 4 * i));
+        glVertexAttribDivisor(Location + i, 1);
+    }
 
     return BGE_SUCCESS;
 }
@@ -119,11 +120,21 @@ Result Crowd::Unbind() const
     if(Program == 0)
         return BGE_FAILURE;
 
-    Location = glGetUniformLocation(Program, BGE_CROWD_UNIFORM);
+    Location = glGetUniformLocation(Program, BGE_MODEL_UNIFORM);
     if(Location < 0)
         return BGE_FAILURE;
 
     glUniformMatrix4fv(Location, 1, GL_FALSE, &Matrix::Identity[0]);
+
+    Location = glGetAttribLocation(Program, BGE_INSTANCEMODEL_ATTRIBUTE);
+    if(Location < 0) {
+        return BGE_FAILURE;
+    }
+
+    for(int i=0;i<4;++i)
+        glDisableVertexAttribArray(Location + i);
+
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
 
     return BGE_SUCCESS;
 }
@@ -163,8 +174,6 @@ Result Crowd::Reserve(int NumMembers)
         Scales[i * 3 + 1] = 1;
         Scales[i * 3 + 2] = 1;
     }
-
-    glGenBuffers(1, Buffers);
 
     /* Allocates the buffer */
     glBindBuffer(GL_ARRAY_BUFFER, *Buffers);
