@@ -45,18 +45,25 @@ Crowd::~Crowd()
 
 Crowd* Crowd::Create(int ReserveMembers)
 {
-    Crowd* C = new Crowd;
+    try {
+        Crowd* C = new Crowd;
+        if(C == NULL)
+            throw "Unable to allocate memory";
 
-    glGenBuffers(1, &C->ModelMatrixBuffer);
-    if(C->ModelMatrixBuffer == 0) {
-        Log("Crowd: Error creating model matrix buffer\n");
-        delete C;
+        glGenBuffers(1, &C->ModelMatrixBuffer);
+        if(C->ModelMatrixBuffer == 0) {
+            Log("Crowd: Error creating model matrix buffer\n");
+            delete C;
+            return NULL;
+        }
+
+        C->Reserve(ReserveMembers);
+
+        return C;
+    } catch(const char* Message) {
+        Log("ERROR: Crowd - %s\n", Message);
         return NULL;
     }
-
-    C->Reserve(ReserveMembers);
-
-    return C;
 }
 
 
