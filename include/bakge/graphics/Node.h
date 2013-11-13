@@ -49,8 +49,6 @@ protected:
 
     Vector4 Position;
 
-    GLuint ModelMatrixBuffer;
-
     /*! @brief Default constructor.
      *
      * Default constructor.

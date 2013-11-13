@@ -45,13 +45,6 @@ Pawn* Pawn::Create()
 {
     Pawn* P = new Pawn;
 
-    glGenBuffers(1, &P->ModelMatrixBuffer);
-    if(P->ModelMatrixBuffer == 0) {
-        Log("ERROR: Pawn - Couldn't create model matrix buffer\n");
-        delete P;
-        return NULL;
-    }
-
     return P;
 }
 
@@ -94,7 +87,7 @@ Result Pawn::Bind() const
     Transformation.Scale(Scale[0], Scale[1], Scale[2]);
     Transformation *= Facing.ToMatrix();
     Transformation.Translate(Position[0], Position[1], Position[2]);
-	
+
     glUniformMatrix4fv(Location, 1, GL_FALSE, &Transformation[0]);
 
     return BGE_SUCCESS;

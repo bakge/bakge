@@ -41,13 +41,6 @@ Anchor* Anchor::Create()
 {
     Anchor* A = new Anchor;
 
-    glGenBuffers(1, &A->ModelMatrixBuffer);
-    if(A->ModelMatrixBuffer == 0) {
-        Log("Anchor: Error creating model matrix buffer\n");
-        delete A;
-        return NULL;
-    }
-
     return A;
 }
 

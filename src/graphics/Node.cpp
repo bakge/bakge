@@ -32,14 +32,11 @@ namespace bakge
 
 Node::Node()
 {
-    ModelMatrixBuffer = 0;
 }
 
 
 Node::~Node()
 {
-    if(ModelMatrixBuffer != 0)
-        glDeleteBuffers(1, &ModelMatrixBuffer);
 }
 
 
@@ -63,7 +60,7 @@ Result Node::Bind() const
 
     Matrix Translation = Matrix::Translation(Position[0], Position[1],
                                                         Position[2]);
-	
+
     glUniformMatrix4fv(Location, 1, GL_FALSE, &Translation[0]);
 
     return BGE_SUCCESS;
@@ -80,7 +77,7 @@ Result Node::Unbind() const
     glGetIntegerv(GL_CURRENT_PROGRAM, &Program);
     if(Program == 0)
         return BGE_FAILURE;
-	
+
     Location = glGetUniformLocation(Program, BGE_MODEL_UNIFORM);
     if(Location < 0) {
 #ifdef _DEBUG
@@ -113,20 +110,12 @@ Vector4 BGE_NCP Node::GetPosition() const
 
 Node* Node::Create(Scalar X, Scalar Y, Scalar Z)
 {
-    GLuint Store;
-    glGenBuffers(1, &Store);
-    if(Store == 0) {
-        Log("ERROR: Node - Couldn't create model matrix buffer\n");
-        return NULL;
-    }
-
     Node* N = new Node;
     if(N == NULL) {
         Log("ERROR: Node - Couldn't allocate memory\n");
         return NULL;
     }
 
-    N->ModelMatrixBuffer = Store;
     N->SetPosition(X, Y, Z);
 
     return N;
