@@ -76,4 +76,25 @@ void BufferList::PseudoDestructor()
     }
 }
 
+
+Result BufferList::SetNumBuffers(uint32 Count)
+{
+    if(Count == NumBuffers)
+        return BGE_FAILURE;
+
+    if(Count < NumBuffers) {
+        // Delete buffer names that are going to be removed by the resize
+        glDeleteBuffers(NumBuffers - Count, &Buffers[Count]);
+        Buffers = (GLuint*)realloc(Buffers, Count * sizeof(uint32));
+    } else {
+        // Realloc buffer name list, generate names for new entries
+        Buffers = (GLuint*)realloc(Buffers, Count * sizeof(uint32));
+        glGenBuffers(Count - NumBuffers, &Buffers[NumBuffers]);
+    }
+
+    NumBuffers = Count;
+
+    return BGE_SUCCESS;
+}
+
 } // bakge

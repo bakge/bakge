@@ -62,6 +62,8 @@ protected:
         return NumBuffers;
     }
 
+    Result SetNumBuffers(uint32 Count);
+
 
 public:
 
