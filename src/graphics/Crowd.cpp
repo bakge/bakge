@@ -177,14 +177,23 @@ Result Crowd::Unbind() const
 
 Result Crowd::Clear()
 {
-    free(Positions);
-    free(Rotations);
-    free(Scales);
-    Positions = NULL;
-    Rotations = NULL;
-    Scales = NULL;
+    if(Positions != NULL) {
+        free(Positions);
+        Positions = NULL;
+    }
+
+    if(Rotations != NULL) {
+        free(Rotations);
+        Rotations = NULL;
+    }
+
+    if(Scales != NULL) {
+        free(Scales);
+        Scales = NULL;
+    }
 
     Population = 0;
+    Capacity = 0;
 
     return BGE_SUCCESS;
 }
