@@ -65,7 +65,7 @@ Font* Font::Load(const char* FileName)
     }
 
     // Allocate buffer for the data
-    unsigned char* Data = new unsigned char[(size_t)Size];
+    unsigned char* Data = (unsigned char*)malloc(Size);
     if(Data == NULL) {
         Log("ERROR: Font - Error allocating file data buffer\n");
         return NULL;
@@ -79,11 +79,13 @@ Font* Font::Load(const char* FileName)
     }
 
     // Allocate a new Font instance
-    Font* F = new Font;
+    Font* F = (Font*)calloc(1, sizeof(Font));
     if(F == NULL) {
         Log("ERROR: Font - Couldn't allocate memory\n");
         return NULL;
     }
+
+    new(F) Font;
 
     // Fill font info struct
     stbtt_InitFont(&(F->FontInfo), Data, 0);
@@ -112,14 +114,15 @@ int Font::Bake(GlyphMap** Target, int GlyphStart, int GlyphEnd,
         return -1;
     }
 
-    unsigned char* GlyphBitmap = new unsigned char[512 * 512];
+    unsigned char* GlyphBitmap = (unsigned char*)malloc(512 * 512);
     if(GlyphBitmap == NULL) {
         Log("ERROR: Font - Error allocating glyph bitmap buffer\n");
         return -1;
     }
 
     // Temporary. GlyphMap class (TODO!) will hold bakedchar data
-    stbtt_bakedchar* GlyphData = new stbtt_bakedchar[NumChars];
+    stbtt_bakedchar* GlyphData = (stbtt_bakedchar*)malloc(
+                        sizeof(stbtt_bakedchar) * NumChars);
 
     // Bake into bitmap
     int BakeResult = stbtt_BakeFontBitmap(FontInfo.data, 0, (float)PixelHeight,
@@ -144,12 +147,14 @@ int Font::Bake(GlyphMap** Target, int GlyphStart, int GlyphEnd,
         return -1;
     }
 
-    *Target = new GlyphMap;
+    *Target = (GlyphMap*)calloc(1, sizeof(GlyphMap));
     if(*Target == NULL) {
         delete[] GlyphData;
         Log("ERROR: Font::Bake - Couldn't allocate GlyphMap memory.\n");
         return 0;
     }
+
+    new(*Target) GlyphMap;
 
     (*Target)->Tex = BakedMap;
     (*Target)->Data = GlyphData;

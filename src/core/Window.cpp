@@ -158,7 +158,7 @@ Window::~Window()
         Close();
 
     if(WinTitle != NULL)
-        delete[] WinTitle;
+        free(WinTitle);
 }
 
 
@@ -196,11 +196,13 @@ Window* Window::Create(int Width, int Height, int Properties)
     glfwSetScrollCallback(Handle, Window::Scroll);
 
     /* Allocate our bakge Window */
-    Window* Win = new Window;
+    Window* Win = (Window*)calloc(1, sizeof(Window));
     if(Win == NULL) {
         Log("ERROR: Window - Couldn't allocate memory\n");
         return NULL;
     }
+
+    new(Win) Window;
 
     /* Set its window handle and make the context current */
     Win->WindowHandle = Handle;
@@ -533,8 +535,8 @@ Result Window::SetTitle(const char* Title)
     glfwSetWindowTitle(WindowHandle, Title);
 
     if(WinTitle != NULL) {
-        delete[] WinTitle;
-        WinTitle = new char[strlen(Title)];
+        free(WinTitle);
+        WinTitle = (char*)malloc(strlen(Title));
         strcpy(WinTitle, Title);
     }
 

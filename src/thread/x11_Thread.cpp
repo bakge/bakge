@@ -67,14 +67,17 @@ Result x11_Thread::Kill()
 
 x11_Thread* x11_Thread::Create(int (*EntryFunc)(void*), void* EntryData)
 {
-    int Result;
-    x11_Thread* T;
+    x11_Thread* T = (x11_Thread*)calloc(1, sizeof(x11_Thread));
+    if(T == NULL) {
+        return NULL;
+    }
 
-    T = new x11_Thread;
+    new(T) x11_Thread;
+
     T->UserEntry = EntryFunc;
     T->UserData = EntryData;
 
-    Result = pthread_create(&(T->ThreadHandle), NULL, Entry, (void*)T);
+    int Result = pthread_create(&(T->ThreadHandle), NULL, Entry, (void*)T);
     if(Result < 0) {
         delete T;
         return NULL;

@@ -48,11 +48,13 @@ Line* Line::Create(Vector3 A, Vector3 B)
     };
 
     try {
-        Line* L = new Line;
+        Line* L = (Line*)calloc(1, sizeof(Line));
         if(L == NULL) {
             Log("ERROR: Line - Couldn't allocate memory.\n");
             return NULL;
         }
+
+        new(L) Line;
 
         glBindBuffer(GL_ARRAY_BUFFER, L->Buffers[GEOMETRY_BUFFER_POSITIONS]);
 

@@ -39,11 +39,13 @@ Source::~Source()
 
 Source* Source::Create()
 {
-    Source* S = new Source;
+    Source* S = (Source*)calloc(1, sizeof(Source));
     if(S == NULL) {
         Log("ERROR: Source - Couldn't allocate memory\n");
         return NULL;
     }
+
+    new(S) Source;
 
     alGetError();
 

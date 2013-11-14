@@ -44,9 +44,11 @@ LineStrip::~LineStrip()
 LineStrip* LineStrip::Create(int NumPoints, Scalar* Points)
 {
     try {
-        LineStrip* L = new LineStrip;
+        LineStrip* L = (LineStrip*)calloc(1, sizeof(LineStrip));
         if(L == NULL)
             throw "Unable to allocate memory";
+
+        new(L) LineStrip;
 
         glBindBuffer(GL_ARRAY_BUFFER, L->Buffers[GEOMETRY_BUFFER_POSITIONS]);
         glBufferData(GL_ARRAY_BUFFER, sizeof(Scalar) * 3 * NumPoints,

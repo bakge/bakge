@@ -43,9 +43,18 @@ Pawn::~Pawn()
 
 Pawn* Pawn::Create()
 {
-    Pawn* P = new Pawn;
+    try {
+        Pawn* P = (Pawn*)calloc(1, sizeof(Pawn));
+        if(P == NULL)
+            throw "Unable to allocate memory";
 
-    return P;
+        new(P) Pawn;
+
+        return P;
+    } catch(const char* Message) {
+        Log("ERROR: Pawn - %s\n", Message);
+        return NULL;
+    }
 }
 
 

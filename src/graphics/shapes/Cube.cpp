@@ -138,9 +138,11 @@ Cube* Cube::Create()
     };
 
     try {
-        Cube* C = new Cube;
+        Cube* C = (Cube*)calloc(1, sizeof(Cube));
         if(C == NULL)
             throw "Unable to allocate memory";
+
+        new(C) Cube;
 
         glGenBuffers(NUM_SHAPE_BUFFERS, C->Buffers);
 

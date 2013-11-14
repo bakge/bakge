@@ -56,11 +56,13 @@ Stamp* Stamp::Create()
         0, 2, 3
     };
 
-    Stamp* St = new Stamp;
+    Stamp* St = (Stamp*)calloc(1, sizeof(Stamp));
     if(St == NULL) {
         Log("ERROR: Stamp - Couldn't allocate memory.\n");
         return NULL;
     }
+
+    new(St) Stamp;
 
     St->NumIndices = 6;
 

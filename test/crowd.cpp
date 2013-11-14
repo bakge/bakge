@@ -126,7 +126,7 @@ int main(int argc, char* argv[])
     Obj->SetDrawStyle(bakge::SHAPE_DRAW_STYLE_SOLID);
 
     Cam = new bakge::Camera3D;
-    Cam->SetPosition(0, 0.5f, 1.25f);
+    Cam->SetPosition(0, 1.0f, 3.25f);
     Cam->SetTarget(0, 0, 0);
 
     Sh = bakge::Shader::LoadFromStrings(1, 1, &Vertex, &Fragment);

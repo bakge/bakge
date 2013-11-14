@@ -53,16 +53,19 @@ CompositeTexture* CompositeTexture::Create(int W, int H, int C,
         return NULL;
     }
 
-    CompositeTexture* Tex = new CompositeTexture;
+    CompositeTexture* Tex = (CompositeTexture*)calloc(1,
+                                sizeof(CompositeTexture));
     if(Tex == NULL) {
         Log("  ERROR: Couldn't allocate memory.\n");
         EndLogBlock();
         return NULL;
     }
 
+    new(Tex) CompositeTexture;
+
     // Working memory. We'll fill this with appropriate data before creating
     // the texture
-    Byte* Bitmap = new Byte[W * H * 4];
+    Byte* Bitmap = (Byte*)malloc(W * H * 4);
     if(Bitmap == NULL) {
         Log("  ERROR: Couldn't allocate working memory.\n");
         EndLogBlock();

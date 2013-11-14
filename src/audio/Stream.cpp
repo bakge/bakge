@@ -46,11 +46,13 @@ Stream::~Stream()
 
 Stream* Stream::Create(int Len, Byte* Data)
 {
-    Stream* S = new Stream;
+    Stream* S = (Stream*)calloc(1, sizeof(Stream));
     if(S == NULL) {
         Log("ERROR: Stream - Couldn't allocate memory\n");
         return NULL;
     }
+
+    new(S) Stream;
 
     alGetError(); // Clear error state
     alGenBuffers(1, &S->StreamBuffer);

@@ -39,7 +39,12 @@ Anchor::~Anchor()
 
 Anchor* Anchor::Create()
 {
-    Anchor* A = new Anchor;
+    Anchor* A = (Anchor*)calloc(1, sizeof(Anchor));
+    if(A == NULL) {
+        return NULL;
+    }
+
+    new(A) Anchor;
 
     return A;
 }

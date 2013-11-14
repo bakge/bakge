@@ -204,11 +204,13 @@ Texture* Texture::Create(int Width, int Height, const GLint* Params,
     // Bind the texture that was previously bound
     glBindTexture(GL_TEXTURE_2D, Old);
 
-    Texture* T = new Texture;
+    Texture* T = (Texture*)calloc(1, sizeof(Texture));
     if(T == NULL) {
         Log("Texture: Couldn't allocate memory\n");
         return NULL;
     }
+
+    new(T) Texture;
 
     T->TextureID = Tex;
     T->Width = Width;

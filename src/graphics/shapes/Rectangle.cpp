@@ -61,9 +61,11 @@ Rectangle* Rectangle::Create(Scalar Width, Scalar Height)
     };
 
     try {
-        Rectangle* R = new Rectangle;
+        Rectangle* R = (Rectangle*)calloc(1, sizeof(Rectangle));
         if(R == NULL)
             throw "Unable to allocate memory";
+
+        new(R) Rectangle;
 
         R->Width = Width;
         R->Height = Height;

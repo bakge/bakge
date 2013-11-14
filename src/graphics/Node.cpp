@@ -110,11 +110,13 @@ Vector4 BGE_NCP Node::GetPosition() const
 
 Node* Node::Create(Scalar X, Scalar Y, Scalar Z)
 {
-    Node* N = new Node;
+    Node* N = (Node*)calloc(1, sizeof(Node));
     if(N == NULL) {
         Log("ERROR: Node - Couldn't allocate memory\n");
         return NULL;
     }
+
+    new(N) Node;
 
     N->SetPosition(X, Y, Z);
 

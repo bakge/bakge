@@ -46,7 +46,11 @@ Environment::~Environment()
 
 Environment* Environment::Create()
 {
-    Environment* AC = new Environment;
+    Environment* AC = (Environment*)calloc(1, sizeof(Environment));
+    if(AC == NULL)
+        return NULL;
+
+    new(AC) Environment;
 
     AC->Device = alcOpenDevice(NULL);
     if(AC->Device == NULL) {

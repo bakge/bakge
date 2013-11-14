@@ -44,11 +44,13 @@ Mesh::~Mesh()
 Mesh* Mesh::Create()
 {
     try {
-        Mesh* M = new Mesh;
+        Mesh* M = (Mesh*)calloc(1, sizeof(Mesh));
         if(M == NULL) {
             Log("ERROR: Mesh - Couldn't allocate memory.\n");
             return NULL;
         }
+
+        new(M) Mesh;
 
         if(M->CreateBuffers() == BGE_FAILURE) {
             Log("ERROR: Mesh - Error creating mesh buffers.\n");
@@ -175,7 +177,7 @@ Mesh* Mesh::Decode100(const char* Path)
     if(Handle == NULL)
         return NULL;
 
-    Mesh* M = new Mesh;
+    Mesh* M = (Mesh*)calloc(1, sizeof(Mesh));
     if(M == NULL)
         return NULL;
 

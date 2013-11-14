@@ -40,9 +40,11 @@ Sphere::~Sphere()
 Sphere* Sphere::Create()
 {
     try {
-        Sphere* S = new Sphere;
+        Sphere* S = (Sphere*)calloc(1, sizeof(Sphere));
         if(S == NULL)
             throw "Unable to allocate memory";
+
+        new(S) Sphere;
 
         return S;
     } catch(const char* Message) {

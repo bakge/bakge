@@ -57,7 +57,12 @@ win32_Thread::~win32_Thread()
 
 win32_Thread* win32_Thread::Create(int (*EntryFunc)(void*), void* Data)
 {
-    win32_Thread* Thr = new win32_Thread;
+    win32_Thread* Thr = (win32_Thread*)calloc(1, sizeof(win32_Thread));
+    if(Thr == NULL) {
+        return NULL;
+    }
+
+    new(Thr) win32_Thread;
 
     Thr->UserData = Data;
     Thr->UserEntry = EntryFunc;

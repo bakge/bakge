@@ -337,11 +337,13 @@ Shader* Shader::LoadFromStrings(int NumVertex, int NumFragment,
     Shader* S;
 
     /* Allocate memory for the new Shader */
-    S = new Shader;
+    S = (Shader*)calloc(1, sizeof(Shader));
     if(S == NULL) {
         Log("ERROR: Shader - Couldn't allocate memory\n");
         return NULL;
     }
+
+    new(S) Shader;
 
     S->Program = glCreateProgram();
     if(S->Program == 0) {
@@ -367,24 +369,26 @@ Shader* Shader::LoadFromStrings(int NumVertex, int NumFragment,
     }
 
     // Create new buffers which contain the shader libraries as well
-    const char** VertexShaderBuffer = new const char*[NumVertex + 1];
-    const char** FragmentShaderBuffer = new const char*[NumFragment + 1];
+    const char** VertShaders = (const char**)malloc(sizeof(const char*)
+                                                        * (NumVertex + 1));
+    const char** FragShaders = (const char**)malloc(sizeof(const char*)
+                                                    * (NumFragment + 1));
 
     for(int i=1;i<=NumVertex;++i)
-        VertexShaderBuffer[i] = VertexShaders[i-1];
+        VertShaders[i] = VertexShaders[i-1];
 
     for(int i=1;i<=NumFragment;++i)
-        FragmentShaderBuffer[i] = FragmentShaders[i-1];
+        FragShaders[i] = FragmentShaders[i-1];
 
-    FragmentShaderBuffer[0] = FragmentShaderLibHeader;
-    VertexShaderBuffer[0] = VertexShaderLibHeader;
+    FragShaders[0] = FragmentShaderLibHeader;
+    VertShaders[0] = VertexShaderLibHeader;
 
     // Set our shaders' sources
-    glShaderSource(S->Vertex, NumVertex + 1, VertexShaderBuffer, NULL);
-    glShaderSource(S->Fragment, NumFragment + 1, FragmentShaderBuffer, NULL);
+    glShaderSource(S->Vertex, NumVertex + 1, VertShaders, NULL);
+    glShaderSource(S->Fragment, NumFragment + 1, FragShaders, NULL);
 
-    delete[] VertexShaderBuffer;
-    delete[] FragmentShaderBuffer;
+    free(VertShaders);
+    free(FragShaders);
 
     // Compile vertex shader and check for errors
     if(Compile(S->Vertex) == BGE_FAILURE) {
@@ -447,12 +451,12 @@ Result Shader::Compile(GLuint Handle)
 
     glGetShaderiv(Handle, GL_INFO_LOG_LENGTH, &Length);
     if(Length > 1) {
-        char* Info = new char[Length];
+        char* Info = (char*)malloc(Length);
         glGetShaderInfoLog(Handle, Length, NULL, Info);
         Log("Shader compile result\n", Info);
         Log("======================\n");
         Log("%s\n", Info);
-        delete[] Info;
+        free(Info);
     }
 #endif // _DEBUG
 

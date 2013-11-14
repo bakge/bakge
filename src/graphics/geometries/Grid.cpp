@@ -58,9 +58,11 @@ Grid* Grid::Create(int HalfRows, int HalfCols, Scalar Width, Scalar Length)
     }
 
     try {
-        Grid* G = new Grid;
+        Grid* G = (Grid*)calloc(1, sizeof(Grid));
         if(G == NULL)
             throw "Unable to allocate memory";
+
+        new(G) Grid;
 
         glGenBuffers(1, &G->Buffers[GEOMETRY_BUFFER_POSITIONS]);
         glGenBuffers(1, &G->Buffers[GEOMETRY_BUFFER_INDICES]);

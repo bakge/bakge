@@ -40,7 +40,7 @@ GamePad::~GamePad()
 
 GamePad* GamePad::Detect()
 {
-    GamePad* Pad = new GamePad;
+    GamePad* Pad = (GamePad*)calloc(1, sizeof(GamePad));
     for(int i=GLFW_JOYSTICK_1;i<GLFW_JOYSTICK_LAST;++i) {
         if(glfwJoystickPresent(i) == GL_TRUE) {
             Pad->Handle = i;
@@ -48,6 +48,8 @@ GamePad* GamePad::Detect()
                                     glfwGetJoystickName(i));
         }
     }
+
+    new(Pad) GamePad;
 
     Pad->GetButtonPressed(0);
     Pad->GetAxis(0);

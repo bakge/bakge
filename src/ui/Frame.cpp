@@ -59,9 +59,11 @@ Frame* Frame::Create(Scalar Width, Scalar Height)
     };
 
     try {
-        Frame* F = new Frame;
+        Frame* F = (Frame*)calloc(1, sizeof(Frame));
         if(F == NULL)
             throw "Unable to allcoate memory";
+
+        new(F) Frame;
 
         glGenBuffers(NUM_SHAPE_BUFFERS, F->Buffers);
 

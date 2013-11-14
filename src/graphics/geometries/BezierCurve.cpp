@@ -58,9 +58,11 @@ BezierCurve::~BezierCurve()
 BezierCurve* BezierCurve::Create(int NumPoints, Scalar* Points)
 {
     try {
-        BezierCurve* B = new BezierCurve;
+        BezierCurve* B = (BezierCurve*)calloc(1, sizeof(BezierCurve));
         if(B == NULL)
             throw "Unable to allocate memory";
+
+        new(B) BezierCurve;
 
         B->NumPoints = NumPoints;
         // All BezierCurve objects start out amalgamated
@@ -74,15 +76,16 @@ BezierCurve* BezierCurve::Create(int NumPoints, Scalar* Points)
         glBindBuffer(GL_ARRAY_BUFFER, 0);
 
         // Allocate points cache
-        B->AllPoints = new Vector3[NumPoints];
+        B->AllPoints = (Vector3*)malloc(sizeof(Vector3) * NumPoints);
+        
         // Indices buffer, for setting GL data store
-        int* Indices = new int[NumPoints];
+        int* Indices = (int*)malloc(sizeof(int) * NumPoints);
 
         // Start amalgamated; all but 2 endpoints are control points
         B->NumAnchors = 2;
 
         B->AnchorIndicesSize = 64;
-        B->AnchorIndices = new int[B->AnchorIndicesSize];
+        B->AnchorIndices = (int*)malloc(sizeof(int) * B->AnchorIndicesSize);
         if(B->AnchorIndices == NULL) {
             Log("ERROR: BezierCurve::Create - Couldn't allocate anchor indices "
                                                                     "buffer.\n");
@@ -162,7 +165,8 @@ LineStrip* BezierCurve::Build(int NumSubdivisions)
     EndLogBlock();
 #endif // defined(_DEBUG) && BGE_BEZIER_VERBOSE_BUILD == 1
 
-    Vector3* CurvePoints = new Vector3[NumLinePoints];
+    Vector3* CurvePoints = (Vector3*)calloc(NumLinePoints, sizeof(Vector3));
+    new(CurvePoints) Vector3[NumLinePoints];
 
     Scalar Advance = 1.0f / (NumSubdivisions + 1);
 
@@ -267,7 +271,8 @@ void BezierCurve::GetPointAt(int NumControlPoints,
 #endif // _DEBUG
 
     // Temporaries to store control points (we offset them)
-    Vector3* Temp = new Vector3[NumControlPoints+2];
+    Vector3* Temp = (Vector3*)calloc(NumControlPoints + 2, sizeof(Vector3));
+    new(Temp) Vector3[NumControlPoints + 2];
 
     // Intermediates start out at same position as anchors/control points
     for(int i=0;i<NumControlPoints+2;++i)
@@ -392,7 +397,7 @@ int BezierCurve::MakeAnchor(int PointIndex)
         int OldSize = AnchorIndicesSize;
         int* OldArray = AnchorIndices;
         AnchorIndicesSize *= 2;
-        AnchorIndices = new int[AnchorIndicesSize];
+        AnchorIndices = (int*)malloc(sizeof(int) * AnchorIndicesSize);
         memcpy((void*)AnchorIndices, (const void*)OldArray, OldSize * 4);
         BeginLogBlock();
         Log("BezierCurve - Reallocating anchor indices buffer.\n");

@@ -138,7 +138,7 @@ bmf::v100* OpenMeshFile100(const char* Path)
         return NULL;
     }
 
-    bmf::v100* Handle = new bmf::v100;
+    bmf::v100* Handle = (bmf::v100*)calloc(1, sizeof(bmf::v100));
     if(Handle == NULL) {
         Log("ERROR: OpenMeshFile100() - Couldn't allocate memory.\n");
         PHYSFS_close(MeshFile);
