@@ -43,6 +43,7 @@
 #include <string.h>
 #include <time.h>
 #include <math.h>
+#include <new>
 
 #ifdef __linux__
 #include <sys/time.h>
