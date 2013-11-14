@@ -135,9 +135,9 @@ Result Crowd::Unbind() const
 
 Result Crowd::Clear()
 {
-    delete[] Positions;
-    delete[] Rotations;
-    delete[] Scales;
+    free(Positions);
+    free(Rotations);
+    free(Scales);
     Positions = NULL;
     Rotations = NULL;
     Scales = NULL;
@@ -155,17 +155,14 @@ Result Crowd::Reserve(int NumMembers)
     Capacity = NumMembers;
     Population = NumMembers;
 
-    Positions = new Scalar[NumMembers * 3];
-    Rotations = new Quaternion[NumMembers];
-    Scales = new Scalar[NumMembers * 3];
+    Positions = (Scalar*)malloc(sizeof(Scalar) * NumMembers * 3);
+    Rotations = (Quaternion*)malloc(sizeof(Quaternion) * NumMembers);
+    Scales = (Scalar*)malloc(sizeof(Scalar) * NumMembers * 3);
 
     for(int i=0;i<NumMembers;++i) {
-        Positions[i * 3 + 0] = 0;
-        Positions[i * 3 + 1] = 0;
-        Positions[i * 3 + 2] = 0;
-        Scales[i * 3 + 0] = 1;
-        Scales[i * 3 + 1] = 1;
-        Scales[i * 3 + 2] = 1;
+        new(reinterpret_cast<Vector3*>(Positions) + i) Vector3(0, 0, 0);
+        new(reinterpret_cast<Vector3*>(Scales) + i) Vector3(1, 1, 1);
+        new(reinterpret_cast<Quaternion*>(Rotations) + i) Quaternion;
     }
 
     /* Allocates the buffer */
