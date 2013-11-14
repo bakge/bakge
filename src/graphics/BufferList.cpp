@@ -48,6 +48,9 @@ static BGE_INL GLuint* _AllocateBufferList(uint32 BGE_NCP Count)
 
 BufferList::BufferList(uint32 Count)
 {
+    if(Count == 0)
+        return;
+
     try {
         Buffers = _AllocateBufferList(Count);
         if(Buffers == NULL)
