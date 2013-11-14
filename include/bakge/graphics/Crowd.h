@@ -54,6 +54,8 @@ namespace bakge
  */
 class BGE_API Crowd : public Pawn, protected BufferList
 {
+    Crowd();
+
 
 protected:
 
@@ -68,11 +70,7 @@ protected:
     Quaternion* Rotations;
     Scalar* Scales;
 
-    /*! @brief Default Crowd constructor.
-     *
-     * Default Crowd constructor.
-     */
-    Crowd();
+    Crowd(int Reserve);
 
     /*! @brief Set the contents of a member's buffer from array data.
      *
