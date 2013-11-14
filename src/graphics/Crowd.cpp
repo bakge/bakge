@@ -42,30 +42,43 @@ Crowd::Crowd() : BufferList(0)
 
 Crowd::Crowd(int Reserve) : BufferList(1)
 {
-    Capacity = Reserve;
-    Population = Reserve;
+    try {
+        Capacity = Reserve;
+        Population = Reserve;
 
-    Positions = (Scalar*)malloc(sizeof(Scalar) * Reserve * 3);
-    Rotations = (Quaternion*)malloc(sizeof(Quaternion) * Reserve);
-    Scales = (Scalar*)malloc(sizeof(Scalar) * Reserve * 3);
+        Positions = (Scalar*)malloc(sizeof(Scalar) * Reserve * 3);
+        if(Positions == NULL)
+            throw "Unable to allocate positions cache buffer";
 
-    for(int i=0;i<Reserve;++i) {
-        new(reinterpret_cast<Vector3*>(Positions) + i) Vector3(0, 0, 0);
-        new(reinterpret_cast<Vector3*>(Scales) + i) Vector3(1, 1, 1);
-        new(reinterpret_cast<Quaternion*>(Rotations) + i) Quaternion;
+        Rotations = (Quaternion*)malloc(sizeof(Quaternion) * Reserve);
+        if(Rotations == NULL)
+            throw "Unable to allocate rotations cache buffer";
+
+        Scales = (Scalar*)malloc(sizeof(Scalar) * Reserve * 3);
+        if(Scales == NULL)
+            throw "Unable to allocate scales cache buffer";
+
+        for(int i=0;i<Reserve;++i) {
+            new(reinterpret_cast<Vector3*>(Positions) + i) Vector3(0, 0, 0);
+            new(reinterpret_cast<Vector3*>(Scales) + i) Vector3(1, 1, 1);
+            new(reinterpret_cast<Quaternion*>(Rotations) + i) Quaternion;
+        }
+
+        GLint Stride = sizeof(Matrix);
+
+        glBindBuffer(GL_ARRAY_BUFFER, *Buffers);
+        glBufferData(GL_ARRAY_BUFFER, Stride * Reserve, NULL, GL_DYNAMIC_DRAW);
+
+        for(int i=0;i<Reserve;++i) {
+            glBufferSubData(GL_ARRAY_BUFFER, Stride * i, Stride,
+                            (const GLvoid*)&Matrix::Identity[0]);
+        }
+
+        glBindBuffer(GL_ARRAY_BUFFER, 0);
+    } catch(...) {
+        Clear();
+        throw;
     }
-
-    GLint Stride = sizeof(Matrix);
-
-    glBindBuffer(GL_ARRAY_BUFFER, *Buffers);
-    glBufferData(GL_ARRAY_BUFFER, Stride * Reserve, NULL, GL_DYNAMIC_DRAW);
-
-    for(int i=0;i<Reserve;++i) {
-        glBufferSubData(GL_ARRAY_BUFFER, Stride * i, Stride,
-                        (const GLvoid*)&Matrix::Identity[0]);
-    }
-
-    glBindBuffer(GL_ARRAY_BUFFER, 0);
 }
 
 
@@ -78,7 +91,7 @@ Crowd::~Crowd()
 Crowd* Crowd::Create(int ReserveMembers)
 {
     try {
-        Crowd* C = (Crowd*)malloc(sizeof(Crowd));
+        Crowd* C = (Crowd*)calloc(1, sizeof(Crowd));
         if(C == NULL)
             throw "Unable to allocate memory";
 
