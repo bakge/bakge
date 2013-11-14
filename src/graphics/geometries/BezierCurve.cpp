@@ -57,8 +57,10 @@ BezierCurve::~BezierCurve()
 
 BezierCurve* BezierCurve::Create(int NumPoints, Scalar* Points)
 {
+    BezierCurve* B;
+
     try {
-        BezierCurve* B = (BezierCurve*)calloc(1, sizeof(BezierCurve));
+        B = (BezierCurve*)calloc(1, sizeof(BezierCurve));
         if(B == NULL)
             throw "Unable to allocate memory";
 
@@ -122,6 +124,7 @@ BezierCurve* BezierCurve::Create(int NumPoints, Scalar* Points)
         return B;
     } catch(const char* Message) {
         Log("ERROR: BezierCurve - %s\n", Message);
+        free(B);
         return NULL;
     }
 }

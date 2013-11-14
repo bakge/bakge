@@ -90,8 +90,10 @@ Crowd::~Crowd()
 
 Crowd* Crowd::Create(int ReserveMembers)
 {
+    Crowd* C;
+
     try {
-        Crowd* C = (Crowd*)calloc(1, sizeof(Crowd));
+        C = (Crowd*)calloc(1, sizeof(Crowd));
         if(C == NULL)
             throw "Unable to allocate memory";
 
@@ -100,6 +102,7 @@ Crowd* Crowd::Create(int ReserveMembers)
         return C;
     } catch(const char* Message) {
         Log("ERROR: Crowd - %s\n", Message);
+        free(C);
         return NULL;
     }
 }

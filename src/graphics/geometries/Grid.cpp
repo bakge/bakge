@@ -57,8 +57,10 @@ Grid* Grid::Create(int HalfRows, int HalfCols, Scalar Width, Scalar Length)
         return NULL;
     }
 
+    Grid* G;
+
     try {
-        Grid* G = (Grid*)calloc(1, sizeof(Grid));
+        G = (Grid*)calloc(1, sizeof(Grid));
         if(G == NULL)
             throw "Unable to allocate memory";
 
@@ -82,6 +84,7 @@ Grid* Grid::Create(int HalfRows, int HalfCols, Scalar Width, Scalar Length)
         return G;
     } catch(const char* Message) {
         Log("ERROR: Grid - %s\n", Message);
+        free(G);
         return NULL;
     }
 }

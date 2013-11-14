@@ -137,8 +137,10 @@ Cube* Cube::Create()
         -0.5f, +0.5f, -0.5f
     };
 
+    Cube* C;
+
     try {
-        Cube* C = (Cube*)calloc(1, sizeof(Cube));
+        C = (Cube*)calloc(1, sizeof(Cube));
         if(C == NULL)
             throw "Unable to allocate memory";
 
@@ -165,6 +167,7 @@ Cube* Cube::Create()
         return C;
     } catch(const char* Message) {
         Log("ERROR: Cube - %s\n", Message);
+        free(C);
         return NULL;
     }
 }

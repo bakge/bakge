@@ -58,8 +58,10 @@ Frame* Frame::Create(Scalar Width, Scalar Height)
         1, 0
     };
 
+    Frame* F;
+
     try {
-        Frame* F = (Frame*)calloc(1, sizeof(Frame));
+        F = (Frame*)calloc(1, sizeof(Frame));
         if(F == NULL)
             throw "Unable to allcoate memory";
 
@@ -85,6 +87,7 @@ Frame* Frame::Create(Scalar Width, Scalar Height)
         return F;
     } catch(const char* Message) {
         Log("ERROR: Frame - %s\n", Message);
+        free(F);
         return NULL;
     }
 }

@@ -43,8 +43,10 @@ LineStrip::~LineStrip()
 
 LineStrip* LineStrip::Create(int NumPoints, Scalar* Points)
 {
+    LineStrip* L;
+
     try {
-        LineStrip* L = (LineStrip*)calloc(1, sizeof(LineStrip));
+        L = (LineStrip*)calloc(1, sizeof(LineStrip));
         if(L == NULL)
             throw "Unable to allocate memory";
 
@@ -106,6 +108,7 @@ LineStrip* LineStrip::Create(int NumPoints, Scalar* Points)
         return L;
     } catch(const char* Message) {
         Log("ERROR: LineStrip - %s\n", Message);
+        free(L);
         return NULL;
     }
 }

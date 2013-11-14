@@ -43,8 +43,10 @@ Mesh::~Mesh()
 
 Mesh* Mesh::Create()
 {
+    Mesh* M;
+
     try {
-        Mesh* M = (Mesh*)calloc(1, sizeof(Mesh));
+        M = (Mesh*)calloc(1, sizeof(Mesh));
         if(M == NULL) {
             Log("ERROR: Mesh - Couldn't allocate memory.\n");
             return NULL;
@@ -61,6 +63,7 @@ Mesh* Mesh::Create()
         return M;
     } catch(const char* Message) {
         Log("ERROR: Mesh - %s\n", Message);
+        free(M);
         return NULL;
     }
 }

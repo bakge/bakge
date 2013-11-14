@@ -47,8 +47,10 @@ Line* Line::Create(Vector3 A, Vector3 B)
         0, 1
     };
 
+    Line* L;
+
     try {
-        Line* L = (Line*)calloc(1, sizeof(Line));
+        L = (Line*)calloc(1, sizeof(Line));
         if(L == NULL) {
             Log("ERROR: Line - Couldn't allocate memory.\n");
             return NULL;
@@ -106,6 +108,7 @@ Line* Line::Create(Vector3 A, Vector3 B)
         return L;
     } catch(const char* Message) {
         Log("ERROR: Line - %s\n", Message);
+        free(L);
         return NULL;
     }
 }

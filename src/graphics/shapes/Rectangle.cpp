@@ -60,8 +60,10 @@ Rectangle* Rectangle::Create(Scalar Width, Scalar Height)
         1, 0
     };
 
+    Rectangle* R;
+
     try {
-        Rectangle* R = (Rectangle*)calloc(1, sizeof(Rectangle));
+        R = (Rectangle*)calloc(1, sizeof(Rectangle));
         if(R == NULL)
             throw "Unable to allocate memory";
 
@@ -91,6 +93,7 @@ Rectangle* Rectangle::Create(Scalar Width, Scalar Height)
         return R;
     } catch(const char* Message) {
         Log("ERROR: Rectangle - %s\n", Message);
+        free(R);
         return NULL;
     }
 }
