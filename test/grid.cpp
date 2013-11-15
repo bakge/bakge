@@ -33,6 +33,7 @@ bakge::Texture* Tex;
 bakge::Camera3D* Cam;
 GLubyte* Bitmap;
 bakge::Grid* Gr;
+bakge::Shader* Shad;
 
 float Rot;
 bakge::Microseconds NowTime;
@@ -94,6 +95,9 @@ bakge::Result InitTest()
     glPointSize(5);
     Gr->SetDrawStyle(bakge::GEOMETRY_DRAW_STYLE_LINES);
 
+    Shad = bakge::Shader::LoadFromStrings(1, 1, &Vertex, &Fragment);
+    Shad->Bind();
+
     return BGE_SUCCESS;
 }
 
@@ -141,6 +145,7 @@ bakge::Result ShutDownTest()
         delete Cam;
 
     delete Gr;
+    delete Shad;
 
     delete[] Bitmap;
 
