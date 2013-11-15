@@ -63,9 +63,7 @@ protected:
 
 public:
 
-    virtual ~IRectangle() = 0
-    {
-    }
+    virtual ~IRectangle() = 0;
 
     BGE_INL virtual const T GetWidth() const
     {
@@ -109,6 +107,10 @@ public:
     }
 
 }; // IRectangle
+
+template<typename T> BGE_INL IRectangle<T>::~IRectangle()
+{
+}
 
 } // bakge
 

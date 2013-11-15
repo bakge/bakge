@@ -64,9 +64,7 @@ protected:
 
 public:
 
-    virtual ~ICuboid() = 0
-    {
-    }
+    virtual ~ICuboid() = 0;
 
     BGE_INL virtual const T GetLength() const
     {
@@ -99,6 +97,10 @@ public:
     }
 
 }; // ICuboid
+
+template<typename T> ICuboid<T>::~ICuboid()
+{
+}
 
 } // bakge
 
