@@ -215,7 +215,7 @@ LineStrip* BezierCurve::Build(int NumSubdivisions)
 
     LineStrip* L = LineStrip::Create(NumLinePoints, &CurvePoints[0][0]);
 
-    delete[] CurvePoints;
+    free(CurvePoints);
 
     return L;
 }
@@ -300,7 +300,7 @@ void BezierCurve::GetPointAt(int NumControlPoints,
                                                         (*Points)[2]);
 #endif // defined(_DEBUG) && BGE_BEZIER_VERBOSE_BUILD == 1
 
-    delete[] Temp;
+    free(Temp);
 }
 
 
