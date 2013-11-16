@@ -123,6 +123,8 @@ class TestEngine : public Engine, public EventHandler
                 PostRenderCB();
         }
 
+        StopEngine();
+
         return ExitCode;
     }
 
