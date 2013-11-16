@@ -169,6 +169,11 @@ LineStrip* BezierCurve::Build(int NumSubdivisions)
 #endif // defined(_DEBUG) && BGE_BEZIER_VERBOSE_BUILD == 1
 
     Vector3* CurvePoints = (Vector3*)calloc(NumLinePoints, sizeof(Vector3));
+    if(CurvePoints == NULL) {
+        Log("ERROR: BezierCurve - Couldn't allocate temp points buffer\n");
+        return NULL;
+    }
+
     new(CurvePoints) Vector3[NumLinePoints];
 
     Scalar Advance = 1.0f / (NumSubdivisions + 1);
@@ -272,6 +277,11 @@ void BezierCurve::GetPointAt(int NumControlPoints,
 
     // Temporaries to store control points (we offset them)
     Vector3* Temp = (Vector3*)calloc(NumControlPoints + 2, sizeof(Vector3));
+    if(Temp == NULL) {
+        Log("ERROR: BezierCurve - Couldn't allocate temp points buffer\n");
+        return;
+    }
+
     new(Temp) Vector3[NumControlPoints + 2];
 
     // Intermediates start out at same position as anchors/control points
