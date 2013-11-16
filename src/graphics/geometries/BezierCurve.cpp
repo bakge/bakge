@@ -89,8 +89,8 @@ BezierCurve* BezierCurve::Create(int NumPoints, Scalar* Points)
         B->AnchorIndicesSize = 64;
         B->AnchorIndices = (int*)malloc(sizeof(int) * B->AnchorIndicesSize);
         if(B->AnchorIndices == NULL) {
-            Log("ERROR: BezierCurve::Create - Couldn't allocate anchor indices "
-                                                                    "buffer.\n");
+            Log("ERROR: BezierCurve::Create - Couldn't allocate anchor "
+                                                    "indices buffer.\n");
             delete B;
             return NULL;
         }
@@ -245,9 +245,7 @@ void BezierCurve::GetPointAt(int NumControlPoints,
         (*Points) += (SegmentPoints[1] - SegmentPoints[0]) * T;
 #if defined(_DEBUG) && BGE_BEZIER_VERBOSE_BUILD == 1
         Log("BezierCurve: Built point P(%2.2f) = (%2.3f, %2.3f, %2.3f)\n", T,
-                                                        (*Points)[0],
-                                                        (*Points)[1],
-                                                        (*Points)[2]);
+                                    (*Points)[0], (*Points)[1], (*Points)[2]);
 #endif // defined(_DEBUG) && BGE_BEZIER_VERBOSE_BUILD == 1
         return;
     }
