@@ -66,9 +66,6 @@ Grid* Grid::Create(int HalfRows, int HalfCols, Scalar Width, Scalar Length)
 
         new(G) Grid;
 
-        glGenBuffers(1, &G->Buffers[GEOMETRY_BUFFER_POSITIONS]);
-        glGenBuffers(1, &G->Buffers[GEOMETRY_BUFFER_INDICES]);
-
         G->HalfRows = HalfRows;
         G->HalfCols = HalfCols;
         G->UnitWidth = Width;
