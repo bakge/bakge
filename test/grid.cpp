@@ -27,11 +27,8 @@
 #include <bakge/Bakge.h>
 #include "TestEngine.h"
 
-bakge::Rectangle* Obj;
 bakge::Pawn* It;
-bakge::Texture* Tex;
 bakge::Camera3D* Cam;
-GLubyte* Bitmap;
 bakge::Grid* Gr;
 bakge::Shader* Shad;
 
@@ -58,29 +55,12 @@ static const char* Fragment =
 
 bakge::Result InitTest()
 {
-    Bitmap = new GLubyte[512 * 512 * 3];
     Rot = 0;
     LastTime = bakge::GetRunningTime();
 
     glEnable(GL_DEPTH_TEST);
 
-    memset((void*)Bitmap, 0, sizeof(Bitmap[0]) * 512 * 512 * 2);
-
-    for(int i=0;i<512;++i) {
-        for(int j=0;j<512;++j){
-            Bitmap[3 * (i*512+j)] = i % 100;
-            Bitmap[3 * (i*512+j) + 1] = i % 75;
-            Bitmap[3 * (i*512+j)] = i % 50;
-        }
-    }
-
-    Tex = bakge::Texture::Create(512, 512, NULL, GL_RGB, GL_UNSIGNED_BYTE,
-                                                            (void*)Bitmap);
-
     It = bakge::Pawn::Create();
-    Obj = bakge::Rectangle::Create(200, 200);
-
-    Obj->SetDrawStyle(bakge::SHAPE_DRAW_STYLE_SOLID);
 
     It->SetPosition(0, 0, 0);
 
@@ -132,22 +112,10 @@ bakge::Result PostRenderTest()
 
 bakge::Result ShutDownTest()
 {
-    if(Obj != NULL)
-        delete Obj;
-
-    if(Tex != NULL)
-        delete Tex;
-
-    if(It != NULL)
-        delete It;
-
-    if(Cam != NULL)
-        delete Cam;
-
+    delete It;
+    delete Cam;
     delete Gr;
     delete Shad;
-
-    delete[] Bitmap;
 
     return BGE_SUCCESS;
 }
