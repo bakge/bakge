@@ -258,9 +258,8 @@ void BezierCurve::GetPointAt(int NumControlPoints,
         return;
     }
 
-    if(Buffers[GEOMETRY_BUFFER_POSITIONS] == NULL) {
-        Log("ERROR: BezierCurve - GetPointAt requires Buffers[GEOMETRY_BUFFER_POSITIONS] "
-                                                       "!= NULL.\n");
+    if(Points == NULL) {
+        Log("ERROR: BezierCurve - GetPointAt requires Points != NULL.\n");
         return;
     }
 
