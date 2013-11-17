@@ -99,7 +99,7 @@ Result Grid::Bufferize()
     Log("  %d lines.\n", NumColLines + NumRowLines);
 
     do {
-        glBindBuffer(GL_ARRAY_BUFFER, Buffers[GEOMETRY_BUFFER_POSITIONS]);
+        glBindBuffer(GL_ARRAY_BUFFER, GetBuffer(GEOMETRY_BUFFER_POSITIONS));
         glBufferData(GL_ARRAY_BUFFER, sizeof(Scalar) * 3 * NumPoints, NULL,
                                                             GL_DYNAMIC_DRAW);
 
@@ -144,7 +144,7 @@ Result Grid::Bufferize()
     Tries = 0;
 
     do {
-        glBindBuffer(GL_ARRAY_BUFFER, Buffers[GEOMETRY_BUFFER_INDICES]);
+        glBindBuffer(GL_ARRAY_BUFFER, GetBuffer(GEOMETRY_BUFFER_INDICES));
         glBufferData(GL_ARRAY_BUFFER, sizeof(GLuint) * NumPoints * 2, NULL,
                                                             GL_DYNAMIC_DRAW);
 

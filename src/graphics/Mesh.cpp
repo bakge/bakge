@@ -279,22 +279,22 @@ Mesh* Mesh::Decode100(const char* Path)
     }
 
     // Fill data store data using cache buffers
-    glBindBuffer(GL_ARRAY_BUFFER, M->Buffers[SHAPE_BUFFER_POSITIONS]);
+    glBindBuffer(GL_ARRAY_BUFFER, M->GetBuffer(SHAPE_BUFFER_POSITIONS));
     glBufferData(GL_ARRAY_BUFFER, sizeof(Scalar) * 3 * VertCount,
                                 (const GLvoid*)P, GL_STATIC_DRAW);
     Log("  - Filled GL positions buffer data store.\n");
 
-    glBindBuffer(GL_ARRAY_BUFFER, M->Buffers[SHAPE_BUFFER_NORMALS]);
+    glBindBuffer(GL_ARRAY_BUFFER, M->GetBuffer(SHAPE_BUFFER_NORMALS));
     glBufferData(GL_ARRAY_BUFFER, sizeof(Scalar) * 3 * VertCount,
                                 (const GLvoid*)N, GL_STATIC_DRAW);
     Log("  - Filled GL normals buffer data store.\n");
 
-    glBindBuffer(GL_ARRAY_BUFFER, M->Buffers[SHAPE_BUFFER_TEXCOORDS]);
+    glBindBuffer(GL_ARRAY_BUFFER, M->GetBuffer(SHAPE_BUFFER_TEXCOORDS));
     glBufferData(GL_ARRAY_BUFFER, sizeof(Scalar) * 2 * VertCount,
                                 (const GLvoid*)T, GL_STATIC_DRAW);
     Log("  - Filled GL texcoords buffer data store.\n");
 
-    glBindBuffer(GL_ARRAY_BUFFER, M->Buffers[SHAPE_BUFFER_INDICES]);
+    glBindBuffer(GL_ARRAY_BUFFER, M->GetBuffer(SHAPE_BUFFER_INDICES));
     glBufferData(GL_ARRAY_BUFFER, sizeof(uint32) * IndCount, (const GLvoid*)I,
                                                             GL_STATIC_DRAW);
     Log("  - Filled GL indices buffer data store.\n");
@@ -306,85 +306,8 @@ Mesh* Mesh::Decode100(const char* Path)
 }
 
 
-Result Mesh::CreateBuffers()
-{
-    BeginLogBlock();
-
-    Log("Mesh::CreateBuffers\n");
-
-    /* If data already exists clear it */
-    if(ClearBuffers() == BGE_SUCCESS) {
-        Log("  WARN: Deleted existing buffer names.\n");
-    }
-
-    glGenBuffers(NUM_SHAPE_BUFFERS, Buffers);
-
-    Log("  - Generated %d buffer names.\n", NUM_SHAPE_BUFFERS);
-
-    /* Check to make sure each of our mesh's buffers was created properly */
-    if(Buffers[SHAPE_BUFFER_POSITIONS] == 0) {
-        Log("ERROR: Mesh - Couldn't create positions buffer\n");
-        EndLogBlock();
-        return BGE_FAILURE;
-    }
-
-    Log("  - Verified positions buffer name 0x%x.\n",
-                Buffers[SHAPE_BUFFER_POSITIONS]);
-
-    if(Buffers[SHAPE_BUFFER_NORMALS] == 0) {
-        Log("ERROR: Mesh - Couldn't create normals buffer\n");
-        EndLogBlock();
-        return BGE_FAILURE;
-    }
-
-    Log("  - Verified normals buffer name 0x%x.\n",
-                Buffers[SHAPE_BUFFER_NORMALS]);
-
-    if(Buffers[SHAPE_BUFFER_TEXCOORDS] == 0) {
-        Log("ERROR: Mesh - Couldn't create texture coordinates buffer\n");
-        EndLogBlock();
-        return BGE_FAILURE;
-    }
-
-    Log("  - Verified texcoords buffer name 0x%x.\n",
-            Buffers[SHAPE_BUFFER_TEXCOORDS]);
-
-    if(Buffers[SHAPE_BUFFER_INDICES] == 0) {
-        Log("ERROR: Mesh - Couldn't create indices buffer\n");
-        EndLogBlock();
-        return BGE_FAILURE;
-    }
-
-    Log("  - Verified indices buffer name 0x%x.\n",
-            Buffers[SHAPE_BUFFER_INDICES]);
-
-    EndLogBlock();
-
-    return BGE_SUCCESS;
-}
-
-
-Result Mesh::ClearBuffers()
-{
-    if(Buffers[0] != 0) {
-        glDeleteBuffers(NUM_SHAPE_BUFFERS, Buffers);
-        memset((void*)Buffers, 0, sizeof(GLuint) * NUM_SHAPE_BUFFERS);
-    } else {
-        return BGE_FAILURE;
-    }
-
-    return BGE_SUCCESS;
-}
-
-
 Result Mesh::SetPositionData(int NumPositions, const Scalar* Data)
 {
-    if(Buffers[SHAPE_BUFFER_POSITIONS] == 0) {
-        Log("ERROR: Mesh::SetPositionData - Positions buffer doesn't "
-                                                            "exist.\n");
-        return BGE_FAILURE;
-    }
-
     NumVertices = NumPositions;
 
     BeginLogBlock();
@@ -410,7 +333,7 @@ Result Mesh::SetPositionData(int NumPositions, const Scalar* Data)
 
     Log("  - Copied new buffer data to cache.\n");
 
-    glBindBuffer(GL_ARRAY_BUFFER, Buffers[SHAPE_BUFFER_POSITIONS]);
+    glBindBuffer(GL_ARRAY_BUFFER, GetBuffer(SHAPE_BUFFER_POSITIONS));
     glBufferData(GL_ARRAY_BUFFER, sizeof(Scalar) * NumPositions * 3,
                                             (const GLvoid*)Data,
                                                 GL_STATIC_DRAW);
@@ -427,11 +350,6 @@ Result Mesh::SetPositionData(int NumPositions, const Scalar* Data)
 
 Result Mesh::SetNormalData(int NumNormals, const Scalar* Data)
 {
-    if(Buffers[SHAPE_BUFFER_NORMALS] == 0) {
-        Log("ERROR: Mesh::SetNormalData - Normals buffer doesn't exist.\n");
-        return BGE_FAILURE;
-    }
-
     BeginLogBlock();
     Log("Mesh::SetNormalData\n");
 
@@ -455,7 +373,7 @@ Result Mesh::SetNormalData(int NumNormals, const Scalar* Data)
 
     Log("  - Copied new buffer data to cache.\n");
 
-    glBindBuffer(GL_ARRAY_BUFFER, Buffers[SHAPE_BUFFER_NORMALS]);
+    glBindBuffer(GL_ARRAY_BUFFER, GetBuffer(SHAPE_BUFFER_NORMALS));
     glBufferData(GL_ARRAY_BUFFER, sizeof(Scalar) * NumNormals * 3,
                                             (const GLvoid*)Data,
                                                 GL_STATIC_DRAW);
@@ -472,11 +390,6 @@ Result Mesh::SetNormalData(int NumNormals, const Scalar* Data)
 
 Result Mesh::SetIndexData(int NumIndices, const uint32* Data)
 {
-    if(Buffers[SHAPE_BUFFER_INDICES] == 0) {
-        Log("ERROR: Mesh::SetIndexData - Indices buffer doesn't exist.\n");
-        return BGE_FAILURE;
-    }
-
     BeginLogBlock();
     Log("Mesh::SetIndexData\n");
 
@@ -502,7 +415,7 @@ Result Mesh::SetIndexData(int NumIndices, const uint32* Data)
 
     Log("  - Copied new buffer data to cache.\n");
 
-    glBindBuffer(GL_ARRAY_BUFFER, Buffers[SHAPE_BUFFER_INDICES]);
+    glBindBuffer(GL_ARRAY_BUFFER, GetBuffer(SHAPE_BUFFER_INDICES));
     glBufferData(GL_ARRAY_BUFFER, sizeof(uint32) * NumIndices,
                                             (const GLvoid*)Data,
                                                 GL_STATIC_DRAW);
@@ -519,12 +432,6 @@ Result Mesh::SetIndexData(int NumIndices, const uint32* Data)
 
 Result Mesh::SetTexCoordData(int NumTexCoords, const Scalar* Data)
 {
-    if(Buffers[SHAPE_BUFFER_TEXCOORDS] == 0) {
-        Log("ERROR: Mesh::SetTexCoordData - Texcoords buffer doesn't "
-                                                            "exist.\n");
-        return BGE_FAILURE;
-    }
-
     BeginLogBlock();
     Log("Mesh::SetTexCoordData\n");
 
@@ -548,7 +455,7 @@ Result Mesh::SetTexCoordData(int NumTexCoords, const Scalar* Data)
 
     Log("  - Copied new buffer data to cache.\n");
 
-    glBindBuffer(GL_ARRAY_BUFFER, Buffers[SHAPE_BUFFER_TEXCOORDS]);
+    glBindBuffer(GL_ARRAY_BUFFER, GetBuffer(SHAPE_BUFFER_TEXCOORDS));
     glBufferData(GL_ARRAY_BUFFER, sizeof(Scalar) * NumTexCoords * 2,
                                                 (const GLvoid*)Data,
                                                     GL_STATIC_DRAW);

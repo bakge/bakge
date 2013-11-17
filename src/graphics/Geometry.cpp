@@ -96,12 +96,12 @@ Result Geometry::Bind() const
     if(Program == 0)
         return BGE_FAILURE;
 
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, Buffers[GEOMETRY_BUFFER_INDICES]);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, GetBuffer(GEOMETRY_BUFFER_INDICES));
 
     // Set vertex attribute properties
     GLint Location = glGetAttribLocation(Program, BGE_VERTEX_ATTRIBUTE);
     if(Location >= 0) {
-        glBindBuffer(GL_ARRAY_BUFFER, Buffers[GEOMETRY_BUFFER_POSITIONS]);
+        glBindBuffer(GL_ARRAY_BUFFER, GetBuffer(GEOMETRY_BUFFER_POSITIONS));
         glEnableVertexAttribArray(Location);
         glVertexAttribPointer(Location, 3, GL_FLOAT, GL_FALSE, 0, 0);
 #ifdef _DEBUG

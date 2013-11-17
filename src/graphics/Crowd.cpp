@@ -67,7 +67,7 @@ Crowd::Crowd(int Reserve) : BufferList(1)
 
         GLint Stride = sizeof(Matrix);
 
-        glBindBuffer(GL_ARRAY_BUFFER, *Buffers);
+        glBindBuffer(GL_ARRAY_BUFFER, GetBuffer(0));
         glBufferData(GL_ARRAY_BUFFER, Stride * Reserve, NULL, GL_DYNAMIC_DRAW);
 
         for(int i=0;i<Reserve;++i) {
@@ -137,7 +137,7 @@ Result Crowd::Bind() const
         return BGE_FAILURE;
     }
 
-    glBindBuffer(GL_ARRAY_BUFFER, *Buffers);
+    glBindBuffer(GL_ARRAY_BUFFER, GetBuffer(0));
 
     for(int i=0;i<4;++i) {
         glEnableVertexAttribArray(Location + i);
@@ -308,7 +308,7 @@ Result Crowd::SetDataStore(int Index)
                             Positions[Index * 3 + 1],
                             Positions[Index * 3 + 2]);
 
-    glBindBuffer(GL_ARRAY_BUFFER, *Buffers);
+    glBindBuffer(GL_ARRAY_BUFFER, GetBuffer(0));
     glBufferSubData(GL_ARRAY_BUFFER, 64 * Index, 64, &Transformation[0]);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
 

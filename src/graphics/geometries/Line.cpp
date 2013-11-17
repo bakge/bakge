@@ -58,7 +58,7 @@ Line* Line::Create(Vector3 A, Vector3 B)
 
         new(L) Line;
 
-        glBindBuffer(GL_ARRAY_BUFFER, L->Buffers[GEOMETRY_BUFFER_POSITIONS]);
+        glBindBuffer(GL_ARRAY_BUFFER, L->GetBuffer(GEOMETRY_BUFFER_POSITIONS));
 
         do {
             // If glUnmapBuffer fails, we'll need to reinitialize the data store
@@ -96,7 +96,7 @@ Line* Line::Create(Vector3 A, Vector3 B)
 
         } while(glUnmapBuffer(GL_ARRAY_BUFFER) == GL_FALSE);
 
-        glBindBuffer(GL_ARRAY_BUFFER, L->Buffers[GEOMETRY_BUFFER_INDICES]);
+        glBindBuffer(GL_ARRAY_BUFFER, L->GetBuffer(GEOMETRY_BUFFER_INDICES));
         glBufferData(GL_ARRAY_BUFFER, sizeof(GLuint) * 2, (GLvoid*)Indices,
                                                            GL_DYNAMIC_DRAW);
         glBindBuffer(GL_ARRAY_BUFFER, 0);

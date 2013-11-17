@@ -67,20 +67,18 @@ Frame* Frame::Create(Scalar Width, Scalar Height)
 
         new(F) Frame;
 
-        glGenBuffers(NUM_SHAPE_BUFFERS, F->Buffers);
-
         if(F->SetDimensions(Width, Height) == BGE_FAILURE) {
             delete F;
             throw "Unable to set Frame dimensions";
         }
 
-        glBindBuffer(GL_ARRAY_BUFFER, F->Buffers[SHAPE_BUFFER_NORMALS]);
+        glBindBuffer(GL_ARRAY_BUFFER, F->GetBuffer(SHAPE_BUFFER_NORMALS));
         glBufferData(GL_ARRAY_BUFFER, sizeof(Scalar) * 12, (GLvoid*)Normals,
                                                             GL_STATIC_DRAW);
-        glBindBuffer(GL_ARRAY_BUFFER, F->Buffers[SHAPE_BUFFER_TEXCOORDS]);
+        glBindBuffer(GL_ARRAY_BUFFER, F->GetBuffer(SHAPE_BUFFER_TEXCOORDS));
         glBufferData(GL_ARRAY_BUFFER, sizeof(Scalar) * 8, (GLvoid*)TexCoords,
                                                             GL_STATIC_DRAW);
-        glBindBuffer(GL_ARRAY_BUFFER, F->Buffers[SHAPE_BUFFER_INDICES]);
+        glBindBuffer(GL_ARRAY_BUFFER, F->GetBuffer(SHAPE_BUFFER_INDICES));
         glBufferData(GL_ARRAY_BUFFER, sizeof(uint32) * 6, (GLvoid*)Indices,
                                                             GL_STATIC_DRAW);
 
@@ -107,7 +105,7 @@ Result Frame::SetDimensions(Scalar Width, Scalar Height)
     this->Width = Width;
     this->Height = Height;
 
-    glBindBuffer(GL_ARRAY_BUFFER, Buffers[SHAPE_BUFFER_POSITIONS]);
+    glBindBuffer(GL_ARRAY_BUFFER, GetBuffer(SHAPE_BUFFER_POSITIONS));
     glBufferData(GL_ARRAY_BUFFER, sizeof(Scalar) * 12, (GLvoid*)Positions,
                                                             GL_STATIC_DRAW);
     glBindBuffer(GL_ARRAY_BUFFER, 0);

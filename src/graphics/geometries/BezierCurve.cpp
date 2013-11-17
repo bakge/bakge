@@ -73,7 +73,7 @@ BezierCurve* BezierCurve::Create(int NumPoints, Scalar* Points)
         // Amalgamated curves have 2 anchors; the rest are control points
         B->HighOrder = NumPoints - 2;
 
-        glBindBuffer(GL_ARRAY_BUFFER, B->Buffers[GEOMETRY_BUFFER_POSITIONS]);
+        glBindBuffer(GL_ARRAY_BUFFER, B->GetBuffer(GEOMETRY_BUFFER_POSITIONS));
         glBufferData(GL_ARRAY_BUFFER, NumPoints * sizeof(Scalar) * 3, Points,
                                                             GL_DYNAMIC_DRAW);
         glBindBuffer(GL_ARRAY_BUFFER, 0);
@@ -115,7 +115,7 @@ BezierCurve* BezierCurve::Create(int NumPoints, Scalar* Points)
             B->AllPoints[i][2] = Points[i * 3 + 2];
         }
 
-        glBindBuffer(GL_ARRAY_BUFFER, B->Buffers[GEOMETRY_BUFFER_INDICES]);
+        glBindBuffer(GL_ARRAY_BUFFER, B->GetBuffer(GEOMETRY_BUFFER_INDICES));
         glBufferData(GL_ARRAY_BUFFER, NumPoints * sizeof(int), Indices,
                                                        GL_DYNAMIC_DRAW);
         glBindBuffer(GL_ARRAY_BUFFER, 0);

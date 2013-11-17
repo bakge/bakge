@@ -44,6 +44,7 @@ namespace bakge
 class BGE_API BufferList
 {
     uint32 NumBuffers;
+    GLuint* Buffers;
 
     BufferList();
 
@@ -66,8 +67,6 @@ class BGE_API BufferList
 
 
 protected:
-
-    GLuint* Buffers;
 
     // Creates Count buffer names
     BufferList(uint32 Count);
@@ -93,6 +92,20 @@ protected:
      * BGE_FAILURE if Count is equal to the current number of buffers.
      */
     Result SetNumBuffers(uint32 Count);
+
+    /*! @brief Get the buffer name at a given index.
+     *
+     * Get the buffer name at a given index. This is done to protect the
+     * array of buffer names from unwarranted access or modification.
+     *
+     * @param[in] Index Buffer name index in the list.
+     *
+     * @return Buffer name at given index.
+     */
+    GLuint GetBuffer(int Index) const
+    {
+        return Buffers[Index];
+    }
 
 
 public:

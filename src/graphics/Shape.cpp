@@ -79,7 +79,7 @@ Result Shape::Bind() const
     /* Check each of our attributes' locations to ensure they exist */
     GLint Location = glGetAttribLocation(Program, BGE_VERTEX_ATTRIBUTE);
     if(Location >= 0) {
-        glBindBuffer(GL_ARRAY_BUFFER, Buffers[SHAPE_BUFFER_POSITIONS]);
+        glBindBuffer(GL_ARRAY_BUFFER, GetBuffer(SHAPE_BUFFER_POSITIONS));
         glEnableVertexAttribArray(Location);
         glVertexAttribPointer(Location, 3, GL_FLOAT, GL_FALSE, 0, 0);
 #ifdef _DEBUG
@@ -90,7 +90,7 @@ Result Shape::Bind() const
 
     Location = glGetAttribLocation(Program, BGE_NORMAL_ATTRIBUTE);
     if(Location >= 0) {
-        glBindBuffer(GL_ARRAY_BUFFER, Buffers[SHAPE_BUFFER_NORMALS]);
+        glBindBuffer(GL_ARRAY_BUFFER, GetBuffer(SHAPE_BUFFER_NORMALS));
         glEnableVertexAttribArray(Location);
         glVertexAttribPointer(Location, 3, GL_FLOAT, GL_FALSE, 0, 0);
 #ifdef _DEBUG
@@ -101,7 +101,7 @@ Result Shape::Bind() const
 
     Location = glGetAttribLocation(Program, BGE_TEXCOORD_ATTRIBUTE);
     if(Location >= 0) {
-        glBindBuffer(GL_ARRAY_BUFFER, Buffers[SHAPE_BUFFER_TEXCOORDS]);
+        glBindBuffer(GL_ARRAY_BUFFER, GetBuffer(SHAPE_BUFFER_TEXCOORDS));
         glEnableVertexAttribArray(Location);
         glVertexAttribPointer(Location, 2, GL_FLOAT, GL_FALSE, 0, 0);
 #ifdef _DEBUG
@@ -110,7 +110,7 @@ Result Shape::Bind() const
 #endif // _DEBUG
     }
 
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, Buffers[SHAPE_BUFFER_INDICES]);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, GetBuffer(SHAPE_BUFFER_INDICES));
 
     return BGE_SUCCESS;
 }

@@ -147,18 +147,16 @@ Cube* Cube::Create()
 
         new(C) Cube;
 
-        glGenBuffers(NUM_SHAPE_BUFFERS, C->Buffers);
-
-        glBindBuffer(GL_ARRAY_BUFFER, C->Buffers[SHAPE_BUFFER_POSITIONS]);
+        glBindBuffer(GL_ARRAY_BUFFER, C->GetBuffer(SHAPE_BUFFER_POSITIONS));
         glBufferData(GL_ARRAY_BUFFER, sizeof(Scalar) * 72, (GLvoid*)Positions,
                                                             GL_STATIC_DRAW);
-        glBindBuffer(GL_ARRAY_BUFFER, C->Buffers[SHAPE_BUFFER_NORMALS]);
+        glBindBuffer(GL_ARRAY_BUFFER, C->GetBuffer(SHAPE_BUFFER_NORMALS));
         glBufferData(GL_ARRAY_BUFFER, sizeof(Scalar) * 72, (GLvoid*)Normals,
                                                             GL_STATIC_DRAW);
-        glBindBuffer(GL_ARRAY_BUFFER, C->Buffers[SHAPE_BUFFER_TEXCOORDS]);
+        glBindBuffer(GL_ARRAY_BUFFER, C->GetBuffer(SHAPE_BUFFER_TEXCOORDS));
         glBufferData(GL_ARRAY_BUFFER, sizeof(Scalar) * 48, (GLvoid*)TexCoords,
                                                             GL_STATIC_DRAW);
-        glBindBuffer(GL_ARRAY_BUFFER, C->Buffers[SHAPE_BUFFER_INDICES]);
+        glBindBuffer(GL_ARRAY_BUFFER, C->GetBuffer(SHAPE_BUFFER_INDICES));
         glBufferData(GL_ARRAY_BUFFER, sizeof(uint32) * 36, (GLvoid*)Indices,
                                                             GL_STATIC_DRAW);
         C->NumIndices = 36;

@@ -68,9 +68,7 @@ Stamp* Stamp::Create()
 
     St->SetDimensions(0, 0);
 
-    glGenBuffers(NUM_SHAPE_BUFFERS, St->Buffers);
-
-    glBindBuffer(GL_ARRAY_BUFFER, St->Buffers[SHAPE_BUFFER_INDICES]);
+    glBindBuffer(GL_ARRAY_BUFFER, St->GetBuffer(SHAPE_BUFFER_INDICES));
     glBufferData(GL_ARRAY_BUFFER, sizeof(uint32) * 6, (GLvoid*)Indices,
                                                         GL_STATIC_DRAW);
 
@@ -89,7 +87,7 @@ Result Stamp::Bind() const
     /* Check each of our attributes' locations to ensure they exist */
     GLint Location = glGetAttribLocation(Program, BGE_VERTEX_ATTRIBUTE);
     if(Location >= 0) {
-        glBindBuffer(GL_ARRAY_BUFFER, Buffers[SHAPE_BUFFER_POSITIONS]);
+        glBindBuffer(GL_ARRAY_BUFFER, GetBuffer(SHAPE_BUFFER_POSITIONS));
         glEnableVertexAttribArray(Location);
         glVertexAttribPointer(Location, 3, GL_FLOAT, GL_FALSE, 0, 0);
 #ifdef _DEBUG
@@ -100,7 +98,7 @@ Result Stamp::Bind() const
 
     Location = glGetAttribLocation(Program, BGE_TEXCOORD_ATTRIBUTE);
     if(Location >= 0) {
-        glBindBuffer(GL_ARRAY_BUFFER, Buffers[SHAPE_BUFFER_TEXCOORDS]);
+        glBindBuffer(GL_ARRAY_BUFFER, GetBuffer(SHAPE_BUFFER_TEXCOORDS));
         glEnableVertexAttribArray(Location);
         glVertexAttribPointer(Location, 2, GL_FLOAT, GL_FALSE, 0, 0);
 #ifdef _DEBUG
@@ -109,7 +107,7 @@ Result Stamp::Bind() const
 #endif // _DEBUG
     }
 
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, Buffers[SHAPE_BUFFER_INDICES]);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, GetBuffer(SHAPE_BUFFER_INDICES));
 
     return BGE_SUCCESS;
 }
@@ -132,7 +130,7 @@ Result Stamp::SetDimensions(Scalar W, Scalar H)
     Width = W;
     Height = H;
 
-    glBindBuffer(GL_ARRAY_BUFFER, Buffers[SHAPE_BUFFER_POSITIONS]);
+    glBindBuffer(GL_ARRAY_BUFFER, GetBuffer(SHAPE_BUFFER_POSITIONS));
     glBufferData(GL_ARRAY_BUFFER, sizeof(Scalar) * 12, (GLvoid*)Positions,
                                                             GL_DYNAMIC_DRAW);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
@@ -150,7 +148,7 @@ Result Stamp::SetTexCoords(Scalar S0, Scalar T0, Scalar S1, Scalar T1)
         S1, T0
     };
 
-    glBindBuffer(GL_ARRAY_BUFFER, Buffers[SHAPE_BUFFER_TEXCOORDS]);
+    glBindBuffer(GL_ARRAY_BUFFER, GetBuffer(SHAPE_BUFFER_TEXCOORDS));
     glBufferData(GL_ARRAY_BUFFER, sizeof(Scalar) * 8, (GLvoid*)TexCoords,
                                                         GL_DYNAMIC_DRAW);
     glBindBuffer(GL_ARRAY_BUFFER, 0);

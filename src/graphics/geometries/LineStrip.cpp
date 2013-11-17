@@ -53,7 +53,7 @@ LineStrip* LineStrip::Create(int NumPoints, Scalar* Points)
 
         new(L) LineStrip;
 
-        glBindBuffer(GL_ARRAY_BUFFER, L->Buffers[GEOMETRY_BUFFER_POSITIONS]);
+        glBindBuffer(GL_ARRAY_BUFFER, L->GetBuffer(GEOMETRY_BUFFER_POSITIONS));
         glBufferData(GL_ARRAY_BUFFER, sizeof(Scalar) * 3 * NumPoints,
                                    (GLvoid*)Points, GL_DYNAMIC_DRAW);
 
@@ -68,7 +68,7 @@ LineStrip* LineStrip::Create(int NumPoints, Scalar* Points)
         }
 #endif // _DEBUG
 
-        glBindBuffer(GL_ARRAY_BUFFER, L->Buffers[GEOMETRY_BUFFER_INDICES]);
+        glBindBuffer(GL_ARRAY_BUFFER, L->GetBuffer(GEOMETRY_BUFFER_INDICES));
 
         int Tries = 0;
 
