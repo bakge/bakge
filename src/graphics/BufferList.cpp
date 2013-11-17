@@ -76,7 +76,6 @@ void BufferList::PseudoDestructor()
     if(NumBuffers > 0) {
         glDeleteBuffers(NumBuffers, Buffers);
         free(Buffers);
-        NumBuffers = 0;
     }
 }
 
