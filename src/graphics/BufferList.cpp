@@ -43,8 +43,6 @@ Result BufferList::AllocateBufferList(uint32 Count)
 
     glGenBuffers(Count, Buffers);
 
-    //TODO: Make sure all buffer names were allocated successfully
-
     return BGE_SUCCESS;
 }
 
