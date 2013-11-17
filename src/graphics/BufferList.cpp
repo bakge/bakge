@@ -32,11 +32,13 @@ BufferList::BufferList()
 }
 
 
-static BGE_INL GLuint* _AllocateBufferList(uint32 BGE_NCP Count)
+GLuint* BufferList::AllocateBufferList(uint32 Count)
 {
-    GLuint* Buffers = (GLuint*)calloc(Count, sizeof(GLuint));
+    Buffers = (GLuint*)calloc(Count, sizeof(GLuint));
     if(Buffers == NULL)
         return NULL;
+
+    NumBuffers = Count;
 
     glGenBuffers(Count, Buffers);
 
@@ -52,11 +54,10 @@ BufferList::BufferList(uint32 Count)
         return;
 
     try {
-        Buffers = _AllocateBufferList(Count);
+        Buffers = AllocateBufferList(Count);
         if(Buffers == NULL)
             throw "Unable to allocate buffer list";
 
-        NumBuffers = Count;
     } catch(...) {
         PseudoDestructor();
         throw;
