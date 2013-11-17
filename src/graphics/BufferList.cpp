@@ -33,11 +33,11 @@ BufferList::BufferList()
 }
 
 
-GLuint* BufferList::AllocateBufferList(uint32 Count)
+Result BufferList::AllocateBufferList(uint32 Count)
 {
     Buffers = (GLuint*)calloc(Count, sizeof(GLuint));
     if(Buffers == NULL)
-        return NULL;
+        return BGE_FAILURE;
 
     NumBuffers = Count;
 
@@ -45,7 +45,7 @@ GLuint* BufferList::AllocateBufferList(uint32 Count)
 
     //TODO: Make sure all buffer names were allocated successfully
 
-    return Buffers;
+    return BGE_SUCCESS;
 }
 
 
@@ -55,8 +55,7 @@ BufferList::BufferList(uint32 Count)
         return;
 
     try {
-        Buffers = AllocateBufferList(Count);
-        if(Buffers == NULL)
+        if(AllocateBufferList(Count) == BGE_FAILURE)
             throw BGE_FACTORY_MESSAGE_BADALLOC;
 
     } catch(...) {
