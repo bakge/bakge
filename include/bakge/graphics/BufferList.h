@@ -40,6 +40,9 @@ namespace bakge
  *
  * Any object that has associated OpenGL vertex buffers. This object is only
  * instantiable by deriving a new class from it and using a factory function.
+ * If a class that already inherits BufferList needs its own buffers, it can
+ * do it explicitly using the OpenGL API or simply append new buffers to the
+ * list.
  */
 class BGE_API BufferList
 {
