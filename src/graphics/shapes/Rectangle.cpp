@@ -23,6 +23,7 @@
 * */
 
 #include <bakge/Bakge.h>
+#include <bakge/internal/Error.h>
 
 namespace bakge
 {
@@ -65,7 +66,7 @@ Rectangle* Rectangle::Create(Scalar Width, Scalar Height)
     try {
         R = (Rectangle*)calloc(1, sizeof(Rectangle));
         if(R == NULL)
-            throw "Unable to allocate memory";
+            throw BGE_FACTORY_MESSAGE_BADALLOC;
 
         new(R) Rectangle;
 

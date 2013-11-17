@@ -23,6 +23,7 @@
 * */
 
 #include <bakge/Bakge.h>
+#include <bakge/internal/Error.h>
 
 namespace bakge
 {
@@ -56,7 +57,7 @@ BufferList::BufferList(uint32 Count)
     try {
         Buffers = AllocateBufferList(Count);
         if(Buffers == NULL)
-            throw "Unable to allocate buffer list";
+            throw BGE_FACTORY_MESSAGE_BADALLOC;
 
     } catch(...) {
         PseudoDestructor();

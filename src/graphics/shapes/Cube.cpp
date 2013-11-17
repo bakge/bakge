@@ -23,6 +23,7 @@
  * */
 
 #include <bakge/Bakge.h>
+#include <bakge/internal/Error.h>
 
 namespace bakge
 {
@@ -142,7 +143,7 @@ Cube* Cube::Create()
     try {
         C = (Cube*)calloc(1, sizeof(Cube));
         if(C == NULL)
-            throw "Unable to allocate memory";
+            throw BGE_FACTORY_MESSAGE_BADALLOC;
 
         new(C) Cube;
 

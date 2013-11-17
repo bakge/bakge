@@ -24,6 +24,7 @@
 
 #include <bakge/Bakge.h>
 #include <bakge/internal/Graphics.h>
+#include <bakge/internal/Error.h>
 #ifdef _DEBUG
 #include <bakge/internal/Debug.h>
 #endif // _DEBUG
@@ -48,7 +49,7 @@ LineStrip* LineStrip::Create(int NumPoints, Scalar* Points)
     try {
         L = (LineStrip*)calloc(1, sizeof(LineStrip));
         if(L == NULL)
-            throw "Unable to allocate memory";
+            throw BGE_FACTORY_MESSAGE_BADALLOC;
 
         new(L) LineStrip;
 

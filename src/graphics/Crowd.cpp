@@ -23,6 +23,7 @@
  * */
 
 #include <bakge/Bakge.h>
+#include <bakge/internal/Error.h>
 #ifdef _DEBUG
 #include <bakge/internal/Debug.h>
 #endif // _DEBUG
@@ -95,7 +96,7 @@ Crowd* Crowd::Create(int ReserveMembers)
     try {
         C = (Crowd*)calloc(1, sizeof(Crowd));
         if(C == NULL)
-            throw "Unable to allocate memory";
+            throw BGE_FACTORY_MESSAGE_BADALLOC;
 
         new(C) Crowd(ReserveMembers);
 

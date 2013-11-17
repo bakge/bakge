@@ -24,6 +24,7 @@
 
 #include <bakge/Bakge.h>
 #include <bakge/internal/Graphics.h>
+#include <bakge/internal/Error.h>
 #ifdef _DEBUG
 #include <bakge/internal/Debug.h>
 #endif // _DEBUG
@@ -62,7 +63,7 @@ Grid* Grid::Create(int HalfRows, int HalfCols, Scalar Width, Scalar Length)
     try {
         G = (Grid*)calloc(1, sizeof(Grid));
         if(G == NULL)
-            throw "Unable to allocate memory";
+            throw BGE_FACTORY_MESSAGE_BADALLOC;
 
         new(G) Grid;
 

@@ -23,6 +23,7 @@
  * */
 
 #include <bakge/Bakge.h>
+#include <bakge/internal/Error.h>
 #ifdef _DEBUG
 #include <bakge/internal/Debug.h>
 #endif // _DEBUG
@@ -48,7 +49,7 @@ Pawn* Pawn::Create()
     try {
         P = (Pawn*)calloc(1, sizeof(Pawn));
         if(P == NULL)
-            throw "Unable to allocate memory";
+            throw BGE_FACTORY_MESSAGE_BADALLOC;
 
         new(P) Pawn;
 

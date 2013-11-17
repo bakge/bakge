@@ -23,6 +23,7 @@
  * */
 
 #include <bakge/Bakge.h>
+#include <bakge/internal/Error.h>
 #ifdef _DEBUG
 #include <bakge/internal/Debug.h>
 #endif // _DEBUG
@@ -62,7 +63,7 @@ BezierCurve* BezierCurve::Create(int NumPoints, Scalar* Points)
     try {
         B = (BezierCurve*)calloc(1, sizeof(BezierCurve));
         if(B == NULL)
-            throw "Unable to allocate memory";
+            throw BGE_FACTORY_MESSAGE_BADALLOC;
 
         new(B) BezierCurve;
 

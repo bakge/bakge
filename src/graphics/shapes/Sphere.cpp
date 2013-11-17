@@ -23,6 +23,7 @@
  * */
 
 #include <bakge/Bakge.h>
+#include <bakge/internal/Error.h>
 
 namespace bakge
 {
@@ -44,7 +45,7 @@ Sphere* Sphere::Create()
     try {
         S = (Sphere*)calloc(1, sizeof(Sphere));
         if(S == NULL)
-            throw "Unable to allocate memory";
+            throw BGE_FACTORY_MESSAGE_BADALLOC;
 
         new(S) Sphere;
 
