@@ -49,9 +49,19 @@ class BGE_API BufferList
 
     virtual void PseudoDestructor();
 
-    // malloc's a block of memory to hold at least Count buffer names, and
-    // generates names using glGenBuffers. Used internally during creation
-    // of the BufferList, so it doesn't check for an existing memory block.
+    /*! @brief Allocate buffer list memory and generate GL buffer names.
+     *
+     * Allocate buffer list memory and generate GL buffer names. malloc's a
+     * block of memory to hold at least Count buffer names, and generates
+     * names using glGenBuffers. Used internally during creation of the
+     * BufferList, so it doesn't check for an existing memory block.
+     *
+     * @return BGE_SUCCESS if the buffer list was successfully created and
+     * all GL buffer names were successfully generated; BGE_FAILURE if any
+     * errors occurred.
+     *
+     * @note Internal method used during object construction.
+     */
     Result AllocateBufferList(uint32 Count);
 
 
